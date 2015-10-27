@@ -1,0 +1,23 @@
+{
+  "name": "sailschoolos",
+  "version": "0.0.0",
+  "authors": [
+    "Tim Bradshaw <tim@alltrips.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/js/vendor/",
+    "test",
+    "tests"
+  ]
+}
