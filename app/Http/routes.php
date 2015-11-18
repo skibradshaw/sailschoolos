@@ -11,7 +11,13 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['middleware' => 'auth',function () {
     //return "Hello World";
-    return view('welcome');
-});
+    return view('app');
+}]);
+
+
+
+Route::get('/login', 'Auth\AuthController@getLogin');
+Route::post('/login', 'Auth\AuthController@postLogin');
+Route::get('/logout', 'Auth\AuthController@getLogout');
