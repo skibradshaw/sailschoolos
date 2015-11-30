@@ -13,11 +13,19 @@
 
 Route::get('/', ['middleware' => 'auth',function () {
     //return "Hello World";
-    return view('app');
+    return view('index');
 }]);
-
-
-
+/**
+ * Login Routes
+ */
 Route::get('/login', 'Auth\AuthController@getLogin');
 Route::post('/login', 'Auth\AuthController@postLogin');
 Route::get('/logout', 'Auth\AuthController@getLogout');
+
+// Password reset link request routes...
+Route::get('password/email', 'Auth\PasswordController@getEmail');
+Route::post('password/email', 'Auth\PasswordController@postEmail');
+
+// Password reset routes...
+Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('password/reset', 'Auth\PasswordController@postReset');

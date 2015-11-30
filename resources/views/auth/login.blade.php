@@ -25,40 +25,44 @@
   </head>	
   
   <body>
- 
-  	<div class="row">
-	  	<div class="large-8 large-centered columns">
-		  	<h2>Sail School Operating System Login</h2>
-	  	</div>
-  	</div>
-	  	
-  	<div class="row" style="vertical-align: middle">
-     
-         
-        <div class="large-4 large-centered columns">
-			<form method="POST" action="/login">
-			    {!! csrf_field() !!}
-			
-			    <div>
-			        Email
-			        <input type="email" name="email" value="{{ old('email') }}">
-			    </div>
-			
-			    <div>
-			        Password
-			        <input type="password" name="password" id="password">
-			    </div>
-			
-			    <div>
-			        <input type="checkbox" name="remember"> Remember Me
-			    </div>
-			
-			    <div>
-			        <button type="submit" class="radius button">Login</button>
-			    </div>
-			</form> 
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4 col-md-offset-4">
+
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <img src="images/logo.png" align="center" class="img-responsive center-block">
+                    </div>
+                    <div class="panel-heading">
+                        <h3 class="panel-title">LTD Sailing OS Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                
+                        <form method="POST" action="/login" role="form">
+                        {!! csrf_field() !!}
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-lg btn-warning btn-block">Login</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-  	</div>
-  </body>
+    </div>
+<script src="{{ asset('/js/all.js') }}"></script>
+</body>
 
 </html>

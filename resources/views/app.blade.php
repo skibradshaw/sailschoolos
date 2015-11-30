@@ -1,172 +1,44 @@
-<!doctype html>
-<html class="no-js" lang="en">
-	
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    
+<!DOCTYPE html>
+<html lang="en">
 
-    <title></title>
+@include('inc.head')
 
-    <!-- Foundation core CSS -->
-	{{-- Link to compiled, minimized and versioned css file. --}}
-	<link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">    
+<body>
 
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        @include('inc.top')
+        @include('inc.sidebar')
+        </nav>
 
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->	  
-  </head>
-  
-  <body>
- 
- 
-      <div class="row">
-        <div class="large-12 columns">
-          <div class="panel">
-            <h1>Sail School Operating System</h1>
-          </div>
+                @if(Session::has('error'))
+                    <div data-alert class="alert-box warning radius">{{Session::get('error')}}</div>
+                @endif      
+                @if(Session::has('status'))
+                    <div data-alert class="alert-box success radius">{{Session::get('status')}}</div>
+                @endif
+                    <div class="col-lg-12">
+                        @yield('header')    
+                        @yield('content')
+                        
+
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
         </div>
-      </div>
-       
-      <div class="row">
-      
-         
-        <div class="large-3 columns ">
-          <div class="panel">
-            <a href="#"><img src="http://placehold.it/300x240&text=[img]"/></a>
-            <h5><a href="#">Your Name</a></h5>
-              <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
-              <section class="section">
-                <h5 class="title"><a href="#">Section 1</a></h5>
-              </section>
-              <section class="section">
-                <h5 class="title"><a href="#">Section 2</a></h5>
-              </section>
-              <section class="section">
-                <h5 class="title"><a href="#">Section 3</a></h5>
-              </section>
-              <section class="section">
-                <h5 class="title"><a href="#">Section 4</a></h5>
-              </section>
-              <section class="section">
-                <h5 class="title"><a href="#">Section 5</a></h5>
-              </section>
-              <section class="section">
-                <h5 class="title"><a href="#">Section 6</a></h5>
-              </section>
-            </div>
-     
-          </div>
-        </div>
-        
-         
-         
-        <div class="large-6 columns">
-     
-           
-          <div class="row">
-            <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
-            <div class="large-10 columns">
-              <p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
-              <ul class="inline-list">
-                <li><a href="">Reply</a></li>
-                <li><a href="">Share</a></li>
-              </ul>
-     
-     
-              <h6>2 Comments</h6>
-              <div class="row">
-                <div class="large-2 columns small-3"><img src="http://placehold.it/50x50&text=[img]"/></div>
-                <div class="large-10 columns"><p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit</p></div>
-              </div>
-              <div class="row">
-                <div class="large-2 columns small-3"><img src="http://placehold.it/50x50&text=[img]"/></div>
-                <div class="large-10 columns"><p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit</p></div>
-              </div>
-            </div>
-          </div>
-           
-     
-          <hr/>
-     
-           
-          <div class="row">
-            <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
-            <div class="large-10 columns">
-              <p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
-              <ul class="inline-list">
-                <li><a href="">Reply</a></li>
-                <li><a href="">Share</a></li>
-              </ul>
-            </div>
-          </div>
-           
-     
-          <hr/>
-     
-           
-          <div class="row">
-            <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
-            <div class="large-10 columns">
-              <p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
-              <ul class="inline-list">
-                <li><a href="">Reply</a></li>
-                <li><a href="">Share</a></li>
-              </ul>
-     
-     
-              <h6>2 Comments</h6>
-              <div class="row">
-                <div class="large-2 columns small-3"><img src="http://placehold.it/50x50&text=[img]"/></div>
-                <div class="large-10 columns"><p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit</p></div>
-              </div>
-            </div>
-          </div>
-           
-     
-        </div>
-     
-         
-         
-        <aside class="large-3 columns hide-for-small">
-          <p><img src="http://placehold.it/300x440&text=[ad]"/></p>
-          <p><img src="http://placehold.it/300x440&text=[ad]"/></p>
-        </aside>
-     
-      </div>
-     
-     
-       
-     
-      <footer class="row">
-        <div class="large-12 columns">
-          <hr/>
-          <div class="row">
-            <div class="large-5 columns">
-              <p>© Copyright no one at all. Go to town.</p>
-            </div>
-            <div class="large-7 columns">
-              <ul class="inline-list right">
-                <li><a href="#">Section 1</a></li>
-                <li><a href="#">Section 2</a></li>
-                <li><a href="#">Section 3</a></li>
-                <li><a href="#">Section 4</a></li>
-                <li><a href="#">Section 5</a></li>
-                <li><a href="#">Section 6</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
-   </body>
+        <!-- /#page-wrapper -->
 
+    </div>
+    <!-- /#wrapper -->
+<script src="{{ asset('/js/all.js') }}"></script>
+</body>
 </html>
-
-    
