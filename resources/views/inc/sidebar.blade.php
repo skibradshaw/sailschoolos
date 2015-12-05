@@ -19,6 +19,9 @@
                             <a href="#"><i class="fa fa-user fa-fw"></i> People<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
+                                    <a data-toggle="modal" href="/contacts/create" data-target="#myModal">New Contact</a>
+                                </li>
+                                <li>
                                     <a href="#">Inquiries</a>
                                 </li>
                             </ul>
@@ -42,3 +45,4 @@
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
+           

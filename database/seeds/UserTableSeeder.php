@@ -18,6 +18,6 @@ class UserTableSeeder extends Seeder
         	'email' => 'tim@alltrips.com',
         	'password' => Hash::make('jackass'),
         	'phone' => '3076904269'
-        ]);
+        ])->types()->sync([1]);
     }
 }

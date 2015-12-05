@@ -15,7 +15,7 @@ class CreateUserTypesTable extends Migration {
 		Schema::create('user_types', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('type_status_id')->unsigned()->nullable()->index('FK1_user_types');
+			$table->string('name');
 			$table->timestamps();
 		});
 	}

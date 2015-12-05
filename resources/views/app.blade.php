@@ -5,6 +5,7 @@
 
 <body>
 
+<!-- /.modal -->
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -17,21 +18,19 @@
             <div class="container-fluid">
                 <div class="row">
 
-                @if(Session::has('error'))
-                    <div data-alert class="alert-box warning radius">{{Session::get('error')}}</div>
-                @endif      
-                @if(Session::has('status'))
-                    <div data-alert class="alert-box success radius">{{Session::get('status')}}</div>
-                @endif
+                    @if(Session::has('error'))
+                        <div data-alert class="alert-box warning radius">{{Session::get('error')}}</div>
+                    @endif      
+                    @if(Session::has('status'))
+                        <div data-alert class="alert-box success radius">{{Session::get('status')}}</div>
+                    @endif
                     <div class="col-lg-12">
                         @yield('header')    
-                        @yield('content')
-                        
-
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
+                @yield('content')
             </div>
             <!-- /.container-fluid -->
         </div>
@@ -39,6 +38,23 @@
 
     </div>
     <!-- /#wrapper -->
+
+<!-- Universal Modals -->
+<!-- Add Contact Modal -->
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!-- scripts -->     
 <script src="{{ asset('/js/all.js') }}"></script>
+@yield('scripts')
+
+
 </body>
 </html>

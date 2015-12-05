@@ -16,7 +16,8 @@ elixir(function(mix) {
     mix.copy('resources/assets/bower/font-awesome/fonts', 'public/fonts');
     mix.copy('resources/assets/bower/metisMenu/dist/metisMenu.css', 'public/css');
     mix.less([
-        'app.less'
+        'app.less',
+        '../bower/startbootstrap-sb-admin-2/dist/css/timeline.css'
         ]);
     	
     mix.scripts([

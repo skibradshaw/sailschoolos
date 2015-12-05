@@ -6,7 +6,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Sail School OS for LTD Sailing</a>
+                <a class="navbar-brand" href="/">LTD Sailing</a>
             </div>
             <!-- /.navbar-header -->
 

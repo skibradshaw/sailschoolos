@@ -17,6 +17,7 @@ class CreateUserUserTypesTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned()->nullable()->index('FK1_user_user_types');
 			$table->integer('user_type_id')->unsigned()->nullable()->index('FK2_user_user_types');
+			$table->integer('type_status_id')->unsigned()->nullable()->index('FK1_user_types');
 			$table->timestamps();
 		});
 	}
