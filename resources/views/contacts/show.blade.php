@@ -35,7 +35,7 @@
 	<div class="col-sm-8">
 	    <div class="panel panel-default">
 	        <div class="panel-heading">
-	            <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
+	            <i class="fa fa-clock-o fa-fw"></i> History
 	        </div>
 	        <!-- /.panel-heading -->
 	        <div class="panel-body">

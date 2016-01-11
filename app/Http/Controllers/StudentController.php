@@ -6,15 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Student;
 
-use App\User;
-
-class UserController extends Controller
+class StudentController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -23,6 +18,8 @@ class UserController extends Controller
     public function index()
     {
         //
+        $students = Student::all();
+        return view('contacts.students_index',['title' => 'All Students','students' => $students]);
     }
 
     /**
@@ -33,7 +30,6 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view('contacts.create');
     }
 
     /**
@@ -45,15 +41,6 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
-        $input = $request->all();
-        $parts = explode(" ", $input['name']);
-        $input['lastname'] = array_pop($parts);
-        $input['firstname'] = implode(" ", $parts);    
-        (empty($input['firstname'])) ? ($input['firstname'] = $input['lastname']) && ($input['lastname'] = '') : $input['firstname'];
-        unset($input['name']);
-        $contact = User::create($input);
-        $contact->types()->attach([1]);
-        return redirect()->route('contacts.show',['id' => $contact->id]);
     }
 
     /**
@@ -65,8 +52,6 @@ class UserController extends Controller
     public function show($id)
     {
         //
-        $contact = User::find($id);  
-        return view('contacts.show',['title' => $contact->fullname, 'contact' => $contact]);
     }
 
     /**
@@ -78,11 +63,6 @@ class UserController extends Controller
     public function edit($id)
     {
         //
-        $countries = \CountryState::getCountries();
-        $states = \CountryState::getStates('US');
-        $contact = User::find($id);
-        (empty($contact->country)) ? $contact->country = 'US' : $contact->country;
-        return view('contacts.edit',['title' => 'Edit Contact: ' . $contact->fullname,'contact' => $contact,'states' => $states,'countries' => $countries]);
     }
 
     /**
@@ -95,11 +75,6 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
-        //TODO: Add Validation
-        $contact = User::find($id);
-        $contact->update($request->all());
-        return redirect()->route('contacts.show',['id' => $contact->id]);
-        
     }
 
     /**

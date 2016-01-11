@@ -13,7 +13,19 @@
 
 Route::get('/', ['middleware' => 'auth',function () {
     //return "Hello World";
-    return view('index');
+    $employee_count = App\Employee::all()->count('id');
+    $student_count = App\Student::all()->count('id');
+    $buyer_count = App\Buyer::all()->count('id');
+    $seller_count = App\Seller::all()->count('id');
+    $charter_guest_count = App\CharterGuest::all()->count('id');
+    return view('index',[
+    	'title' => 'Dashboard',
+    	'employee_count' => $employee_count,
+    	'student_count' => $student_count,
+    	'buyer_count' => $buyer_count,
+    	'seller_count' => $seller_count,
+    	'charter_guest_count' => $charter_guest_count
+    	]);
 }]);
 /**
  * Login Routes
@@ -32,3 +44,4 @@ Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 //Route Resources
 Route::resource('contacts','UserController');
+Route::resource('students','StudentController');
