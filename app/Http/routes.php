@@ -42,6 +42,13 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
+//Inquiry Routes
+Route::get('/inquiries',['as' => 'inquiries','uses' => 'InquiryController@index']);
+Route::get('/inquiries/create',['as' => 'inquiry.create','uses' =>'InquiryController@create']);
+Route::post('inquiries/create',['as' => 'inquiry.store', 'uses' => 'InquiryController@store']);
+Route::post('inquiries/web',['as' => 'inquiry.storeweb', 'uses' => 'InquiryController@storeWeb']);
+Route::get('/inquiries/{$id}',['as' => 'inquiry.show','uses' => 'InquiryController@show']);
+
 //Route Resources
 Route::resource('contacts','UserController');
 Route::resource('students','StudentController');

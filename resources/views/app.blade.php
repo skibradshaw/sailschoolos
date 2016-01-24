@@ -52,9 +52,22 @@
 </div>
 
 <!-- scripts -->     
-<script src="{{ asset('/js/all.js') }}"></script>
-@yield('scripts')
 
+<script src="{{ asset('/js/all.js') }}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+@yield('scripts')
+<script type="text/javascript">
+
+// Clear Model Window when closed
+$(document).ready(function(){
+    
+    $(".modal").on("hidden.bs.modal", function(){
+        $(this).removeData('bs.modal');
+    });    
+
+});    
+
+</script>
 
 </body>
 </html>
