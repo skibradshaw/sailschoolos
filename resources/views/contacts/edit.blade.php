@@ -18,6 +18,10 @@
 			  	{!! Form::label('phone','Phone',['for' => 'phone']) !!}
 			  	{!! Form::text('phone',null,['id' => 'phone', 'class' => 'form-control']) !!}
 			</div>
+			<div class="form-group">
+			  	{!! Form::label('types_list','Contact Types',['for' => 'types_list']) !!}
+			  	{!! Form::select('types_list[]',$types,null,['id' => 'types_list', 'class' => 'form-control','multiple']) !!}
+			</div>
 			<button type="submit" class="btn btn-primary">Save</button>
 		</div>
 		<div class="col-sm-4">
@@ -29,7 +33,6 @@
 			  	{!! Form::label('state','State',['for' => 'state']) !!}
 			  	{!! Form::select('state',$states,$contact->state,['id' => 'state', 'class' => 'form-control']) !!}
 			</div>	
-
 			<div class="form-group">
 			  	{!! Form::label('country','Country',['for' => 'country']) !!}
 			  	{!! Form::select('country',$countries,$contact->country, ['id' => 'country', 'class' => 'form-control']) !!}
@@ -38,6 +41,11 @@
 	</div>
 
 	{!! Form::close() !!}
-
-
+@stop
+@section('scripts')
+<script type="text/javascript">
+$( document ).ready(function() {
+    $('#types_list').select2();    
+});	
+</script>
 @stop

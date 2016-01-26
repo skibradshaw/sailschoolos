@@ -51,6 +51,11 @@ class User extends Model implements AuthenticatableContract,
         $this->attributes['phone'] = preg_replace('/[^0-9]/i', '', trim($value));
     }
 
+    public function getTypesListAttribute()
+    {
+        return $this->types->lists('id')->toArray();
+    }
+
     public function types()
     {
         return $this->belongsToMany('App\UserType','user_user_types','user_id','user_type_id');

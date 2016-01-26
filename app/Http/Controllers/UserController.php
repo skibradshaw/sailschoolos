@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\User;
+use App\UserType;
 
 class UserController extends Controller
 {
@@ -81,8 +82,15 @@ class UserController extends Controller
         $countries = \CountryState::getCountries();
         $states = \CountryState::getStates('US');
         $contact = User::find($id);
+        $types = UserType::lists('name','id');
         (empty($contact->country)) ? $contact->country = 'US' : $contact->country;
-        return view('contacts.edit',['title' => 'Edit Contact: ' . $contact->fullname,'contact' => $contact,'states' => $states,'countries' => $countries]);
+        return view('contacts.edit',['
+            title' => 'Edit Contact: ' . $contact->fullname,
+            'contact' => $contact,
+            'states' => $states,
+            'countries' => $countries,
+            'types' => $types
+            ]);
     }
 
     /**

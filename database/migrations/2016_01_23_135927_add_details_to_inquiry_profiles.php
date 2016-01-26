@@ -18,6 +18,7 @@ class AddDetailsToInquiryProfiles extends Migration
             $table->text('boat_type')->nullable();
             $table->text('notes')->nullable();
             $table->text('interests')->nullable();
+            $table->boolean('newsletter')->nullable();
             $table->boolean('processed')->default(0);
         });
     }
@@ -35,6 +36,7 @@ class AddDetailsToInquiryProfiles extends Migration
             $table->dropColumn('boat_type');
             $table->dropColumn('notes');
             $table->dropColumn('interests');
+            $table->dropColumn('newsletter');
             $table->dropColumn('processed');
         });
     }
