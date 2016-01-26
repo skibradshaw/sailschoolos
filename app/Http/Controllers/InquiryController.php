@@ -87,13 +87,12 @@ class InquiryController extends Controller
         //@TODO: Use this form to capture inquiries for Charters, Boat Buying and Selling
         $input['user_id'] = $user->id;
         
-        $interests = implode(", ",$input['interests']);
+        
         $inquiry = Inquiry::create([
             'user_id' => $input['user_id'],
             'type' => $input['type'],
             'destination' => $input['destination'],
             'boat_type' => $input['boat_type'],
-            'interests' => $interests,
             'notes' => $input['notes']
         ]); 
 
