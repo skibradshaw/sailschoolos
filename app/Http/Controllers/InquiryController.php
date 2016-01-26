@@ -20,7 +20,7 @@ class InquiryController extends Controller
 
     public function __construct(UserController $user)
     {
-        $this->middleware('auth');
+        $this->middleware('auth',['except' => ['storeWeb']]);
         $this->user = $user;
     }
 
