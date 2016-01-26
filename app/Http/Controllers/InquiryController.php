@@ -11,6 +11,7 @@ use App\Http\Controllers\UserController;
 use App\User;
 use App\Inquiry;
 use Carbon\Carbon;
+use Log;
 
 
 class InquiryController extends Controller
