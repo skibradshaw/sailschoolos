@@ -34,7 +34,8 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view('contacts.create');
+        $types = UserType::lists('name','id');
+        return view('contacts.create',['types' => $types]);
     }
 
     /**
@@ -53,7 +54,11 @@ class UserController extends Controller
         (empty($input['firstname'])) ? ($input['firstname'] = $input['lastname']) && ($input['lastname'] = '') : $input['firstname'];
         unset($input['name']);
         $contact = User::create($input);
-        $contact->types()->attach([1]);
+        if(!empty($input['types_list']))
+        {
+            $contact->types()->attach($input['types_list']);            
+        }
+
         return redirect()->route('contacts.show',['id' => $contact->id]);
     }
 
@@ -106,6 +111,7 @@ class UserController extends Controller
         //TODO: Add Validation
         $contact = User::find($id);
         $contact->update($request->all());
+        $contact->types()->sync($request->input('types_list'));
         return redirect()->route('contacts.show',['id' => $contact->id]);
         
     }
