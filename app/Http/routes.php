@@ -49,6 +49,9 @@ Route::post('inquiries/create',['as' => 'inquiry.store', 'uses' => 'InquiryContr
 Route::post('inquiries/web',['as' => 'inquiry.storeweb', 'uses' => 'InquiryController@storeWeb']);
 Route::get('/inquiries/{$id}',['as' => 'inquiry.show','uses' => 'InquiryController@show']);
 
+//Admin Routes
+
 //Route Resources
 Route::resource('contacts','UserController');
 Route::resource('students','StudentController');
+Route::resource('admin/response_templates','ResponseTemplateController');
