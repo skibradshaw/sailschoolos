@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ResponseTemplateDetail extends Model
 {
     //
+    protected $fillable = ['number_of_days','template'];
     
 
     //Relationships

@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\ResponseTemplate;
 
 use \App\UserType;
+use \App\ResponseTemplate;
+use \App\ResponseTemplateDetail;
 
 class ResponseTemplateController extends Controller
 {
@@ -20,6 +21,8 @@ class ResponseTemplateController extends Controller
     public function index()
     {
         //
+        $templates = ResponseTemplate::all();
+        return view('admin.response_templates',['title' => 'Automated Response Temmplates','templates' => $templates]);
     }
 
     /**
@@ -48,6 +51,19 @@ class ResponseTemplateController extends Controller
     public function store(Request $request)
     {
         //
+        // return $request->all();
+        $template = ResponseTemplate::create($request->only('name','trigger_event','user_type_id'));
+        $inputTemplate = $request->input('template');
+        foreach ($request->input('days') as $key => $detail) {
+            $templatedetail = new ResponseTemplateDetail;
+            $templatedetail->number_of_days = $detail;
+            $templatedetail->template = $inputTemplate[$key];
+            $template->details()->save($templatedetail);
+            
+        }
+        return redirect()->route('admin.response_templates.index');
+
+        
     }
 
     /**
@@ -71,7 +87,14 @@ class ResponseTemplateController extends Controller
     {
         //
         $template = ResponseTemplate::find($id);
-        return $template;
+        $usertypes = UserType::all()->lists('name','id');
+        $triggers = ['Prospect Inquiry','Class Registration'];
+        return view('admin.edit_response_template',[
+            'title' => 'Create Response Templates',
+            'usertypes' => $usertypes,
+            'triggers' => $triggers,
+            'template' => $template
+            ]);        
     }
 
     /**
@@ -84,6 +107,19 @@ class ResponseTemplateController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $template = ResponseTemplate::find($id);
+        $template->update($request->only('name','trigger_event','user_type_id'));
+        $inputTemplate = $request->input('template');
+        $template->details()->delete();
+        foreach ($request->input('days') as $key => $detail) {
+            //Check if it exists and update
+            $templatedetail = new ResponseTemplateDetail;
+            $templatedetail->number_of_days = $detail;
+            $templatedetail->template = $inputTemplate[$key];
+            $template->details()->save($templatedetail);
+            
+        }
+        return redirect()->route('admin.response_templates.index');
     }
 
     /**

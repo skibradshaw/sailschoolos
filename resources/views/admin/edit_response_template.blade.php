@@ -4,7 +4,7 @@
 @stop
 @section('content')
 @if(isset($template))
-	{!! Form::model($template,['route' => 'admin.response_templates.update',['id' => $template->id],'role' => 'form','method' => 'PUT']) !!}
+	{!! Form::model($template,['route' => ['admin.response_templates.update','id' => $template->id],'role' => 'form','method' => 'PUT']) !!}
 @else
 	{!! Form::open(['route' => 'admin.response_templates.store','role' => 'form']) !!}
 @endif
@@ -19,8 +19,8 @@
 				{!! Form::select('user_type_id', $usertypes, null, ['id' => 'user_type_id', 'placeholder' => 'Choose...', 'class' => 'form-control']) !!}
 			</div>
 			<div class="form-group">
-				{!! Form::label('trigger', 'Trigger Event', ['for' => 'trigger']) !!}
-				{!! Form::select('trigger',$triggers,null,['id' => 'trigger','placeholder' => 'Choose...', 'class' => 'form-control']) !!}
+				{!! Form::label('trigger_event', 'Trigger Event', ['for' => 'trigger_event']) !!}
+				{!! Form::select('trigger_event',$triggers,null,['id' => 'trigger_event','placeholder' => 'Choose...', 'class' => 'form-control']) !!}
 			</div>
 		</div>
 	</div>
@@ -30,39 +30,43 @@
 				<div class="panel-heading">Schedule Details</div>
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-sm-3">
-							Days from Trigger
-						</div>
-						<div class="col-sm-8">
-							Email Template Name
-						</div>
+						<table width="100%" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" id="details">
+							<thead>
+								<tr>
+									<th width="150px">Days after Trigger</th>
+									<th>Email Template Name</th>
+									<th width="75px">Remove</th>
+								</tr>
+								<tr></tr>
+							</thead>
+							<tbody>
+							@if(isset($template))
+								@foreach($template->details as $detail)
+								<tr>
+									<td width="150px">{!! Form::text('days[]',$detail->number_of_days,['id' => 'days','class' => 'form-control']) !!}</td>
+									<td>{!! Form::select('template[]',['Welcome Template' => 'Welcome Template','Second Followup Template' => 'Second Followup Template'],$detail->template,['id' => 'template','class' => 'form-control']) !!}</td>
+									<td width="75px"><i class="fa fa-remove fa-fw del"></i></td>
+								</tr>
+								@endforeach
+							@else
+								<tr>
+									<td width="150px">{!! Form::text('days[]',null,['id' => 'days','class' => 'form-control']) !!}</td>
+									<td>{!! Form::select('template[]',['Welcome Template' => 'Welcome Template','Second Followup Template' => 'Second Followup Template'],'Welcome Template',['id' => 'template','class' => 'form-control']) !!}</td>
+									<td width="75px"><i class="fa fa-remove fa-fw del"></i></td>
+								</tr>
+								<tr>
+									<td width="150px">{!! Form::text('days[]',null,['id' => 'days','class' => 'form-control']) !!}</td>
+									<td>{!! Form::select('template[]',['Welcome Template' => 'Welcome Template','Second Followup Template' => 'Second Followup Template'],'Welcome Template',['id' => 'template','class' => 'form-control']) !!}</td>
+									<td width="75px"><i class="fa fa-remove fa-fw del"></i></td>
+								</tr>
+							@endif
+							</tbody>
+						</table>
 					</div>
+
 					<div class="row">
-						<div class="col-sm-3">
-							<div class="form-group">
-								{!! Form::text('days',null,['id' => 'days','class' => 'form-control']) !!}
-							</div>
-						</div>
-						<div class="col-sm-8">
-							<div class="form-group">
-								{!! Form::select('template',['Welcome Template','Second Followup Template'],'Welcome Template',['id' => 'template','class' => 'form-control']) !!}
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-3">
-							<div class="form-group">
-								{!! Form::text('days',null,['id' => 'days','class' => 'form-control']) !!}
-							</div>
-						</div>
-						<div class="col-sm-8">
-							<div class="form-group">
-								{!! Form::select('template',['Welcome Template','Second Followup Template'],'Welcome Template',['id' => 'template','class' => 'form-control']) !!}
-							</div>
-						</div>
-					</div>				<div class="row">
 						<div class="col-sm-12">
-							<a href="#">Add a Line Item</a>
+							<a href="#" id="add">Add a Line Item</a>
 						</div>
 					</div>
 				</div>
@@ -72,7 +76,7 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-12">
-			<button type="submit" class="btn btn-default">Save This Schedule</button>
+			<button type="submit" class="btn btn-default">Save This Schedule</button> or <a href="{{ URL::previous() }}">Go Back ></a>
 			<p></p>
 		</div>
 	</div>
@@ -81,4 +85,20 @@
 
 
 	{!! Form::close() !!}
+@stop
+@section('scripts')
+<script type="text/javascript">
+    //Add Line Items
+    $(document).ready(function() {
+        $("#add").click(function() {
+          $('#details tbody>tr:last').clone(true).insertAfter('#details tbody>tr:last');
+          return false;
+        });
+    });
+
+    //Remove Line Items
+   $(".del").click(function(){
+	   		$(this).closest('table#details tbody>tr:not(:first-child)').remove();
+   });
+</script>
 @stop

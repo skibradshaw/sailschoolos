@@ -27,6 +27,7 @@
                         <li class="inactive">
                             <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> Classes<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
+                                <li><a href="{{ route('students.index') }}">Students</a></li>
                                 <li><a href="{{route('inquiries')}}">Inquiries</a></li>
                                 <li>
                                     <a data-toggle="modal" href="{{route('inquiry.create')}}" data-target="#myModal">New Inquiry</a>
