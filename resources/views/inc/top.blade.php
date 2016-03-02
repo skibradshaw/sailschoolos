@@ -66,6 +66,12 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
+                    <ul class="dropdown-menu dropdown-admin">
+                        <li><a href="{{ route('admin.response_templates.index')}} "><i class="fa fa-files fa-fw"></i> Response Templates </a></li>
+                    </ul>
+                    <!-- /.dropdown-admim -->
+                </li>
+                <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
