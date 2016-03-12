@@ -148,11 +148,21 @@
 	<div class="col-sm-4">
 					<div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-clock-o fa-fw"></i> Timeline
+                            <i class="fa fa-clock-o fa-fw"></i> Scheduled Responses
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-
+                        @if($schedules && $response_templates)
+                        	@foreach($response_templates as $t)
+                        		<h5>{{$t->name}}</h5>
+	                        	<ul>
+	                        	
+	                        	@foreach($schedules->filter(function($schedules) use ($t){if($schedules->template->id == $t->id) return true;}) as $s)
+	                        		<li>{{ $s->scheduled_date->format('n/d/Y') }} - {{ $s->detail->template }}</li>
+	                        	@endforeach
+	                        	</ul>
+	                        @endforeach
+                        @endif
                         </div>
                         <!-- /.panel-body -->
                     </div>			

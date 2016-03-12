@@ -50,8 +50,10 @@ Route::post('inquiries/web',['as' => 'inquiry.storeweb', 'uses' => 'InquiryContr
 Route::get('/inquiries/{$id}',['as' => 'inquiry.show','uses' => 'InquiryController@show']);
 
 //Admin Routes
+Route::get('test_schedules/{template}','ResponseScheduleController@create');
+Route::get('admin/response_schedules',['as' => 'admin.respsone_schedules','uses' => 'ResponseScheduleController@index']);
 
 //Route Resources
-Route::resource('contacts','UserController');
+Route::resource('contacts','ContactController');
 Route::resource('students','StudentController');
 Route::resource('admin/response_templates','ResponseTemplateController');

@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
         	'email' => 'tim@alltrips.com',
         	'password' => Hash::make('jackass'),
         	'phone' => '3076904269'
-        ])->types()->sync([3]);
+        ])->types()->sync([3,1]);
 
         User::create([
             'firstname' => 'Chris',
@@ -47,7 +47,7 @@ class UserTableSeeder extends Seeder
                 'city' => $faker->city,
                 'state' => $faker->stateAbbr,
                 'country' => array_search($faker->country, \CountryState::getCountries())     
-            ])->types()->sync([rand(1,6)]);
+            ])->types()->sync([1,rand(2,6)]);
         }
     }
 

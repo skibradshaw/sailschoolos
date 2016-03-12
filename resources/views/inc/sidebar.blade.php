@@ -20,7 +20,8 @@
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a data-toggle="modal" href="/contacts/create" data-target="#myModal">New Contact</a>
-                                </li>                              
+                                </li>  
+                                <li><a href="{{ route('contacts.index') }}">All Contacts</a></li>                            
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
