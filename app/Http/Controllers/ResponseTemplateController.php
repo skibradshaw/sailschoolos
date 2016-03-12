@@ -22,7 +22,7 @@ class ResponseTemplateController extends Controller
     {
         //
         $templates = ResponseTemplate::all();
-        return view('admin.response_templates',['title' => 'Automated Response Temmplates','templates' => $templates]);
+        return view('admin.response_templates',['title' => 'Automated Response Templates','templates' => $templates]);
     }
 
     /**

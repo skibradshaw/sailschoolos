@@ -4,6 +4,8 @@
 @stop
 @section('content')
 <a href="{{ route('admin.response_templates.create')}}" class="btn btn-primary">Create a Response Template</a>
+
+@if($templates)
 <div class="table-responsive">
     <table class="table table-hover">
         <thead>
@@ -26,4 +28,5 @@
         </tbody>
     </table>
 </div>
+@endif
 @stop
