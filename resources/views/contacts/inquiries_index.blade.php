@@ -26,7 +26,7 @@
             @endif
                 <td>{{ $inquiry->created_at->format('n/d/Y') }} </td>
                 <td nowrap="nowrap">{{ $inquiry->type }}</td>
-                <td nowrap="nowrap">{{ $inquiry->user->fullname }}</a></td>
+                <td nowrap="nowrap"><a href="{{ route('contacts.show',[$inquiry->user_id])}}">{{ $inquiry->user->fullname }}</a></td>
                 <td><a href="mailto:{{ $inquiry->user->email }}">{{ $inquiry->user->email }}</a></td>
                 <td>{{ $inquiry->destination }}</td>
                 <td>{{ $inquiry->boat_type }}</td>

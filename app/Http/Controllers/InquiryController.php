@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Events\ScheduleResponse;
 
 use App\Http\Controllers\UserController;
 use App\User;
@@ -44,12 +45,17 @@ class InquiryController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+        // return $request->all();
         //return implode(", ",$input['interests']);
         $user = User::where('email',$input['email'])->first();
         if(!$user)
         {
             $this->user->store($request);
             $user = User::where('email',$input['email'])->first();
+        }
+        if(!$user->types()->where('user_types.id',1)->first())
+        {
+            $user->types()->attach([1]);
         }
         //@TODO: Use this form to capture inquiries for Charters, Boat Buying and Selling
         $input['user_id'] = $user->id;
@@ -63,6 +69,8 @@ class InquiryController extends Controller
             'interests' => $interests,
             'notes' => $input['notes']
         ]);
+
+        \Event::fire(new ScheduleResponse($inquiry));
         return redirect()->route('inquiries');   
     }
 
@@ -95,7 +103,7 @@ class InquiryController extends Controller
             'boat_type' => $input['boat_type'],
             'notes' => $input['notes']
         ]); 
-
+        \Event::fire(new ScheduleResponse($inquiry));
         //Mail::raw('Test Booking',function($message){$message->to('tim@alltrips.com'); $message->from('info@ltdsailing.com');});
         return $request->all();
 

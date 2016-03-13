@@ -152,17 +152,19 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                        @if($schedules && $response_templates)
-                        	@foreach($response_templates as $t)
+                        	@forelse($response_templates as $t)
                         		<h5>{{$t->name}}</h5>
 	                        	<ul>
 	                        	
-	                        	@foreach($schedules->filter(function($schedules) use ($t){if($schedules->template->id == $t->id) return true;}) as $s)
+	                        	@forelse($schedules->filter(function($schedules) use ($t){if($schedules->template->id == $t->id) return true;}) as $s)
 	                        		<li>{{ $s->scheduled_date->format('n/d/Y') }} - {{ $s->detail->template }}</li>
-	                        	@endforeach
+	                        	@empty
+	                        		<li>None</li>
+	                        	@endforelse
 	                        	</ul>
-	                        @endforeach
-                        @endif
+	                        @empty
+	                        	<h5>No Responses Scheduled</h5>
+	                        @endforelse
                         </div>
                         <!-- /.panel-body -->
                     </div>			

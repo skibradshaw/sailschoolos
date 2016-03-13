@@ -35,7 +35,7 @@ class ResponseScheduleController extends Controller
     {
         //Create the Response Schedule events
         // return $template;
-        (!isset($contact->id)) ? $contact = Contact::find(1) : $contact = 'No Contact'; 
+        (!isset($contact->id)) ? $contact = Contact::find(1) : $contact = $contact; 
         foreach($template->details as $d)
         {
             $sched = new ResponseSchedule;

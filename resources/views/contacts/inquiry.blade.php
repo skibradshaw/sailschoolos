@@ -39,7 +39,7 @@
 	</div>
 </div>
 <div class="modal-footer">
-    <button type="submit" class="btn btn-primary" disabled id="add_inquiry">Add Inquiry</button>
+    <button type="submit" class="btn btn-primary" id="add_inquiry">Add Inquiry</button>
 </div>
 {!! Form::close() !!}
 <script type="text/javascript">

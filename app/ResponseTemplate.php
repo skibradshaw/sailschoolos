@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ResponseTemplate extends Model
 {
     //
-    protected $fillable = ['name','trigger','user_type_id'];
+    protected $fillable = ['name','trigger_event','user_type_id'];
     
     
     //Relationships

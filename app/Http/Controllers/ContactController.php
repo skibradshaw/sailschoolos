@@ -77,17 +77,23 @@ class ContactController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
         //
         $contact = Contact::find($id);
+        // return $contact;
         $schedules = $this->schedules->contact($contact); //Gets any Scheduled Responses for the contact grouped by Template  
-        $template_ids = '';
+        $template_ids = '0,';
         foreach($schedules as $s)
         {
             $template_ids .= $s->template->id . ',';
         }
         $template_ids = rtrim($template_ids,',');
-        $response_templates = \App\ResponseTemplate::whereRaw('id IN ('. $template_ids .')')->get();
+        if($schedules)
+        {
+            $response_templates = \App\ResponseTemplate::whereRaw('id IN ('. $template_ids .')')->get();        
+        }
+        // $schedules = new \App\ResponseSchedule;
+        // $response_templates = new \App\ResponseTemplate;
         return view('contacts.show',['title' => $contact->fullname, 'contact' => $contact, 'schedules' => $schedules,'response_templates' => $response_templates]);
     }
 

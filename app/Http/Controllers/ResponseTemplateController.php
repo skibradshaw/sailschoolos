@@ -34,7 +34,7 @@ class ResponseTemplateController extends Controller
     {
         //
         $usertypes = UserType::all()->lists('name','id');
-        $triggers = ['Prospect Inquiry','Class Registration'];
+        $triggers = [1 => 'Prospect Inquiry', 2 => 'Class Registration'];
         return view('admin.edit_response_template',[
             'title' => 'Create Response Templates',
             'usertypes' => $usertypes,
@@ -88,7 +88,7 @@ class ResponseTemplateController extends Controller
         //
         $template = ResponseTemplate::find($id);
         $usertypes = UserType::all()->lists('name','id');
-        $triggers = ['Prospect Inquiry','Class Registration'];
+        $triggers = [1 => 'Prospect Inquiry', 2 => 'Class Registration'];
         return view('admin.edit_response_template',[
             'title' => 'Create Response Templates',
             'usertypes' => $usertypes,
@@ -107,6 +107,7 @@ class ResponseTemplateController extends Controller
     public function update(Request $request, $id)
     {
         //
+        // return $request->all()
         $template = ResponseTemplate::find($id);
         $template->update($request->only('name','trigger_event','user_type_id'));
         $inputTemplate = $request->input('template');
