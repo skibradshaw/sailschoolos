@@ -79,7 +79,12 @@ class ContactController extends Controller
     public function show($id)
     {   
         //
-        $contact = Contact::find($id);
+        $user = User::find($id);
+        if(!$user->types()->where('user_types.id',1)->first())
+        {
+            $user->types()->attach([1]);
+        }
+        $contact = Contact::find($user->id);
         // return $contact;
         $schedules = $this->schedules->contact($contact); //Gets any Scheduled Responses for the contact grouped by Template  
         $template_ids = '0,';
