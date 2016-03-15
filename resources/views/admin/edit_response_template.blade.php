@@ -44,19 +44,19 @@
 								@foreach($template->details as $detail)
 								<tr>
 									<td width="150px">{!! Form::text('days[]',$detail->number_of_days,['id' => 'days','class' => 'form-control']) !!}</td>
-									<td>{!! Form::select('template[]',['Welcome Template' => 'Welcome Template','Second Followup Template' => 'Second Followup Template'],$detail->template,['id' => 'template','class' => 'form-control']) !!}</td>
+									<td>{!! Form::select('template[]',['Initial Web Inquiry' => 'Initial Web Inquiry','Web Inquiry - 3 Day Reminder' => 'Web Inquiry - 3 Day Reminder','Web Inquiry - 7 Day Reminder' => 'Web Inquiry - 7 Day Reminder', 'Web Inquiry - 14 Day Reminder' => 'Web Inquiry - 14 Day Reminder', 'Web Inquiry - 30 Day Reminder' => 'Web Inquiry - 30 Day Reminder', 'New Student - Welcome Email' => 'New Student - Student Welcome Email'],$detail->template,['id' => 'template','class' => 'form-control']) !!}</td>
 									<td width="75px"><i class="fa fa-remove fa-fw del"></i></td>
 								</tr>
 								@endforeach
 							@else
 								<tr>
 									<td width="150px">{!! Form::text('days[]',null,['id' => 'days','class' => 'form-control']) !!}</td>
-									<td>{!! Form::select('template[]',['Welcome Template' => 'Welcome Template','Second Followup Template' => 'Second Followup Template'],'Welcome Template',['id' => 'template','class' => 'form-control']) !!}</td>
+									<td>{!! Form::select('template[]',['Initial Web Inquiry' => 'Initial Web Inquiry','Web Inquiry - 3 Day Reminder' => 'Web Inquiry - 3 Day Reminder','Web Inquiry - 7 Day Reminder' => 'Web Inquiry - 7 Day Reminder', 'Web Inquiry - 14 Day Reminder' => 'Web Inquiry - 14 Day Reminder', 'Web Inquiry - 30 Day Reminder' => 'Web Inquiry - 30 Day Reminder', 'New Student - Welcome Email' => 'New Student - Student Welcome Email'],'Initial Web Inquiry',['id' => 'template','class' => 'form-control']) !!}</td>
 									<td width="75px"><i class="fa fa-remove fa-fw del"></i></td>
 								</tr>
 								<tr>
 									<td width="150px">{!! Form::text('days[]',null,['id' => 'days','class' => 'form-control']) !!}</td>
-									<td>{!! Form::select('template[]',['Welcome Template' => 'Welcome Template','Second Followup Template' => 'Second Followup Template'],'Welcome Template',['id' => 'template','class' => 'form-control']) !!}</td>
+									<td>{!! Form::select('template[]',['Initial Web Inquiry' => 'Initial Web Inquiry','Web Inquiry - 3 Day Reminder' => 'Web Inquiry - 3 Day Reminder','Web Inquiry - 7 Day Reminder' => 'Web Inquiry - 7 Day Reminder', 'Web Inquiry - 14 Day Reminder' => 'Web Inquiry - 14 Day Reminder', 'Web Inquiry - 30 Day Reminder' => 'Web Inquiry - 30 Day Reminder', 'New Student - Welcome Email' => 'New Student - Student Welcome Email'],'Initial Web Inquiry',['id' => 'template','class' => 'form-control']) !!}</td>
 									<td width="75px"><i class="fa fa-remove fa-fw del"></i></td>
 								</tr>
 							@endif
