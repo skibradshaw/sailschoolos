@@ -63,6 +63,6 @@ class User extends Model implements AuthenticatableContract,
 
     public function notes()
     {
-        return $this->hasMany('App\Notes','user_id');
+        return $this->hasMany('App\Note','user_id')->orderBy('note_date','desc');
     }
 }

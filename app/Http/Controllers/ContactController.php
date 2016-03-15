@@ -76,10 +76,10 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Contact $contact)
     {   
         //
-        $user = User::find($id);
+        $user = User::find($contact->id);
         if(!$user->types()->where('user_types.id',1)->first())
         {
             $user->types()->attach([1]);

@@ -27,6 +27,7 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot($router);
+         $router->model('contacts','App\Contact');
         $router->model('template','App\ResponseTemplate');
         $router->model('schedule','App\ResponseSchedule');
     }

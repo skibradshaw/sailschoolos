@@ -43,10 +43,10 @@ class ProspectInquiryListener
         }
 
             
-        \Mail::raw($contact->fullname,function($m) {
+        \Mail::raw('Scheduled Responses were created for ' . $contact->fullname,function($m) {
             $m->to('tim@alltrips.com','Tim Bradshaw')
             ->from('info@ltdsailing.com','LTD Sailing')
-            ->subject('Testing the Prospect Inquiry Event Handler');
+            ->subject('The Prospect Inquiry Event Handler Fired to Create Scheduled Responses');
         });
     }
 }

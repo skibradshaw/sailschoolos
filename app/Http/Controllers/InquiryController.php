@@ -69,7 +69,16 @@ class InquiryController extends Controller
             'interests' => $interests,
             'notes' => $input['notes']
         ]);
+        //Create a Note
+        $note = $user->notes()->create([
+            'note_date' => Carbon::now(),
+            'title' => 'Manual Inquiry',
+            'note_type' => 'Inquiry',
+            'create_user_id' => \Auth::user()->id,
+            'note' => $input['notes']
+            ]);
 
+        // Fire Scheduled Responses
         \Event::fire(new ScheduleResponse($inquiry));
         return redirect()->route('inquiries');   
     }
@@ -92,6 +101,10 @@ class InquiryController extends Controller
             $this->user->store($request);
             $user = User::where('email',$input['email'])->first();
         }
+        if(!$user->types()->where('user_types.id',1)->first())
+        {
+            $user->types()->attach([1]);
+        }
         //@TODO: Use this form to capture inquiries for Charters, Boat Buying and Selling
         $input['user_id'] = $user->id;
         
@@ -103,6 +116,16 @@ class InquiryController extends Controller
             'boat_type' => $input['boat_type'],
             'notes' => $input['notes']
         ]); 
+        //Create a Note
+        $note = $user->notes()->create([
+            'note_date' => Carbon::now(),
+            'title' => 'Website Inquiry',
+            'note_type' => 'Inquiry',
+            'create_user_id' => User::where('email','chris@ltdsailing.com')->first(),
+            'note' => $input['notes']
+            ]);
+
+        //Fire Prospect Inquiry Scheduled Responses.
         \Event::fire(new ScheduleResponse($inquiry));
         //Mail::raw('Test Booking',function($message){$message->to('tim@alltrips.com'); $message->from('info@ltdsailing.com');});
         return $request->all();

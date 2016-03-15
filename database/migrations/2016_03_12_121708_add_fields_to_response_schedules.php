@@ -15,7 +15,7 @@ class AddFieldsToResponseSchedules extends Migration
         Schema::table('response_schedules', function (Blueprint $table) {
             //
             $table->integer('user_id')->unsigned();
-            $table->integer('response_template_detail_id')->unsigned();
+            $table->integer('response_template_detail_id')->unsigned()->nullable();
             $table->integer('most_recent_note_id')->unsigned()->nullable();
             $table->datetime('scheduled_date');
             $table->datetime('sent_date')->nullable();

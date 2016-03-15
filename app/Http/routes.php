@@ -52,8 +52,10 @@ Route::get('/inquiries/{$id}',['as' => 'inquiry.show','uses' => 'InquiryControll
 //Admin Routes
 Route::get('test_schedules/{template}','ResponseScheduleController@create');
 Route::get('admin/response_schedules',['as' => 'admin.respsone_schedules','uses' => 'ResponseScheduleController@index']);
+Route::get('admin/response_schedules/{schedule}/delete',['as' => 'admin.response_schedules.delete','uses' => 'ResponseScheduleController@delete']);
 
 //Route Resources
 Route::resource('contacts','ContactController');
 Route::resource('students','StudentController');
+Route::resource('contacts.notes','NoteController');
 Route::resource('admin/response_templates','ResponseTemplateController');

@@ -7,7 +7,7 @@
 	<div class="col-sm-8">
 		<div class="panel panel-default">
 	        <div class="panel-heading">
-	           <i class="fa fa-user fa-fw"></i> Vitals <span class="pull-right"><a href="{{ route('contacts.edit',[$contact->id]) }}">Edit</a></span>
+	           <i class="fa fa-user fa-fw"></i> Vitals <a href="{{ route('contacts.edit',[$contact->id]) }}" class="btn btn-primary btn-xs pull-right">Edit</a>
 	        </div>
 	        <!-- /.panel-heading -->
 	        <div class="panel-body">
@@ -35,26 +35,31 @@
 	<div class="col-sm-8">
 	    <div class="panel panel-default">
 	        <div class="panel-heading">
-	            <i class="fa fa-clock-o fa-fw"></i> History
+	            <i class="fa fa-clock-o fa-fw"></i> Communication History <a href="{{ route('contacts.notes.create',[$contact])}} " class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#myModal">Add Note</a>
 	        </div>
 	        <!-- /.panel-heading -->
 	        <div class="panel-body">
 	            <ul class="timeline">
-	                <li>
-	                    <div class="timeline-badge"><i class="fa fa-check"></i>
+	            @forelse($contact->notes as $i => $n)
+	                <li{{ $i % 2 == 0 ? null : " class=timeline-inverted"}}>
+	                    <div class="timeline-badge {{$n->badge}}">{!!$n->icon!!}
 	                    </div>
 	                    <div class="timeline-panel">
 	                        <div class="timeline-heading">
-	                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
-	                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
+	                            <h4 class="timeline-title">{{$n->title}}</h4>
+	                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> {{$n->note_date->diffForHumans() }} by {{$n->creator->fullname}}</small>
 	                            </p>
 	                        </div>
 	                        <div class="timeline-body">
-	                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
+	                            <p>{{$n->note}}</p>
+	                            <p class="text-right"><small class="text-muted"><a href="{{ route('contacts.notes.edit',['contact' => $contact->id,'note' => $n->id]) }}"  data-toggle="modal" data-target="#myModal">Edit</a></small></p>
 	                        </div>
 	                    </div>
 	                </li>
-	                <li class="timeline-inverted">
+	            @empty
+	            	<li>No History</li>
+	            @endforelse
+<!-- 	                <li class="timeline-inverted">
 	                    <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
 	                    </div>
 	                    <div class="timeline-panel">
@@ -139,7 +144,7 @@
 	                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt obcaecati, quaerat tempore officia voluptas debitis consectetur culpa amet, accusamus dolorum fugiat, animi dicta aperiam, enim incidunt quisquam maxime neque eaque.</p>
 	                        </div>
 	                    </div>
-	                </li>
+	                </li> -->
 	            </ul>
 	        </div>
 	        <!-- /.panel-body -->

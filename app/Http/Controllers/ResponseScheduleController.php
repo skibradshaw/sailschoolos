@@ -62,7 +62,8 @@ class ResponseScheduleController extends Controller
         
         // Else Send the scheduled response using the response detail template
         \Mail::send(['text' => 'emails.templates.test'],['contact' => $schedule->contact], function($m) use ($schedule) {
-            $m->to('tim@alltrips.com','Tim Bradshaw')
+            $m->to('chris@ltdsailing','Chris Rundlett')
+            ->cc('tim@alltrips.com','Tim Bradshaw')
             ->from('info@ltdsailing', 'LTD Sailing')
             ->subject('Welcome to LTD Sailing');
         });
@@ -70,9 +71,17 @@ class ResponseScheduleController extends Controller
 
     public function contact(Contact $contact)
     {
+        
         $schedules = ResponseSchedule::where('user_id',$contact->id)->get();
         // $schedules->load('template');
         return $schedules;
+    }
+
+    public function delete(ResponseSchedule $schedule)
+    {
+        return $schedule;
+        $schedule->delete();
+        return redirect()->back();
     }
    
 }
