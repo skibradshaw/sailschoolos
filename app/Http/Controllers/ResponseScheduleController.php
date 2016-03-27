@@ -40,7 +40,7 @@ class ResponseScheduleController extends Controller
         {
             $sched = new ResponseSchedule;
             $sched->user_id = $contact->id;
-            $sched->scheduled_date = Carbon::now()->addDays($d->number_of_days + 1);
+            $sched->scheduled_date = Carbon::now()->addDays($d->number_of_days);
             $sched->response_template_detail_id = $d->id;
             $sched->save();
         }
@@ -56,11 +56,13 @@ class ResponseScheduleController extends Controller
     {
         
         //Check for any new email/phone type types for this contact
-        //@TODO: Setup Notes so we can check them!
+
         
         //If a notes exists, call a reschedule of all items in this Response Template using the Note Date
         
         // Else Send the scheduled response using the response detail template
+        // Log a Note to Contact containing copy of the message
+        // Send the email
         \Mail::send(['text' => 'emails.templates.test'],['contact' => $schedule->contact], function($m) use ($schedule) {
             $m->to('chris@ltdsailing','Chris Rundlett')
             ->cc('tim@alltrips.com','Tim Bradshaw')
