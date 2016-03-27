@@ -40,7 +40,7 @@ class ResponseScheduleController extends Controller
         {
             $sched = new ResponseSchedule;
             $sched->user_id = $contact->id;
-            $sched->scheduled_date = Carbon::now()->addDays($d->number_of_days);
+            $sched->scheduled_date = Carbon::now()->addDays($d->number_of_days-1);
             $sched->response_template_detail_id = $d->id;
             $sched->save();
         }
