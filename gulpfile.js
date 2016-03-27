@@ -15,16 +15,16 @@ elixir(function(mix) {
 
     mix.copy('resources/assets/bower/font-awesome/fonts', 'public/fonts');
     mix.copy('resources/assets/bower/metisMenu/dist/metisMenu.css', 'public/css');
+    mix.copy('resources/assets/bower/startbootstrap-sb-admin-2/dist/css/timeline.css', 'public/css');
     mix.less([
         'app.less',
-        '../bower/startbootstrap-sb-admin-2/dist/css/timeline.css'
         ]);
     	
     mix.scripts([
         // Foundation (direct link to jQuery in foot)
         '../bower/jquery/dist/jquery.js',
         '../bower/bootstrap/dist/js/bootstrap.js',
-        '../bower/metisMenu/src/metisMenu.js',
+        '../bower/metisMenu/dist/metisMenu.js',
         '../bower/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js',
         'vendor/fastclick.js',
         // jQuery UI

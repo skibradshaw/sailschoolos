@@ -29,7 +29,7 @@
 		</div>
 		<div class="form-group">
 		  	{!! Form::label('note_type','Type:',['for' => 'note_type']) !!}
-		  	{!! Form::select('note_type',['Email' => 'Email','Phone' => 'Phone','In-Person' => 'In-Person'],null,['id' => 'email', 'class' => 'form-control', 'placeholder' => 'Choose...']) !!}
+		  	{!! Form::select('note_type',['Email' => 'Email','Phone' => 'Phone','In-Person' => 'In-Person','General' => 'General'],null,['id' => 'email', 'class' => 'form-control', 'placeholder' => 'Choose...']) !!}
 		</div>
 		<div class="form-group">
 		  	{!! Form::label('note','Note',['for' => 'note']) !!}

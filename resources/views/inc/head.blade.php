@@ -12,6 +12,7 @@
   {{-- Link to compiled, minimized and versioned css file. --}}
   {{-- Theme Resource: http://startbootstrap.com/template-overviews/sb-admin-2/ --}}
   <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">   
+   <link rel="stylesheet" href="{{ URL::asset('css/timeline.css') }}"> 
   <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
  
   

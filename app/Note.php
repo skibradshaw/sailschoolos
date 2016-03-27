@@ -32,6 +32,9 @@ class Note extends Model
     		case "Inquiry":
     			$return = 'success';
     			break;
+            case "General":
+                $return = 'primary';
+                break;
     		default:
     			$return = '';    		
     	}
@@ -55,6 +58,9 @@ class Note extends Model
     		case "Inquiry":
     			$return = '<i class="fa fa-question"></i>';
     			break;
+             case "General":
+                $return = '<i class="fa fa-file-text"></i>';
+                break;
     		default:
     			$return = '<i class="fa fa-check"></i>';    		
     	}   
