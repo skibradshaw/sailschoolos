@@ -44,7 +44,7 @@ class NoteController extends Controller
     {
         //
         $note = Note::create($request->except('note_date'));
-        $note->note_date = Carbon::parse($request->input('note_date'));
+        $note->note_date = Carbon::createFromFormat('n/d/Y',$request->input('note_date'));
         $note->user_id = $contact->id;
         $note->create_user_id = \Auth::user()->id;
         $note->save();

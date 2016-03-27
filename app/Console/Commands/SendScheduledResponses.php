@@ -46,7 +46,7 @@ class SendScheduledResponses extends Command
         $tosend = ResponseSchedule::active()->where('scheduled_date','<',Carbon::now())->get();
         foreach($tosend as $s)
         {
-            // $this->scheduler->send($s);
+            $this->scheduler->send($s);
             $this->info($s->scheduled_date . " - " . Carbon::now());
         }
         $this->info($tosend->count('id'));
