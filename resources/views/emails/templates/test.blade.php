@@ -1,4 +1,4 @@
-STUDENT NAME,
+{{$contact->fullname}},
 
 Thank you for your interest in our Caribbean sailing courses. We would love to help you organize your Caribbean sailing adventure!
 

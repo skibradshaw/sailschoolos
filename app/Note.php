@@ -35,6 +35,9 @@ class Note extends Model
             case "General":
                 $return = 'primary';
                 break;
+            case "Scheduled Response":
+                $return = 'default';
+                break;
     		default:
     			$return = '';    		
     	}
@@ -60,6 +63,9 @@ class Note extends Model
     			break;
              case "General":
                 $return = '<i class="fa fa-file-text"></i>';
+                break;
+            case "Scheduled Response":
+                $return = '<i class="fa fa-calendar"></i>';
                 break;
     		default:
     			$return = '<i class="fa fa-check"></i>';    		

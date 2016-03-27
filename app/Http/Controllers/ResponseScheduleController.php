@@ -40,7 +40,7 @@ class ResponseScheduleController extends Controller
         {
             $sched = new ResponseSchedule;
             $sched->user_id = $contact->id;
-            $sched->scheduled_date = Carbon::now()->addDays($d->number_of_days-1);
+            $sched->scheduled_date = Carbon::now()->addDays($d->number_of_days);
             $sched->response_template_detail_id = $d->id;
             $sched->save();
         }
@@ -62,6 +62,15 @@ class ResponseScheduleController extends Controller
         
         // Else Send the scheduled response using the response detail template
         // Log a Note to Contact containing copy of the message
+        // return $schedule->load('detail');
+        $note = view('emails.templates.test',['contact' => $schedule->contact]);
+        $note_entry = $schedule->contact->notes()->create([
+            'note_date' => Carbon::now(),
+            'title' => $schedule->detail->template,
+            'note_type' => 'Scheduled Response',
+            'create_user_id' => \App\User::where('email','chris@ltdsailing.com')->first()->id, //TODO: Add a Create User Id to Response Templates and use that here.
+            'note' => \Purifier::clean($note)
+            ]);
         // Send the email
         \Mail::send(['text' => 'emails.templates.test'],['contact' => $schedule->contact], function($m) use ($schedule) {
             $m->to('chris@ltdsailing','Chris Rundlett')
@@ -69,6 +78,8 @@ class ResponseScheduleController extends Controller
             ->from('info@ltdsailing', 'LTD Sailing')
             ->subject('Welcome to LTD Sailing');
         });
+
+        return $note_entry->note;
     }
 
     public function contact(Contact $contact)

@@ -138,6 +138,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         'DougSisk\CountryState\CountryStateServiceProvider',
+        Mews\Purifier\PurifierServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -197,6 +198,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Purifier' => Mews\Purifier\Facades\Purifier::class,
 
     ],
 

@@ -16,7 +16,7 @@ class AddFieldsToNotesTable extends Migration
             //
             $table->string('note_type')->nullable();
             $table->string('title')->nullable();
-            $table->string('note',2000)->nullable();
+            $table->string('note',10000)->nullable();
             $table->datetime('note_date');
         });
     }

@@ -51,7 +51,7 @@
 	                            </p>
 	                        </div>
 	                        <div class="timeline-body">
-	                            <p>{{$n->note}}</p>
+	                            <p>{!! $n->note !!}</p>
 	                            <p class="text-right"><small class="text-muted"><a href="{{ route('contacts.notes.edit',['contact' => $contact->id,'note' => $n->id]) }}"  data-toggle="modal" data-target="#myModal">Edit</a></small></p>
 	                        </div>
 	                    </div>
