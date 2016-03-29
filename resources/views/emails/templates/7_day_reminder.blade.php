@@ -165,32 +165,11 @@ ol li {
           <td>
             <p>{{$contact->fullname}},</p>
             <p>How are your Caribbean sailing vacation plans coming along?</p>
-            <p>We thought you might be thinking to yourself, “There seem to be a lot of different sailing schools offering what seems to be the same ‘Cruise and Learn’ type courses – how can I tell which one is for me?”</p>
-			<p>Well – we put together a list of things you should consider when comparing different sailing schools:</p>
-			<h3>How many days do you actually spend on the water sailing?</h3>
-			<ul><li>LTD Sailing offers courses with either seven days, six nights on the boat or ten days, nine nights for a more relaxed experience.</li></ul>
-
-
-			<h3>What sort of boat will the course be on and how old is the boat?</h3>
-			<ul><li>LTD Sailing uses well maintained, modern charter boats. Most of the boats we use are less than five years old. These are boats you can charter on your own once you have earned your ASA Bareboat Cruising certification with LTD Sailing.</li></ul>
-
-			<h3>Who will my instructor be and what are their qualifications?</h3>
-			<ul><li>LTD Sailing only hires top rated instructors. Our instructors are all ASA certified US Coast Guard Captains or RYA Yachtmasters. We also ensure that all of our instructors are patient, knowledgeable and familiar with sailing in the Grenadines.</li></ul>
-
-
-			<h3>What are we going to eat?</h3>
-			<ul><li>This is a very important question! Sailing can be hard work and you want to eat well! We do our best to combine fresh premium local ingredients to create delicious meals you will remember. We always do our best to accommodate any special diets you may have. Ask us for our sample menu and see for yourself!</li></ul>
-
-			<h3>What is included in the price?</h3>
-			<ul><li>Or better yet – what isn’t included? LTD Sailing includes almost everything – we even pick you up from the airport and put a cold beverage in your hand! You will need to purchase your own ASA text books so you can study before your trip. We usually eat a couple meals ashore which are not included in the price. The same goes for any alcoholic beverages you might want to have on board.</li></ul>
-			<h3>How am I going to get there?</h3>
-			<ul><li>Getting there is part of the adventure right? Well… You might want to spend more of your time on the boat sailing than looking for lost luggage and dealing with flight delays and missed connections. LTD Sailing is based in Grenada with a large international airport, allowing direct flights from Miami, New York and Toronto so that you don’t lose precious vacation time trying to get here.</li></ul>
-			
-			<p>Here is a link to an article written by our friends at “Uncommon Caribbean”. One of the guys, Patrick, came down to do a course with us – you can check it out on <a href="http://www.uncommoncaribbean.com/2014/08/14/living-the-dream-and-learning-to-sail-part-2-casting-off/">Uncommon Caribbean</a>.</p>
-			<p>Please let me know if you have any questions about sailing or traveling in the Caribbean!</p>
+            <p>We thought you might be thinking to yourself, “Hey – this looks like a great place to learn to sail, but how do I get there?” Here is a link to a blog we wrote with some tips on traveling to <a href="http://www.ltdsailing.com/caribbean-sailing-school/living-the-dream-sailing/">Grenada</a>!</p>
+      <p>Please let me know if you have any questions about sailing or traveling in the Caribbean!</p><br>
             <p>Beam winds,</p>
-			<p>Chris Rundlett<br><a href="mailto:chris@ltdsailing.com">chris@ltdsailing.com</a></p>
-			
+      <p>Chris Rundlett<br><a href="mailto:chris@ltdsailing.com">chris@ltdsailing.com</a></p>
+      
           </td>
         </tr>
       </table>

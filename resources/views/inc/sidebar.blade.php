@@ -18,9 +18,9 @@
                         <li class="active">
                             <a href="#"><i class="fa fa-user fa-fw"></i> People<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
+<!--                                 <li>
                                     <a data-toggle="modal" href="/contacts/create" data-target="#myModal">New Contact</a>
-                                </li>  
+                                </li>  --> 
                                 <li><a href="{{ route('contacts.index') }}">All Contacts</a></li>                            
                             </ul>
                             <!-- /.nav-second-level -->
