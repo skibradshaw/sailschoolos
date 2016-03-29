@@ -89,20 +89,20 @@ class ResponseScheduleController extends Controller
         // Else Send the scheduled response using the response detail template
         // Log a Note to Contact containing copy of the message
         // return $schedule->load('detail');
-        $note = view('emails.templates.test',['contact' => $schedule->contact]);
+        $note = view('emails.templates.'.$schedule->detail->template_file_name,['contact' => $schedule->contact]);
         $note_entry = $schedule->contact->notes()->create([
             'note_date' => Carbon::now(),
-            'title' => 'Sent: ' . $schedule->detail->template,
+            'title' => 'Sent: ' . $schedule->detail->template . ": " . $schedule->detail->subject,
             'note_type' => 'Scheduled Response',
             'create_user_id' => \App\User::where('email','chris@ltdsailing.com')->first()->id, //@TODO: Add a Create User Id to Response Templates and use that here.
             'note' => \Purifier::clean($note)
             ]);
         // Send the email
-        \Mail::send(['text' => 'emails.templates.test'],['contact' => $schedule->contact], function($m) use ($schedule) {
-            $m->to('chris@ltdsailing','Chris Rundlett')
+        \Mail::send('emails.templates.'.$schedule->detail->template_file_name,['contact' => $schedule->contact], function($m) use ($schedule) {
+            $m->to('chris@ltdsailing.com','Chris Rundlett')
             ->cc('tim@alltrips.com','Tim Bradshaw')
-            ->from('info@ltdsailing', 'LTD Sailing')
-            ->subject('Welcome to LTD Sailing'); //@TODO: Set the subject from the Email Template
+            ->from('info@ltdsailing.com', 'LTD Sailing')
+            ->subject($schedule->detail->subject);
         });
         //Mark the Scheduled Response as SENT
         $schedule->sent_date = Carbon::now();
@@ -122,7 +122,7 @@ class ResponseScheduleController extends Controller
 
     public function delete(ResponseSchedule $schedule)
     {
-        return $schedule;
+        // return $schedule;
         $schedule->delete();
         return redirect()->back();
     }

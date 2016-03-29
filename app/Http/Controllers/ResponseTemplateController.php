@@ -54,10 +54,12 @@ class ResponseTemplateController extends Controller
         // return $request->all();
         $template = ResponseTemplate::create($request->only('name','trigger_event','user_type_id'));
         $inputTemplate = $request->input('template');
+        $inputSubject = $request->input('subject');
         foreach ($request->input('days') as $key => $detail) {
             $templatedetail = new ResponseTemplateDetail;
             $templatedetail->number_of_days = $detail;
             $templatedetail->template = $inputTemplate[$key];
+            $templatedetail->subject = $inputSubject[$key];
             $template->details()->save($templatedetail);
             
         }
@@ -111,12 +113,14 @@ class ResponseTemplateController extends Controller
         $template = ResponseTemplate::find($id);
         $template->update($request->only('name','trigger_event','user_type_id'));
         $inputTemplate = $request->input('template');
-        $template->details()->delete();
+        $inputSubject = $request->input('subject');
+        $inputDetail = $request->input('detail_id');
         foreach ($request->input('days') as $key => $detail) {
             //Check if it exists and update
-            $templatedetail = new ResponseTemplateDetail;
+            $templatedetail = ResponseTemplateDetail::find($inputDetail[$key]);
             $templatedetail->number_of_days = $detail;
             $templatedetail->template = $inputTemplate[$key];
+            $templatedetail->subject = $inputSubject[$key];
             $template->details()->save($templatedetail);
             
         }

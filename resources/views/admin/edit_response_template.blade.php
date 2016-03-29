@@ -35,6 +35,7 @@
 								<tr>
 									<th width="150px">Days after Trigger</th>
 									<th>Email Template Name</th>
+									<th>Subject</th>
 									<th width="75px">Remove</th>
 								</tr>
 								<tr></tr>
@@ -43,20 +44,29 @@
 							@if(isset($template))
 								@foreach($template->details as $detail)
 								<tr>
-									<td width="150px">{!! Form::text('days[]',$detail->number_of_days,['id' => 'days','class' => 'form-control']) !!}</td>
-									<td>{!! Form::select('template[]',['Initial Web Inquiry' => 'Initial Web Inquiry','Web Inquiry - 3 Day Reminder' => 'Web Inquiry - 3 Day Reminder','Web Inquiry - 7 Day Reminder' => 'Web Inquiry - 7 Day Reminder', 'Web Inquiry - 14 Day Reminder' => 'Web Inquiry - 14 Day Reminder', 'Web Inquiry - 30 Day Reminder' => 'Web Inquiry - 30 Day Reminder', 'New Student - Welcome Email' => 'New Student - Student Welcome Email'],$detail->template,['id' => 'template','class' => 'form-control']) !!}</td>
-									<td width="75px"><i class="fa fa-remove fa-fw del"></i></td>
+									<td width="150px">{!! Form::text('days[]',$detail->number_of_days,['id' => 'days','class' => 'form-control']) !!} {!! Form::hidden('detail_id[]',$detail->id) !!}</td>
+									<td>{!! Form::select('template[]',['Web Inquiry - 3 Day Reminder' => 'Web Inquiry - 3 Day Reminder','Web Inquiry - 7 Day Reminder' => 'Web Inquiry - 7 Day Reminder', 'Web Inquiry - 14 Day Reminder' => 'Web Inquiry - 14 Day Reminder', 'Web Inquiry - 30 Day Reminder' => 'Web Inquiry - 30 Day Reminder', 'New Student - Welcome Email' => 'New Student - Student Welcome Email'],$detail->template,['id' => 'template','class' => 'form-control']) !!}</td>
+									<td>{!! Form::text('subject[]',$detail->subject,['id' => 'subject','class' => 'form-control']) !!} </td>
+									<td width="75px">
+										@if($detail->schedules->isEmpty())
+										<i class="fa fa-remove fa-fw del"></i>
+										@else
+										<span class="label label-warning">Schedules Exist</span>
+										@endif
+									</td>
 								</tr>
 								@endforeach
 							@else
 								<tr>
 									<td width="150px">{!! Form::text('days[]',null,['id' => 'days','class' => 'form-control']) !!}</td>
-									<td>{!! Form::select('template[]',['Initial Web Inquiry' => 'Initial Web Inquiry','Web Inquiry - 3 Day Reminder' => 'Web Inquiry - 3 Day Reminder','Web Inquiry - 7 Day Reminder' => 'Web Inquiry - 7 Day Reminder', 'Web Inquiry - 14 Day Reminder' => 'Web Inquiry - 14 Day Reminder', 'Web Inquiry - 30 Day Reminder' => 'Web Inquiry - 30 Day Reminder', 'New Student - Welcome Email' => 'New Student - Student Welcome Email'],'Initial Web Inquiry',['id' => 'template','class' => 'form-control']) !!}</td>
+									<td>{!! Form::select('template[]',['Web Inquiry - 3 Day Reminder' => 'Web Inquiry - 3 Day Reminder','Web Inquiry - 7 Day Reminder' => 'Web Inquiry - 7 Day Reminder', 'Web Inquiry - 14 Day Reminder' => 'Web Inquiry - 14 Day Reminder', 'Web Inquiry - 30 Day Reminder' => 'Web Inquiry - 30 Day Reminder', 'New Student - Welcome Email' => 'New Student - Student Welcome Email'],'Initial Web Inquiry',['id' => 'template','class' => 'form-control']) !!}</td>
+									<td>{!! Form::text('subject[]',null,['id' => 'subject','class' => 'form-control']) !!} </td>
 									<td width="75px"><i class="fa fa-remove fa-fw del"></i></td>
 								</tr>
 								<tr>
 									<td width="150px">{!! Form::text('days[]',null,['id' => 'days','class' => 'form-control']) !!}</td>
 									<td>{!! Form::select('template[]',['Initial Web Inquiry' => 'Initial Web Inquiry','Web Inquiry - 3 Day Reminder' => 'Web Inquiry - 3 Day Reminder','Web Inquiry - 7 Day Reminder' => 'Web Inquiry - 7 Day Reminder', 'Web Inquiry - 14 Day Reminder' => 'Web Inquiry - 14 Day Reminder', 'Web Inquiry - 30 Day Reminder' => 'Web Inquiry - 30 Day Reminder', 'New Student - Welcome Email' => 'New Student - Student Welcome Email'],'Initial Web Inquiry',['id' => 'template','class' => 'form-control']) !!}</td>
+									<td>{!! Form::text('subject[]',null,['id' => 'subject','class' => 'form-control']) !!} </td>
 									<td width="75px"><i class="fa fa-remove fa-fw del"></i></td>
 								</tr>
 							@endif
