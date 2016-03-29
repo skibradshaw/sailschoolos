@@ -46,7 +46,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //@TODO - Add Validation
+        $this->validate($request,[
+                'name' => 'required',
+                'email' => 'required|email|unique:users,email',
+            ]);
         $input = $request->all();
         $parts = explode(" ", $input['name']);
         $input['lastname'] = array_pop($parts);
@@ -83,7 +87,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        
         //
+        
         $countries = \CountryState::getCountries();
         $states = \CountryState::getStates('US');
         $contact = User::find($id);

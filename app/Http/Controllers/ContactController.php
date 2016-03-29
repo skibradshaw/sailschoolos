@@ -55,6 +55,12 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         //
+         //@TODO - Add Validation - Front end
+         // return $request->all();
+        // $this->validate($request,[
+        //         'name' => 'required',
+        //         'email' => 'required|email|unique:users,email',
+        //     ]);
         $input = $request->all();
         $parts = explode(" ", $input['name']);
         $input['lastname'] = array_pop($parts);
@@ -62,6 +68,7 @@ class ContactController extends Controller
         (empty($input['firstname'])) ? ($input['firstname'] = $input['lastname']) && ($input['lastname'] = '') : $input['firstname'];
         unset($input['name']);
         $contact = User::create($input);
+        $contact->types()->attach(1);
         if(!empty($input['types_list']))
         {
             $contact->types()->attach($input['types_list']);            

@@ -42,6 +42,15 @@ class User extends Model implements AuthenticatableContract,
         return $this->firstname . ' ' . $this->lastname;
     }
 
+    public function setFirstnameAttribute($value)
+    {
+        $this->attributes['firstname'] = ucfirst(strtolower($value));
+    }
+
+    public function setLastnameAttribute($value)
+    {
+        $this->attributes['lastname'] = ucfirst(strtolower($value));
+    }
     public function getPhoneAttribute($value) 
     {
         return "(".substr($value, 0, 3).") ".substr($value, 3, 3)."-".substr($value,6);

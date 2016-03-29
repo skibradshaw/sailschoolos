@@ -51,7 +51,7 @@
 										@if($detail->schedules->isEmpty())
 										<i class="fa fa-remove fa-fw del"></i>
 										@else
-										<span class="label label-warning">Schedules Exist</span>
+										<span class="label label-warning">Existing Schedules!</span>
 										@endif
 									</td>
 								</tr>
