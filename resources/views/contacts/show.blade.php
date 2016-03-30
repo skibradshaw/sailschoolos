@@ -159,10 +159,14 @@
                         <div class="panel-body">
                         	@forelse($response_templates as $t)
                         		<h5>{{$t->name}}</h5>
-	                        	<ul>
+	                        	<ul class="list-unstyled">
 	                        	
 	                        	@forelse($schedules->filter(function($schedules) use ($t){if($schedules->template->id == $t->id) return true;}) as $s)
-	                        		<li>{{ $s->scheduled_date->format('n/d/Y') }} - {{ $s->detail->template }}</li>
+	                        		@if(!is_null($s->sent_date))
+	                        		<del><li><i class="fa fa-check fa-fw"></i> {{ $s->scheduled_date->format('n/d/y') }} - {{ $s->detail->template }}</li></del>
+	                        		@else
+	                        		<li><i class="fa fa-calendar fa-fw"></i> {{ $s->scheduled_date->format('n/d/y') }} - {{ $s->detail->template }}</li>
+	                        		@endif
 	                        	@empty
 	                        		<li>None</li>
 	                        	@endforelse

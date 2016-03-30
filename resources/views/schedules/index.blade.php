@@ -18,7 +18,7 @@
         <tbody>
  		@foreach($schedules as $s)
             <tr>
-                <td>{{ $s->contact->fullname }} </td>
+                <td><a href="{{ route('contacts.show',[$s->contact->id])}}">{{ $s->contact->fullname }}</a> </td>
                 <td>{{ $s->scheduled_date->format('n/d/Y') }} ({{ $s->scheduled_date->diffForHumans() }}) </td>
                 <td>{{ $s->detail->template }}</td>
                 <td><a href="{{ route('admin.response_schedules.delete',[$s]) }}" class="btn btn-danger btn-sm">Delete</a></td>

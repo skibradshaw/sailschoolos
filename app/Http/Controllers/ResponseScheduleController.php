@@ -115,7 +115,7 @@ class ResponseScheduleController extends Controller
     public function contact(Contact $contact)
     {
         
-        $schedules = ResponseSchedule::where('user_id',$contact->id)->get();
+        $schedules = ResponseSchedule::where('user_id',$contact->id)->orderBy('sent_date','asc')->orderBy('scheduled_date','asc')->get();
         // $schedules->load('template');
         return $schedules;
     }
