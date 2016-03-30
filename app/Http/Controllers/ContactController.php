@@ -115,12 +115,12 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Contact $contact)
     {
         //
         $countries = \CountryState::getCountries();
         $states = \CountryState::getStates('US');
-        $contact = User::find($id);
+        // $contact = User::find($id);
         $types = UserType::lists('name','id');
         (empty($contact->country)) ? $contact->country = 'US' : $contact->country;
         return view('contacts.edit',['
@@ -139,11 +139,11 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Contact $contact, Request $request)
     {
         //
-        //TODO: Add Validation
-        $contact = User::find($id);
+        //@TODO: Add Validation
+        // $contact = User::find($id);
         $contact->update($request->all());
         $contact->types()->sync($request->input('types_list'));
         return redirect()->route('contacts.show',['id' => $contact->id]);

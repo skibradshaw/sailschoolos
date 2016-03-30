@@ -158,19 +158,23 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                         	@forelse($response_templates as $t)
-                        		<h5>{{$t->name}}</h5>
+                        		<h5>{{$t->name}} Responses</h5>
 	                        	<ul class="list-unstyled">
-	                        	
+                        	
 	                        	@forelse($schedules->filter(function($schedules) use ($t){if($schedules->template->id == $t->id) return true;}) as $s)
 	                        		@if(!is_null($s->sent_date))
 	                        		<del><li><i class="fa fa-check fa-fw"></i> {{ $s->scheduled_date->format('n/d/y') }} - {{ $s->detail->template }}</li></del>
 	                        		@else
 	                        		<li><i class="fa fa-calendar fa-fw"></i> {{ $s->scheduled_date->format('n/d/y') }} - {{ $s->detail->template }}</li>
-	                        		@endif
+	                        		@endif                        		
 	                        	@empty
 	                        		<li>None</li>
 	                        	@endforelse
 	                        	</ul>
+								<ul class="list-inline">
+		                        	<li><a href="#" class="label label-warning">Pause</a></li>
+		                        	<li><a href="#" class="label label-danger">Delete All</a></li>
+		                        </ul>	
 	                        @empty
 	                        	<h5>No Responses Scheduled</h5>
 	                        @endforelse

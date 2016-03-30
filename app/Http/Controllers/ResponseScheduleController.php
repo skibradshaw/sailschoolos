@@ -69,21 +69,8 @@ class ResponseScheduleController extends Controller
         // return $note;
         if($note)
         {
-            //Get all the scheduled responses that have not been sent
-            $schedules = ResponseSchedule::where('user_id',$schedule->contact->id)->whereHas('detail',function($q) use ($schedule) {
-                $q->whereRaw('response_template_id = (SELECT response_template_id FROM response_template_details WHERE id = '.$schedule->response_template_detail_id.')');
-            })->whereNull('sent_date')
-            ->get();
-
-            // return $schedules;
-            foreach($schedules as $s)
-            {
-                //Reschedule each note for the number of days set in the Response Template
-                $s->scheduled_date = $note->note_date->addDays($s->detail->number_of_days);
-                $s->most_recent_note_id = $note->id; 
-                $s->save();
-                
-            }
+            //If a New Note exists, Reschedule Responses and Exit
+            $schedules = $this->reschedule($schedule,$note);
             return $schedules;
         }        
         // Else Send the scheduled response using the response detail template
@@ -110,6 +97,26 @@ class ResponseScheduleController extends Controller
         return $schedule;
 
         // return $note_entry->note;
+    }
+
+    public function reschedule($schedule, $note)
+    {
+            //Get all the scheduled responses that have not been sent
+            $schedules = ResponseSchedule::where('user_id',$schedule->contact->id)->whereHas('detail',function($q) use ($schedule) {
+                $q->whereRaw('response_template_id = (SELECT response_template_id FROM response_template_details WHERE id = '.$schedule->response_template_detail_id.')');
+            })->whereNull('sent_date')
+            ->get();
+
+            // return $schedules;
+            foreach($schedules as $s)
+            {
+                //Reschedule each note for the number of days set in the Response Template
+                $s->scheduled_date = $note->note_date->addDays($s->detail->number_of_days);
+                $s->most_recent_note_id = $note->id; 
+                $s->save();
+                
+            }
+            return $schedules;        
     }
 
     public function contact(Contact $contact)
