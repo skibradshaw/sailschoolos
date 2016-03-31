@@ -134,4 +134,12 @@ class ResponseScheduleController extends Controller
         return redirect()->back();
     }
    
+    public function notifyNoteTaker(ResponseSchedule $schedule)
+    {
+        \Mail::raw('Your note rescheduled a response to .  The next response is scheduled at XX later today.',function($m) use ($schedule){
+            $m->to($schedule->note->creator->email,$schedule->note->creator->fullname)
+            ->from('tim@alltrips.com','Tim Bradshaw')
+            ->subject('Schedule Response');
+        });
+    }
 }
