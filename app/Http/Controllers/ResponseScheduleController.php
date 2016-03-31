@@ -140,6 +140,7 @@ class ResponseScheduleController extends Controller
         \Mail::raw('Your note rescheduled a response to '. $schedule->contact->fullname . '.  The next response is scheduled for ' . $schedule->scheduled_date->diffForHumans() . '.',function($m) use ($schedule){
             $m->to($schedule->note->creator->email,$schedule->note->creator->fullname)
             ->from('tim@alltrips.com','Tim Bradshaw')
+            ->cc('tim@alltrips.com','Tim Bradshaw')
             ->subject('Re-Scheduled Response');
         });
     }
