@@ -29,5 +29,6 @@ class Kernel extends ConsoleKernel
         $schedule->command('inspire')
                  ->hourly();
         $schedule->command('ltd:sendscheduled')->everyFiveMinutes();
+        $schedule->command('ltd:notifynotetaker')->dailyAt('05:00');
     }
 }
