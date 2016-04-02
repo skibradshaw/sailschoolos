@@ -158,21 +158,33 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                         	@forelse($response_templates as $t)
+                        		
+
+                        		@if(array_key_exists($t->id,$template_group_status))
+                        		<h5>{{$t->name}} Responses <span class="label label-warning">PAUSED</span></h5>
+                        		<ul class="fa-ul text-muted">
+                        		@else
                         		<h5>{{$t->name}} Responses</h5>
-	                        	<ul class="list-unstyled">
+                        		<ul class="fa-ul">
+                        		@endif
+	                        	
                         	
 	                        	@forelse($schedules->filter(function($schedules) use ($t){if($schedules->template->id == $t->id) return true;}) as $s)
 	                        		@if(!is_null($s->sent_date))
-	                        		<del><li><i class="fa fa-check fa-fw"></i> {{ $s->scheduled_date->format('n/d/y') }} - {{ $s->detail->template }}</li></del>
+	                        		<del><li><small><i class="fa fa-check fa-li"></i> {{ $s->scheduled_date->format('n/d/y') }} - {{ $s->detail->template }}</small></li></del>
 	                        		@else
-	                        		<li><i class="fa fa-calendar fa-fw"></i> {{ $s->scheduled_date->format('n/d/y') }} - {{ $s->detail->template }}</li>
+	                        		<li><small><i class="fa fa-calendar fa-li"></i> {{ $s->scheduled_date->format('n/d/y') }} - {{ $s->detail->template }}</small></li>
 	                        		@endif                        		
 	                        	@empty
 	                        		<li>None</li>
 	                        	@endforelse
 	                        	</ul>
 								<ul class="list-inline">
-		                        	<li><a href="#" class="label label-warning">Pause</a></li>
+									@if(array_key_exists($t->id,$template_group_status))
+									<li><a href="#" class="label label-success">Re-Start These</a></li>
+									@else
+		                        	<li><a href="#" class="label label-warning">Pause These</a></li>
+		                        	@endif
 		                        	<li><a href="#" class="label label-danger">Delete All</a></li>
 		                        </ul>	
 	                        @empty

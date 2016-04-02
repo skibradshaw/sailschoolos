@@ -94,19 +94,33 @@ class ContactController extends Controller
         $contact = Contact::find($user->id);
         // return $contact;
         $schedules = $this->schedules->contact($contact); //Gets any Scheduled Responses for the contact grouped by Template  
-        $template_ids = '0,';
+        // $template_ids = '0,';
+        $template_ids = [];
+        $template_group_status = [];
         foreach($schedules as $s)
         {
-            $template_ids .= $s->template->id . ',';
+            //If any response schedule is set to 'Paused' set a status for that templateid to paused.
+            if($s->status == 'paused')
+            {
+                (!isset($template_group_status[$s->template->id])) ? $template_group_status[$s->template->id] = ['template_id' => $s->template->id, 'status' => 'paused'] : null;
+            }
+            $template_ids[] = $s->template->id;
         }
-        $template_ids = rtrim($template_ids,',');
+        // dd($template_group_status);
+        // $template_ids = rtrim($template_ids,',');
         if($schedules)
         {
-            $response_templates = \App\ResponseTemplate::whereRaw('id IN ('. $template_ids .')')->get();        
+            $response_templates = \App\ResponseTemplate::whereIn('id',$template_ids)->get();        
         }
         // $schedules = new \App\ResponseSchedule;
         // $response_templates = new \App\ResponseTemplate;
-        return view('contacts.show',['title' => $contact->fullname, 'contact' => $contact, 'schedules' => $schedules,'response_templates' => $response_templates]);
+        return view('contacts.show',[
+            'title' => $contact->fullname, 
+            'contact' => $contact, 
+            'schedules' => $schedules,
+            'response_templates' => $response_templates,
+            'template_group_status' => $template_group_status
+        ]);
     }
 
     /**
