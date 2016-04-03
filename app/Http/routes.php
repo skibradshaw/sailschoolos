@@ -54,6 +54,8 @@ Route::get('test_schedules/{template}','ResponseScheduleController@create');
 Route::get('admin/response_schedules',['as' => 'admin.respsone_schedules','uses' => 'ResponseScheduleController@index']);
 Route::get('admin/response_schedules/{schedule}/send',['as' => 'admin.respsone_schedules.send','uses' => 'ResponseScheduleController@send']);
 Route::get('admin/response_schedules/{schedule}/delete',['as' => 'admin.response_schedules.delete','uses' => 'ResponseScheduleController@delete']);
+Route::get('admin/response_schedules/{template}/{contacts}/delete',['as' => 'admin.response_schedules.deleteall','uses' => 'ResponseScheduleController@deleteAll']);
+Route::get('admin/response_schedules/{template}/{contacts}/update',['as' => 'admin.response_schedules.update','uses' => 'ResponseScheduleController@changeStatus']);
 
 //Route Resources
 Route::resource('contacts','ContactController');

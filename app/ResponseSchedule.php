@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ResponseSchedule extends Model
 {
     //
-    protected $fillable = ['user_id','response_template_detail_id','most_recent_note_id','scheduled_date'];
+    protected $fillable = ['user_id','response_template_detail_id','most_recent_note_id','scheduled_date','status'];
     protected $dates = ['scheduled_date','sent_date'];
     //Active ResponseSchedules are scheduled responses that have yet to be sent
     public function scopeActive($query)

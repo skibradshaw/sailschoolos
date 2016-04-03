@@ -134,7 +134,29 @@ class ResponseScheduleController extends Controller
         $schedule->delete();
         return redirect()->back();
     }
-   
+
+    public function deleteAll(ResponseTemplate $template, Contact $contact)
+    {
+        $schedules = $this->getSchedulesbyTemplate($template,$contact);
+        $schedules->delete();
+        return redirect()->back();
+    }
+
+    public function changeStatus(ResponseTemplate $template, Contact $contact, Request $request)
+    {
+        $schedules = $this->getSchedulesbyTemplate($template,$contact);
+        $new_schedules = ResponseSchedule::whereIn('id',$schedules->lists('id'))->update(['status' => $request->input('status')]);
+        return redirect()->back();
+    }
+    public function getSchedulesbyTemplate(ResponseTemplate $template, Contact $contact)
+    {
+        $schedules = ResponseSchedule::whereHas('detail',function($q) use ($template) {
+            $q->where('response_template_id',$template->id);
+        })->where('user_id',$contact->id)->get();   
+
+        return $schedules;      
+    }
+
     public function notifyNoteTaker(ResponseSchedule $schedule)
     {
         \Mail::send(['text' => 'emails.notify_notetaker'],['schedule' => $schedule], function($m) use ($schedule){

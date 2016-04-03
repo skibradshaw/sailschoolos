@@ -181,12 +181,13 @@
 	                        	</ul>
 								<ul class="list-inline">
 									@if(array_key_exists($t->id,$template_group_status))
-									<li><a href="#" class="label label-success">Re-Start These</a></li>
+									<li><a href="{{ route('admin.response_schedules.update',['template' => $t->id,'contact' => $contact->id]) }}?status=active" class="label label-success">Restart These</a></li>
 									@else
-		                        	<li><a href="#" class="label label-warning">Pause These</a></li>
+		                        	<li><a href="{{ route('admin.response_schedules.update',['template' => $t->id,'contact' => $contact->id]) }}?status=paused" class="label label-warning">Pause These</a></li>
 		                        	@endif
-		                        	<li><a href="#" class="label label-danger">Delete All</a></li>
+		                        	<li><a href="{{ route('admin.response_schedules.deleteall',['template' => $t->id,'contact' => $contact->id])}}" class="label label-danger">Delete All</a></li>
 		                        </ul>	
+		                        <hr>
 	                        @empty
 	                        	<h5>No Responses Scheduled</h5>
 	                        @endforelse
