@@ -11,6 +11,7 @@ use App\Events\ScheduleResponse;
 use App\Http\Controllers\UserController;
 use App\User;
 use App\Inquiry;
+use App\ResponseSchedule;
 use Carbon\Carbon;
 use Log;
 
@@ -78,6 +79,9 @@ class InquiryController extends Controller
             'note' => $input['notes']
             ]);
 
+        //Schedule Initial Inquiry Response for 37 Minutes after Inquiry
+        $this->scheduleInitialResponse($user);
+
         // Fire Scheduled Responses
         \Event::fire(new ScheduleResponse($inquiry));
         return redirect()->route('inquiries');   
@@ -125,13 +129,27 @@ class InquiryController extends Controller
             'note' => $input['notes']
             ]);
 
+        //Schedule Initial Inquiry Response for 37 Minutes after Inquiry
+        $this->scheduleInitialResponse($user);
+
         //Fire Prospect Inquiry Scheduled Responses.
         \Event::fire(new ScheduleResponse($inquiry));
         //Mail::raw('Test Booking',function($message){$message->to('tim@alltrips.com'); $message->from('info@ltdsailing.com');});
         return $request->all();
 
     }
-
+    public function scheduleInitialResponse(User $user)
+    {
+        //Schedule Initial Inquiry Response for 37 Minutes after Inquiry
+        $schedule = ResponseSchedule::create([
+                'user_id' => $user->id,
+                'response_template_detail_id' => 0,
+                'most_recent_note_id' => 0,
+                'scheduled_date' => Carbon::now()->addMinutes(37),
+                'status' => 'active'
+            ]);
+        return $schedule;        
+    }
     public function show($id)
     {
         $inquiry = Inquiry::find($id);

@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use App\ResponseSchedule;
 use Carbon\Carbon;
 use App\Http\Controllers\ResponseScheduleController;
+use App\Scopes\ResponseScheduleScope;
 
 class SendScheduledResponses extends Command
 {
@@ -43,10 +44,16 @@ class SendScheduledResponses extends Command
     public function handle()
     {
         //Get Scheduled Responses and call teh SEND method for any found
-        $tosend = ResponseSchedule::active()->where('scheduled_date','<',Carbon::now())->get();
+        $tosend = ResponseSchedule::removeGlobalScope(ResponseScheduleScope::class)->active()->where('scheduled_date','<',Carbon::now())->get();
         foreach($tosend as $s)
         {
-            $this->scheduler->send($s);
+            if($s->response_template_detail_id == 0)
+            {
+                $this->schedule->sendWebInquiryResponse($s);
+            } else {
+                $this->scheduler->send($s);
+            }
+            
             $this->info($s->scheduled_date . " - " . Carbon::now());
         }
         $this->info($tosend->count('id'));

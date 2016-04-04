@@ -3,10 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Scopes\ResponseScheduleScope;
 
 
 class ResponseSchedule extends Model
 {
+    public static function boot()
+    {
+        parent::boot();     
+        static::addGlobalScope(new ResponseScheduleScope);
+    } 
+
     //
     protected $fillable = ['user_id','response_template_detail_id','most_recent_note_id','scheduled_date','status'];
     protected $dates = ['scheduled_date','sent_date'];

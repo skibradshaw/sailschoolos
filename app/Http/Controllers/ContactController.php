@@ -97,19 +97,20 @@ class ContactController extends Controller
         // $template_ids = '0,';
         $template_ids = [];
         $template_group_status = [];
-        foreach($schedules as $s)
-        {
-            //If any response schedule is set to 'Paused' set a status for that templateid to paused.
-            if($s->status == 'paused')
-            {
-                (!isset($template_group_status[$s->template->id])) ? $template_group_status[$s->template->id] = ['template_id' => $s->template->id, 'status' => 'paused'] : null;
-            }
-            $template_ids[] = $s->template->id;
-        }
+
         // dd($template_group_status);
         // $template_ids = rtrim($template_ids,',');
         if($schedules)
         {
+            foreach($schedules as $s)
+            {
+                //If any response schedule is set to 'Paused' set a status for that templateid to paused.
+                if($s->status == 'paused')
+                {
+                    (!isset($template_group_status[$s->template->id])) ? $template_group_status[$s->template->id] = ['template_id' => $s->template->id, 'status' => 'paused'] : null;
+                }
+                $template_ids[] = $s->template->id;
+            }
             $response_templates = \App\ResponseTemplate::whereIn('id',$template_ids)->get();        
         }
         // $schedules = new \App\ResponseSchedule;

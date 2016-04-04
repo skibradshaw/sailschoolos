@@ -100,6 +100,16 @@ class ResponseScheduleController extends Controller
         // return $note_entry->note;
     }
 
+    public function sendWebInquiryResponse(ResponseSchedule $schedule)
+    {
+        \Mail::send('emails.templates.webinquiry',['contact' => $schedule->contact], function($m) use ($schedule) {
+            $m->to('chris@ltdsailing.com','Chris Rundlett')
+            ->cc('tim@alltrips.com','Tim Bradshaw')
+            ->from('info@ltdsailing.com', 'LTD Sailing')
+            ->subject('Thank You from LTD Sailsing');
+        });        
+    }
+
     public function reschedule($schedule, $note)
     {
             //Get all the scheduled responses that have not been sent
