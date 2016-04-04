@@ -34,8 +34,8 @@ class UserController extends Controller
     public function create()
     {
         //
-        $types = UserType::lists('name','id');
-        return view('contacts.create',['types' => $types]);
+        $types = UserType::lists('name', 'id');
+        return view('contacts.create', ['types' => $types]);
     }
 
     /**
@@ -47,23 +47,22 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //@TODO - Add Validation
-        $this->validate($request,[
+        $this->validate($request, [
                 'name' => 'required',
                 'email' => 'required|email|unique:users,email',
             ]);
         $input = $request->all();
         $parts = explode(" ", $input['name']);
         $input['lastname'] = array_pop($parts);
-        $input['firstname'] = implode(" ", $parts);    
+        $input['firstname'] = implode(" ", $parts);
         (empty($input['firstname'])) ? ($input['firstname'] = $input['lastname']) && ($input['lastname'] = '') : $input['firstname'];
         unset($input['name']);
         $contact = User::create($input);
-        if(!empty($input['types_list']))
-        {
-            $contact->types()->attach($input['types_list']);            
+        if (!empty($input['types_list'])) {
+            $contact->types()->attach($input['types_list']);
         }
 
-        return redirect()->route('contacts.show',['id' => $contact->id]);
+        return redirect()->route('contacts.show', ['id' => $contact->id]);
     }
 
     /**
@@ -75,8 +74,8 @@ class UserController extends Controller
     public function show($id)
     {
         //
-        $contact = User::find($id);  
-        return view('contacts.show',['title' => $contact->fullname, 'contact' => $contact]);
+        $contact = User::find($id);
+        return view('contacts.show', ['title' => $contact->fullname, 'contact' => $contact]);
     }
 
     /**
@@ -93,9 +92,9 @@ class UserController extends Controller
         $countries = \CountryState::getCountries();
         $states = \CountryState::getStates('US');
         $contact = User::find($id);
-        $types = UserType::lists('name','id');
+        $types = UserType::lists('name', 'id');
         (empty($contact->country)) ? $contact->country = 'US' : $contact->country;
-        return view('contacts.edit',['
+        return view('contacts.edit', ['
             title' => 'Edit Contact: ' . $contact->fullname,
             'contact' => $contact,
             'states' => $states,
@@ -118,7 +117,7 @@ class UserController extends Controller
         $contact = User::find($id);
         $contact->update($request->all());
         $contact->types()->sync($request->input('types_list'));
-        return redirect()->route('contacts.show',['id' => $contact->id]);
+        return redirect()->route('contacts.show', ['id' => $contact->id]);
         
     }
 

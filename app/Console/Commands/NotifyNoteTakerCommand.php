@@ -43,9 +43,8 @@ class NotifyNoteTakerCommand extends Command
     public function handle()
     {
         //Get all Scheduled responses for the next 24 horus that have been rescheduled by a note.
-        $tosend = ResponseSchedule::whereNull('sent_date')->where('status','active')->whereBetween('scheduled_date',[Carbon::now(),Carbon::now()->addHours(24)])->has('note')->get();
-        foreach($tosend as $s)
-        {
+        $tosend = ResponseSchedule::whereNull('sent_date')->where('status', 'active')->whereBetween('scheduled_date', [Carbon::now(),Carbon::now()->addHours(24)])->has('note')->get();
+        foreach ($tosend as $s) {
             $this->scheduler->notifyNoteTaker($s);
             $this->info($s->scheduled_date . " - " . Carbon::now());
         }

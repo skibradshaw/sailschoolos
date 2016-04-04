@@ -19,7 +19,7 @@ class StudentController extends Controller
     {
         //
         $students = Student::all();
-        return view('contacts.index',['title' => 'All Students','contacts' => $students]);
+        return view('contacts.index', ['title' => 'All Students','contacts' => $students]);
     }
 
     /**

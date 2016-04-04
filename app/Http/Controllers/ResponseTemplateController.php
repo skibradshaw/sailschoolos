@@ -22,7 +22,7 @@ class ResponseTemplateController extends Controller
     {
         //
         $templates = ResponseTemplate::all();
-        return view('admin.response_templates',['title' => 'Automated Response Templates','templates' => $templates]);
+        return view('admin.response_templates', ['title' => 'Automated Response Templates','templates' => $templates]);
     }
 
     /**
@@ -33,9 +33,9 @@ class ResponseTemplateController extends Controller
     public function create()
     {
         //
-        $usertypes = UserType::all()->lists('name','id');
+        $usertypes = UserType::all()->lists('name', 'id');
         $triggers = [1 => 'Prospect Inquiry', 2 => 'Class Registration'];
-        return view('admin.edit_response_template',[
+        return view('admin.edit_response_template', [
             'title' => 'Create Response Templates',
             'usertypes' => $usertypes,
             'triggers' => $triggers
@@ -52,7 +52,7 @@ class ResponseTemplateController extends Controller
     {
         //
         // return $request->all();
-        $template = ResponseTemplate::create($request->only('name','trigger_event','user_type_id'));
+        $template = ResponseTemplate::create($request->only('name', 'trigger_event', 'user_type_id'));
         $inputTemplate = $request->input('template');
         $inputSubject = $request->input('subject');
         foreach ($request->input('days') as $key => $detail) {
@@ -89,14 +89,14 @@ class ResponseTemplateController extends Controller
     {
         //
         $template = ResponseTemplate::find($id);
-        $usertypes = UserType::all()->lists('name','id');
+        $usertypes = UserType::all()->lists('name', 'id');
         $triggers = [1 => 'Prospect Inquiry', 2 => 'Class Registration'];
-        return view('admin.edit_response_template',[
+        return view('admin.edit_response_template', [
             'title' => 'Create Response Templates',
             'usertypes' => $usertypes,
             'triggers' => $triggers,
             'template' => $template
-            ]);        
+            ]);
     }
 
     /**
@@ -111,7 +111,7 @@ class ResponseTemplateController extends Controller
         //
         // return $request->all()
         $template = ResponseTemplate::find($id);
-        $template->update($request->only('name','trigger_event','user_type_id'));
+        $template->update($request->only('name', 'trigger_event', 'user_type_id'));
         $inputTemplate = $request->input('template');
         $inputSubject = $request->input('subject');
         $inputDetail = $request->input('detail_id');

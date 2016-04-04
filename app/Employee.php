@@ -8,9 +8,9 @@ use App\Scopes\EmployeeScope;
 class Employee extends User
 {
     //
-	public static function boot()
-	{
-		parent::boot();		
-		static::addGlobalScope(new EmployeeScope);
-	}    
+    public static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(new EmployeeScope);
+    }
 }

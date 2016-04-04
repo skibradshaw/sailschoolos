@@ -8,9 +8,9 @@ use App\Scopes\BuyerScope;
 class Buyer extends User
 {
     //
-	public static function boot()
-	{
-		parent::boot();		
-		static::addGlobalScope(new BuyerScope);
-	}    
+    public static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(new BuyerScope);
+    }
 }
