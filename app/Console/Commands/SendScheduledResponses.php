@@ -44,7 +44,7 @@ class SendScheduledResponses extends Command
     public function handle()
     {
         //Get Scheduled Responses and call teh SEND method for any found
-        $tosend = ResponseSchedule::removeGlobalScope(ResponseScheduleScope::class)->active()->where('scheduled_date','<',Carbon::now())->get();
+        $tosend = ResponseSchedule::withoutGlobalScope(ResponseScheduleScope::class)->active()->where('scheduled_date','<',Carbon::now())->get();
         foreach($tosend as $s)
         {
             if($s->response_template_detail_id == 0)
