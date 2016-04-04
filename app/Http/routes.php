@@ -18,14 +18,14 @@ Route::get('/', ['middleware' => 'auth',function () {
     $buyer_count = App\Buyer::all()->count('id');
     $seller_count = App\Seller::all()->count('id');
     $charter_guest_count = App\CharterGuest::all()->count('id');
-    return view('index',[
-    	'title' => 'Dashboard',
-    	'employee_count' => $employee_count,
-    	'student_count' => $student_count,
-    	'buyer_count' => $buyer_count,
-    	'seller_count' => $seller_count,
-    	'charter_guest_count' => $charter_guest_count
-    	]);
+    return view('index', [
+        'title' => 'Dashboard',
+        'employee_count' => $employee_count,
+        'student_count' => $student_count,
+        'buyer_count' => $buyer_count,
+        'seller_count' => $seller_count,
+        'charter_guest_count' => $charter_guest_count
+        ]);
 }]);
 /**
  * Login Routes
@@ -43,22 +43,22 @@ Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 //Inquiry Routes
-Route::get('/inquiries',['as' => 'inquiries','uses' => 'InquiryController@index']);
-Route::get('/inquiries/create',['as' => 'inquiry.create','uses' =>'InquiryController@create']);
-Route::post('inquiries/create',['as' => 'inquiry.store', 'uses' => 'InquiryController@store']);
-Route::post('inquiries/web',['as' => 'inquiry.storeweb', 'uses' => 'InquiryController@storeWeb']);
-Route::get('/inquiries/{$id}',['as' => 'inquiry.show','uses' => 'InquiryController@show']);
+Route::get('/inquiries', ['as' => 'inquiries','uses' => 'InquiryController@index']);
+Route::get('/inquiries/create', ['as' => 'inquiry.create','uses' =>'InquiryController@create']);
+Route::post('inquiries/create', ['as' => 'inquiry.store', 'uses' => 'InquiryController@store']);
+Route::post('inquiries/web', ['as' => 'inquiry.storeweb', 'uses' => 'InquiryController@storeWeb']);
+Route::get('/inquiries/{$id}', ['as' => 'inquiry.show','uses' => 'InquiryController@show']);
 
 //Admin Routes
-Route::get('test_schedules/{template}','ResponseScheduleController@create');
-Route::get('admin/response_schedules',['as' => 'admin.respsone_schedules','uses' => 'ResponseScheduleController@index']);
-Route::get('admin/response_schedules/{schedule}/send',['as' => 'admin.respsone_schedules.send','uses' => 'ResponseScheduleController@send']);
-Route::get('admin/response_schedules/{schedule}/delete',['as' => 'admin.response_schedules.delete','uses' => 'ResponseScheduleController@delete']);
-Route::get('admin/response_schedules/{template}/{contacts}/delete',['as' => 'admin.response_schedules.deleteall','uses' => 'ResponseScheduleController@deleteAll']);
-Route::get('admin/response_schedules/{template}/{contacts}/update',['as' => 'admin.response_schedules.update','uses' => 'ResponseScheduleController@changeStatus']);
+Route::get('test_schedules/{template}', 'ResponseScheduleController@create');
+Route::get('admin/response_schedules', ['as' => 'admin.respsone_schedules','uses' => 'ResponseScheduleController@index']);
+Route::get('admin/response_schedules/{schedule}/send', ['as' => 'admin.respsone_schedules.send','uses' => 'ResponseScheduleController@send']);
+Route::get('admin/response_schedules/{schedule}/delete', ['as' => 'admin.response_schedules.delete','uses' => 'ResponseScheduleController@delete']);
+Route::get('admin/response_schedules/{template}/{contacts}/delete', ['as' => 'admin.response_schedules.deleteall','uses' => 'ResponseScheduleController@deleteAll']);
+Route::get('admin/response_schedules/{template}/{contacts}/update', ['as' => 'admin.response_schedules.update','uses' => 'ResponseScheduleController@changeStatus']);
 
 //Route Resources
-Route::resource('contacts','ContactController');
-Route::resource('students','StudentController');
-Route::resource('contacts.notes','NoteController');
-Route::resource('admin/response_templates','ResponseTemplateController');
+Route::resource('contacts', 'ContactController');
+Route::resource('students', 'StudentController');
+Route::resource('contacts.notes', 'NoteController');
+Route::resource('admin/response_templates', 'ResponseTemplateController');

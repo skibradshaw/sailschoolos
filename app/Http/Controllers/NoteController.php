@@ -31,7 +31,7 @@ class NoteController extends Controller
     public function create(Contact $contact)
     {
         //
-        return view('contacts.notes.edit',['contact' => $contact]);
+        return view('contacts.notes.edit', ['contact' => $contact]);
     }
 
     /**
@@ -44,11 +44,11 @@ class NoteController extends Controller
     {
         //
         $note = Note::create($request->except('note_date'));
-        $note->note_date = Carbon::createFromFormat('n/d/Y',$request->input('note_date'));
+        $note->note_date = Carbon::createFromFormat('n/d/Y', $request->input('note_date'));
         $note->user_id = $contact->id;
         $note->create_user_id = \Auth::user()->id;
         $note->save();
-        return redirect()->route('contacts.show',['id' => $contact->id]);
+        return redirect()->route('contacts.show', ['id' => $contact->id]);
     }
 
     /**
@@ -68,10 +68,10 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact,$id)
+    public function edit(Contact $contact, $id)
     {
         $note = Note::find($id);
-        return view('contacts.notes.edit',['contact' => $contact,'note' => $note]);
+        return view('contacts.notes.edit', ['contact' => $contact,'note' => $note]);
     }
 
     /**
@@ -88,7 +88,7 @@ class NoteController extends Controller
         $note->update($request->except('note_date'));
         $note->note_date = Carbon::parse($request->input('note_date'));
         $note->save();
-        return redirect()->route('contacts.show',['id' => $contact->id]);
+        return redirect()->route('contacts.show', ['id' => $contact->id]);
     }
 
     /**

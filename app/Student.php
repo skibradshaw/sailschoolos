@@ -8,9 +8,9 @@ use App\Scopes\StudentScope;
 class Student extends User
 {
     //
-	public static function boot()
-	{
-		parent::boot();		
-		static::addGlobalScope(new StudentScope);
-	}    
+    public static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(new StudentScope);
+    }
 }

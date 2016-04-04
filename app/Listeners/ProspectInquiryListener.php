@@ -35,17 +35,16 @@ class ProspectInquiryListener
         // {
         //     return false;
         // }
-        $response_templates = ResponseTemplate::where('trigger_event',1)->orderBy('created_at','desc')->get();
+        $response_templates = ResponseTemplate::where('trigger_event', 1)->orderBy('created_at', 'desc')->get();
         $contact = Contact::find($event->inquiry->user_id);
-        foreach($response_templates as $t)
-        {
-            $this->schedule->create($t,$contact);
+        foreach ($response_templates as $t) {
+            $this->schedule->create($t, $contact);
         }
 
             
-        \Mail::raw('Scheduled Responses were created for ' . $contact->fullname,function($m) {
-            $m->to('tim@alltrips.com','Tim Bradshaw')
-            ->from('info@ltdsailing.com','LTD Sailing')
+        \Mail::raw('Scheduled Responses were created for ' . $contact->fullname, function ($m) {
+            $m->to('tim@alltrips.com', 'Tim Bradshaw')
+            ->from('info@ltdsailing.com', 'LTD Sailing')
             ->subject('The Prospect Inquiry Event Handler Fired to Create Scheduled Responses');
         });
     }

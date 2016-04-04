@@ -8,9 +8,9 @@ use App\Scopes\ContactScope;
 class Contact extends User
 {
     //
-	public static function boot()
-	{
-		parent::boot();		
-		static::addGlobalScope(new ContactScope);
-	}    
+    public static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(new ContactScope);
+    }
 }

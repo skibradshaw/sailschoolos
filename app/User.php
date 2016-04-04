@@ -10,9 +10,10 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class User extends Model implements AuthenticatableContract,
-                                    AuthorizableContract,
-                                    CanResetPasswordContract
+class User extends Model implements
+    AuthenticatableContract,
+    AuthorizableContract,
+    CanResetPasswordContract
 {
     use Authenticatable, Authorizable, CanResetPassword;
 
@@ -51,11 +52,11 @@ class User extends Model implements AuthenticatableContract,
     {
         $this->attributes['lastname'] = ucfirst(strtolower($value));
     }
-    public function getPhoneAttribute($value) 
+    public function getPhoneAttribute($value)
     {
-        return "(".substr($value, 0, 3).") ".substr($value, 3, 3)."-".substr($value,6);
+        return "(".substr($value, 0, 3).") ".substr($value, 3, 3)."-".substr($value, 6);
     }
-    public function setPhoneAttribute($value) 
+    public function setPhoneAttribute($value)
     {
         $this->attributes['phone'] = preg_replace('/[^0-9]/i', '', trim($value));
     }
@@ -67,11 +68,11 @@ class User extends Model implements AuthenticatableContract,
 
     public function types()
     {
-        return $this->belongsToMany('App\UserType','user_user_types','user_id','user_type_id');
+        return $this->belongsToMany('App\UserType', 'user_user_types', 'user_id', 'user_type_id');
     }
 
     public function notes()
     {
-        return $this->hasMany('App\Note','user_id')->orderBy('note_date','desc');
+        return $this->hasMany('App\Note', 'user_id')->orderBy('note_date', 'desc');
     }
 }
