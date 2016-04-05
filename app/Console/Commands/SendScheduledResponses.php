@@ -47,7 +47,7 @@ class SendScheduledResponses extends Command
         $tosend = ResponseSchedule::withoutGlobalScope(ResponseScheduleScope::class)->active()->where('scheduled_date', '<', Carbon::now())->get();
         foreach ($tosend as $s) {
             if ($s->response_template_detail_id == 0) {
-                $this->schedule->sendWebInquiryResponse($s);
+                $this->scheduler->sendWebInquiryResponse($s);
             } else {
                 $this->scheduler->send($s);
             }
