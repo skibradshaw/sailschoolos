@@ -164,8 +164,8 @@ ol li {
         <tr>
           <td>
             <p>{{$contact->fullname}},</p>
-            <p>Thank you for your interest in our Caribbean sailing courses. We would love to help you organize your next adventure!</p>
-            <p>Would you like to talk on the phone to discuss your sailing plans? If so, please let us know the best time to call, your time zone and the best number to reach you. Grenada is located in the Atlantic Standard Time Zone (GMT -4).</p>
+            <p>Thank you for your interest in booking a trip with LTD Sailing – “Living The Dream!” We are the PREMIER sailing school in the Caribbean. I would love to help you organize your next adventure!</p>
+            <p>Do you have time to talk and discuss your sailing plans on the phone? If so, please click <a href="https://LTDsailing.youcanbook.me">HERE</a> (https://LTDsailing.youcanbook.me) to schedule a time. I will give you a call!</p>
             <p>If email works better for you – just let me know and I will follow up via email instead.</p>
             <p>Our courses offer:</p>
             <ul>

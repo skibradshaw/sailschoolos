@@ -140,7 +140,7 @@ class InquiryController extends Controller
                 'user_id' => $user->id,
                 'response_template_detail_id' => 0,
                 'most_recent_note_id' => 0,
-                'scheduled_date' => Carbon::now()->addMinutes(37),
+                'scheduled_date' => Carbon::now()->addMinutes(23),
                 'status' => 'active'
             ]);
         return $schedule;
