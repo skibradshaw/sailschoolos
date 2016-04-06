@@ -185,7 +185,7 @@
 									@else
 		                        	<li><a href="{{ route('admin.response_schedules.update',['template' => $t->id,'contact' => $contact->id]) }}?status=paused" class="label label-warning">Pause These</a></li>
 		                        	@endif
-		                        	<li><a href="{{ route('admin.response_schedules.deleteall',['template' => $t->id,'contact' => $contact->id])}}" class="label label-danger">Delete All</a></li>
+		                        	<li><a href="{{ route('admin.response_schedules.deleteall',['template' => $t->id,'contact' => $contact->id])}}" class="label label-danger del" >Delete All</a></li>
 		                        </ul>	
 		                        <hr>
 	                        @empty
@@ -199,4 +199,19 @@
 
 
 
+@stop
+@section('scripts')
+<script type="text/javascript">
+$(function () {
+ 	//JQuery Confirm Schedule Response Delete
+   $('.del').click(function(event){
+	    event.preventDefault();
+	    var r=confirm("Are you sure you want to delete?");
+	    if (r==true)   {  
+	       window.location = $(this).attr('href');
+	    }
+   });
+});	
+	
+</script>
 @stop

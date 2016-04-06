@@ -46,7 +46,6 @@ class ResponseScheduleController extends Controller
         }
 
         $fullsched = ResponseSchedule::where('user_id', $contact->id)->whereHas('detail', function ($q) use ($template) {
-            
                 $q->where('response_template_details.response_template_id', $template->id);
         })->get();
         return $fullsched;
@@ -147,8 +146,9 @@ class ResponseScheduleController extends Controller
 
     public function deleteAll(ResponseTemplate $template, Contact $contact)
     {
-        $schedules = $this->getSchedulesbyTemplate($template, $contact);
-        $schedules->delete();
+        $schedules = $this->getSchedulesbyTemplate($template, $contact)->lists('id');
+        // return explode(",",$schedules);
+        ResponseSchedule::destroy($schedules->toArray());
         return redirect()->back();
     }
 
