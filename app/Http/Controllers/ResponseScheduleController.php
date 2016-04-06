@@ -108,6 +108,7 @@ class ResponseScheduleController extends Controller
         });
         //Mark the Scheduled Response as SENT
         $schedule->sent_date = Carbon::now();
+        $schedule->save();
     }
 
     public function reschedule($schedule, $note)
