@@ -106,6 +106,8 @@ class ResponseScheduleController extends Controller
             ->from('info@ltdsailing.com', 'LTD Sailing')
             ->subject('Thank You from LTD Sailsing');
         });
+        //Mark the Scheduled Response as SENT
+        $schedule->sent_date = Carbon::now();
     }
 
     public function reschedule($schedule, $note)
