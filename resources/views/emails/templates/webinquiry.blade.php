@@ -179,7 +179,7 @@ ol li {
             <p>We are looking forward to hearing from you soon!</p><br>
             <p>Beam winds,</p>
             <p>Chris Rundlett<br><a href="mailto:chris@ltdsailing.com">chris@ltdsailing.com</a></p>
-      
+            {{asset('images/sm-signature-stamp.jpg')}}
           </td>
         </tr>
       </table>

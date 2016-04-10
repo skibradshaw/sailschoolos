@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost.sailschoolos.com',
+    'url' => 'http://dev.sailschoolos.com',
 
     /*
     |--------------------------------------------------------------------------
