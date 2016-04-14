@@ -1,5 +1,16 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+//Vertical Alignment Style
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.centering {
+  float:none;
+  margin:0 auto;
+}
+
 .ui-datepicker {
 	background-color: #fff;
 	border: 1px solid #66AFE9;

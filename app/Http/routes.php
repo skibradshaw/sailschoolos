@@ -85,6 +85,9 @@ Route::group(['middleware' => 'web'], function () {
         Route::resource('students', 'StudentController');
         Route::resource('contacts.notes', 'NoteController');
         Route::resource('admin/response_templates', 'ResponseTemplateController');
+        Route::resource('admin/project_templates','ProjectTemplateController');
+        Route::resource('admin/project_templates.task_lists','ProjectTemplateTaskListController');
+        Route::resource('admin/project_templates.task_lists.tasks','ProjectTemplateTaskController');
 
 
     });

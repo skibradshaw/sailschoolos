@@ -67,6 +67,7 @@
                         <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-admin">
+                        <li><a href="{{ route('admin.project_templates.index') }}"><i class="fa fa-check fa-fw"></i>Project Templates</a></li>
                         <li><a href="{{ route('admin.response_templates.index')}} "><i class="fa fa-files-o fa-fw"></i> Response Templates</a></li>
                         <li><a href="{{ route('admin.respsone_schedules')}} "><i class="fa fa-calendar fa-fw"></i> Scheduled Respones</a></li>
                     </ul>

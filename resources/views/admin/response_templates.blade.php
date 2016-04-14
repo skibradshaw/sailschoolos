@@ -3,7 +3,7 @@
 <h1 class="page-header">{{ $title or 'Sail School OS' }}</h1>
 @stop
 @section('content')
-<a href="{{ route('admin.response_templates.create')}}" class="btn btn-primary">Create a Response Template</a>
+<a href="{{ route('admin.response_templates.create')}}" class="btn btn-outline btn-primary">Create a Response Template</a>
 
 @if($templates)
 <div class="table-responsive">

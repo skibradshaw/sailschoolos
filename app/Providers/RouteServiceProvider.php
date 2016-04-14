@@ -30,6 +30,7 @@ class RouteServiceProvider extends ServiceProvider
          $router->model('contacts', 'App\Contact');
         $router->model('template', 'App\ResponseTemplate');
         $router->model('schedule', 'App\ResponseSchedule');
+        $router->model('project_templates','App\ProjectTemplate');
     }
 
     /**

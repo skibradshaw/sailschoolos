@@ -8602,6 +8602,15 @@ table.dataTable thead .sorting:after {
 .fa-meanpath:before {
   content: "\f20c";
 }
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+.centering {
+  float: none;
+  margin: 0 auto;
+}
 .ui-datepicker {
   background-color: #fff;
   border: 1px solid #66AFE9;
