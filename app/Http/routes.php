@@ -80,6 +80,10 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('admin/response_schedules/{template}/{contacts}/delete', ['as' => 'admin.response_schedules.deleteall','uses' => 'ResponseScheduleController@deleteAll']);
         Route::get('admin/response_schedules/{template}/{contacts}/update', ['as' => 'admin.response_schedules.update','uses' => 'ResponseScheduleController@changeStatus']);
 
+        //Task APIs
+        //Reorder Template Task List
+        Route::post('admin/project_templates/{project_templates}/task_lists/{task_lists}/reorder',['as' => 'admin.project_templates.task_lists.reorder','uses' => 'ProjectTemplateTaskListController@reorder']);
+
         //Route Resources
         Route::resource('contacts', 'ContactController');
         Route::resource('students', 'StudentController');

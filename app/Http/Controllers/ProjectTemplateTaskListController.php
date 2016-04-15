@@ -90,4 +90,17 @@ class ProjectTemplateTaskListController extends Controller
     {
         //
     }
+
+    public function reorder(ProjectTemplate $template, $id, Request $request)
+    {
+        $taskList = ProjectTemplateTaskList::find($id);
+        $i = 1;
+        $return = '';
+        foreach($request->input('item') as $task)
+        {
+            $return .= $task . " in Position ". $i . "; ";
+            $i++;
+        }
+        return $return;
+    }
 }

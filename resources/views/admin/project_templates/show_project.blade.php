@@ -11,8 +11,14 @@
 			{{$list->name}}
 			</div>
 			<div class="panel-body">
-                <i class="fa fa-plus"></i> <a href="#">Add Task</a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
+                
+					<ul id="{{$list->id}}" class="list-group task-list">
+					    <li id="item-1" class="list-group-item">Item 1</li>
+					    <li id="item-2" class="list-group-item">Item 2</li>
+					    <li id="item-3" class="list-group-item">Item 3</li>
+					    <li id="item-4" class="list-group-item">Item 4</li>
+					</ul>
+					{!! Form::text('addtask',null,['id' => 'input_'.$list->id,'placeholder' => 'Add Task']) !!} <i class="fa fa-plus fa-1x plus" id="add_{{$list->id}}"></i> 
             </div>			
 		</div>
 	</div>
@@ -34,4 +40,31 @@
 	</div>
 	</a>
 </div>
+@stop
+@section('scripts')
+<script type="text/javascript">
+$(document).ready(function () {
+    
+	//Order Task List
+    $('ul.task-list').sortable({
+        axis: 'y',
+        stop: function (event, ui) {
+	        var taskList = $(this).attr('id');
+	        var data = $(this).sortable('serialize');
+            // $('span').text(data);
+            $.ajax({
+                headers: {
+		            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		        },
+                data: data,
+                type: 'POST',
+                url: '/admin/project_templates/{{$template->id}}/task_lists/'+taskList+'/reorder',
+                success: function(data){
+                	alert(JSON.stringify(data));
+                }
+            });
+	}
+    });
+});	
+</script>
 @stop
