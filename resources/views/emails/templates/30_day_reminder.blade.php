@@ -176,7 +176,7 @@ ol li {
       <p>Let us know if there is anything we can help you with!</p>
             <p>Beam winds,</p>
       <p>Chris Rundlett<br><a href="mailto:chris@ltdsailing.com">chris@ltdsailing.com</a></p>
-      {{asset('images/sm-signature-stamp.jpg')}}
+      <img src="{{asset('images/sm-signature-stamp.jpg')}}">
           </td>
         </tr>
       </table>
