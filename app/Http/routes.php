@@ -83,6 +83,7 @@ Route::group(['middleware' => 'web'], function () {
         //Task APIs
         //Reorder Template Task List
         Route::post('admin/project_templates/{project_templates}/task_lists/{task_lists}/reorder',['as' => 'admin.project_templates.task_lists.reorder','uses' => 'ProjectTemplateTaskListController@reorder']);
+        Route::get('admin/project_templates/{project_templates}/task_lists/{task_lists}/delete',['as' => 'admin.project_templates.task_lists.destroy','uses' => 'ProjectTemplateTaskListController@destroy']);
 
         //Route Resources
         Route::resource('contacts', 'ContactController');
@@ -90,7 +91,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::resource('contacts.notes', 'NoteController');
         Route::resource('admin/response_templates', 'ResponseTemplateController');
         Route::resource('admin/project_templates','ProjectTemplateController');
-        Route::resource('admin/project_templates.task_lists','ProjectTemplateTaskListController');
+        Route::resource('admin/project_templates.task_lists','ProjectTemplateTaskListController',['except' => ['destroy']]);
         Route::resource('admin/project_templates.task_lists.tasks','ProjectTemplateTaskController');
 
 

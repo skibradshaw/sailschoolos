@@ -8,7 +8,7 @@
 <div class="modal-body">
 		<div class="form-group">
 			{!! Form::label('name','Give this Task List a name: ') !!}
-			{!! Form::text('name',null,['id' => 'name']) !!}			
+			{!! Form::text('name',null,['id' => 'name','class' => 'form-control','autofocus' => 'autofocus']) !!}			
 		</div>		
 </div>
 <div class="modal-footer">

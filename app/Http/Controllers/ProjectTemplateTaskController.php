@@ -78,9 +78,14 @@ class ProjectTemplateTaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProjectTemplate $template, $taskListId, $taskId, Request $request)
     {
-        //
+        $task = ProjectTemplateTask::find($taskId);
+        if($task){
+            $task->update(['name' => $request->input('name')]);
+        }
+        
+        return $task;
     }
 
     /**
@@ -89,8 +94,9 @@ class ProjectTemplateTaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ProjectTemplate $template, $taskListId, $taskId)
     {
-        //
+        ProjectTemplateTask::destroy($taskId);
+        return $template;
     }
 }

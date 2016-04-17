@@ -3,8 +3,8 @@
 <h1 class="page-header">{{ $title or 'Sail School OS' }}</h1>
 @stop
 @section('content')
-@if (isset($project_template))
-{!! Form::model($project_template,['route' => ['admin.project_templates.update','id' => $project_template->id],'role' => 'form','method' => 'PUT']) !!}
+@if (isset($template))
+{!! Form::model($template,['route' => ['admin.project_templates.update','id' => $template->id],'role' => 'form','method' => 'PUT']) !!}
 @else
 {!! Form::open(['route' => 'admin.project_templates.store','role' => 'form']) !!}
 @endif

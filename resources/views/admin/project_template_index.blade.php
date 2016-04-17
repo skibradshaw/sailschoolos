@@ -21,7 +21,7 @@
                 <td><a href="{{ route('admin.project_templates.show',[$template->id]) }}">{{ $template->name }}</td>
                 <td>{{ $template->description }}</td>
                 <td>{{ $template->lists()->count('id') }}</td>
-                <td><a href="{{ route('admin.project_templates.edit',[$template->id]) }}" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">Edit</a></td>
+                <td><a href="{{ route('admin.project_templates.edit',[$template->id]) }}" class="btn btn-primary btn-sm">Edit</a></td>
                 <!-- <td><a href="{{ route('admin.project_templates.task_lists.create',['id' => $template->id])}} " class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">Add List</a></td> -->
             </tr>
         @endforeach

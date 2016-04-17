@@ -19,10 +19,10 @@
                 <div class="row">
 
                     @if(Session::has('error'))
-                        <div data-alert class="alert-box warning radius">{{Session::get('error')}}</div>
+                        <div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>{{Session::get('error')}}</div>
                     @endif      
                     @if(Session::has('status'))
-                        <div data-alert class="alert-box success radius">{{Session::get('status')}}</div>
+                        <div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><h4>{{Session::get('status')}}</h4></div>
                     @endif
                     <div class="col-lg-12">
                         @yield('header')    
@@ -63,7 +63,7 @@ $(document).ready(function(){
     
     $(".modal").on("hidden.bs.modal", function(){
         $(this).removeData('bs.modal');
-    });    
+    });      
 
 });    
 

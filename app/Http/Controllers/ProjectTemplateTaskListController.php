@@ -86,9 +86,11 @@ class ProjectTemplateTaskListController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ProjectTemplate $template, $id)
     {
         //
+        ProjectTemplateTaskList::destroy($id);
+        return redirect()->back()->with('status','Task List Deleted!');
     }
 
     public function reorder(ProjectTemplate $template, $id, Request $request)

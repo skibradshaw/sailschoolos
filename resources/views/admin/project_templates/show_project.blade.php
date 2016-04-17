@@ -3,12 +3,26 @@
 <h1 class="page-header">{{ $title or 'Sail School OS' }}</h1>
 @stop
 @section('content')
-<div class="row equal">
+<div class="row" style="margin-bottom: 20px">
+	<div class="col-sm-12 col-lg-12">
+		<a href="{{ route('admin.project_templates.task_lists.create',['id' => $template->id])}}" data-toggle="modal" data-target="#myModal" class="btn btn-outline btn-primary">Create a New List</a>		
+	</div>
+</div>
+
+
+<div class="row">
 	@foreach($template->lists as $list)
 	<div class="col-lg-4 col-md-6">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-			{{$list->name}}
+				<div class="row">
+					<div class="col-xs-9 col-lg-9 text-left">
+						<span class="panel-title">{{$list->name}}</span>				
+					</div>
+					<div class="col-xs-3 col-lg-3 text-right">
+						<a href="{{route('admin.project_templates.task_lists.destroy',['template' => $template,'taskList' => $list->id])}}" class="btn btn-primary btn-xs deleteTaskList" id="delete_{{$list->id}}" name="{{$list->name}}"><i class="fa fa-times"></i></a>
+					</div>
+				</div>
 			</div>
 			<div class="panel-body">
                 
@@ -19,13 +33,13 @@
 					    <li id="item-4" class="list-group-item">Item 4</li> -->
 					@foreach($list->tasks as $task)
 
-						<li id="item-{{$task->id}}" class="list-group-item"><div class="input-group"><span id="display_{{$task->id}}" class="display">{{$task->name}}</span><input type="text" id="edit_{{$task->id}}" class="edit form-control" style="display:none" /><span class="input-group-addon save" style="display:none"><i class="fa fa-save icon" id="save_{{$task->id}}" style="display:none"></i></span></div></li>
+						<li id="item-{{$task->id}}" class="list-group-item"><span id="display_{{$task->id}}" class="display">{{$task->name}}</span><div class="input-group edit" style="display:none" id="form_{{$task->id}}"><span class="input-group-addon btn btn-danger btn-outline btn-xs deleteTask" id="deleteTask_{{$task->id}}"><i class="fa fa-trash icon"></i></span><input type="text" id="edit_{{$task->id}}" class="form-control edit" /><span class="input-group-addon save btn btn-primary btn-outline btn-xs"  id="save_{{$task->id}}"><i class="fa fa-save icon"></i></span></div></li>
 					@endforeach
 					</ul>
 					<div class="input-group">
 					{!! Form::text('addtask',null,['id' => 'input_'.$list->id,'placeholder' => 'Add Task','class' => 'form-control']) !!} 
 					<!-- <button type="submit" class="btn btn-primary btn-outline btn-xs "> -->
-						<span class="input-group-addon"><i class="fa fa-plus plus addTask" id="add_{{$list->id}}"></i></span>
+						<span class="input-group-addon btn btn-primary btn-xs addTask" id="add_{{$list->id}}" data-loading-text="<i class='icon-spinner icon-spin icon-large'></i>" ><i class="fa fa-plus plus"></i></span>
 					<!-- </button> -->
 					</div>
 				
@@ -33,22 +47,6 @@
 		</div>
 	</div>
 	@endforeach
-	<a href="{{ route('admin.project_templates.task_lists.create',['id' => $template->id])}}" data-toggle="modal" data-target="#myModal">
-	<div class="col-lg-4 col-md-6">
-		<div class="panel panel-primary">
-			<div class="panel-body" style="min-height: 200px">
-				<div class="row">
-                    <div class="col-xs-3 text-center">
-                        <i class="fa fa-plus fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-left">
-						<span class="huge">New</span>
-                    </div>				
-				</div>
-			</div>
-		</div>
-	</div>
-	</a>
 </div>
 @stop
 @section('scripts')
@@ -74,25 +72,60 @@ $(document).ready(function () {
 	                // }
 	            });
             }
-	
-	}
+		}
     });
-    //Edit Task
+
+    //Delete Task List
+   $('.deleteTaskList').click(function(event){
+	    event.preventDefault();
+	    var taskList = $(this).attr('id');
+	    var name = $(this).attr('name');
+	    taskList = taskList.substring(taskList.indexOf("_") + 1);
+	    var r=confirm("Are you sure you want to delete the "+name);
+	    if (r==true)   {  
+	       window.location = $(this).attr('href');
+	    }
+   });
+
+//Edit Task - http://jsbin.com/ijexak/2/edit?html,css,js,output
     //Convert To Input
-    $(".display").click(function(){
-  		$(this).hide();
-  		$(this).siblings(".edit").show().val($(this).text()).focus();
-  		var save = $(this).siblings('.save');
-  		save.show();
-  		save.children().show();
-  		// $(this).siblings('.save').children('icon').show();
+    $(document).on("click",".display",function(){
+  		var task = $(this).attr('id');
+  		task = task.substring(task.indexOf("_") + 1);
+  		$('#display_'+task).hide();
+  		$('#display_'+task).siblings(".edit").show();
+  		$('#edit_'+task).val($(this).text()).focus();
 	});
 	//Save & Update
-	$(".edit").focusout(function(){
-		$(this).hide();  
-		$(this).siblings('.save').hide();
-		$(this).siblings(".display").show().text($(this).val());
+	$(document).on('click',".save",function(){
+  		var taskId = $(this).attr('id');
+  		taskId = taskId.substring(taskId.indexOf("_") + 1);
+  		task = $('#edit_'+taskId).val();
+  		taskList = $('#item-'+taskId).closest('ul').attr('id');
+  		taskList = taskList.substring(taskList.indexOf("_") + 1);
+  		$.ajax({
+    		headers: {
+	            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	        },
+	        data: 'name='+task+'&id='+taskId,
+	        dataType: 'json',
+	        type: 'PATCH',
+	        url: '/admin/project_templates/{{$template->id}}/task_lists/'+taskList+'/tasks/'+taskId,
+	        success: function(data){
+				$('#form_'+taskId).hide();  
+				$('#display_'+taskId).show().text(data['name']);	        	
+	        }
+  		});
 	});
+	//Cancel Edit Task
+	$(document).on('focusout',".edit",function(){
+  		var taskId = $(this).attr('id');
+  		taskId = taskId.substring(taskId.indexOf("_") + 1);
+		$('#form_'+taskId).hide();  
+		$('#display_'+taskId).show().text($('#edit_'+taskId).val());
+	});
+
+//End Edit a Task
 
 
     //Add Task
@@ -110,14 +143,36 @@ $(document).ready(function () {
 		        type: 'POST',
 		        url: '/admin/project_templates/{{$template->id}}/task_lists/'+taskList+'/tasks',
 		        success: function(data){
-		        	// alert(JSON.stringify(data));
-		        	$('#list_'+taskList).append('<li class="list-group-item" id="5">'+task+'</li>');
+		        	// alert(JSON.stringify(data['id']));
+		        	$('#list_'+taskList).append('<li id="item-'+data['id']+'" class="list-group-item"><span id="display_'+data['id']+'" class="display">'+task+'</span><div class="input-group edit" style="display:none" id="form_'+data['id']+'"><span class="input-group-addon btn btn-danger btn-outline btn-xs deleteTask" id="deleteTask_'+data['id']+'"><i class="fa fa-trash icon"></i></span><input type="text" id="edit_'+data['id']+'" class="form-control edit" /><span class="input-group-addon save btn btn-primary btn-outline btn-xs"  id="save_'+data['id']+'"><i class="fa fa-save icon"></i></span></div></li>');
 		        	$('#input_'+taskList).val('');
 		        }
 
 	    	});    		
     	}
 	
+    });
+
+    //Delete Task
+    $(document).on('click','.deleteTask',function(){
+  		var taskId = $(this).attr('id');
+  		taskId = taskId.substring(taskId.indexOf("_") + 1);
+   		var taskList = $('#item-'+taskId).closest('ul').attr('id');
+  		taskList = taskList.substring(taskList.indexOf("_") + 1); 		
+		// alert(taskList);	
+		$.ajax({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			},
+			data: 'taskid='+taskId,
+			dataType: 'json',
+			type: 'DELETE',
+			url: '/admin/project_templates/{{$template->id}}/task_lists/'+taskList+'/tasks/'+taskId,
+			success: function(data){
+				// alert(data);
+				$('#item-'+taskId).remove();
+			}
+		});  		
     });
 
 });	

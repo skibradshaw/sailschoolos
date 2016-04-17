@@ -67,11 +67,10 @@ class ProjectTemplateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(ProjectTemplate $template)
     {
         //
-        $project_template = ProjectTemplate::find($id);
-        return view('admin.edit_project_template',['title' => 'Create a New Project Template','project_template' => $project_template]);
+        return view('admin.edit_project_template',['title' => 'Edit Project Template: ' . $template->name,'template' => $template]);
     }
 
     /**
@@ -81,11 +80,10 @@ class ProjectTemplateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProjectTemplate $template, Request $request)
     {
         //
-        $project_template = ProjectTemplate::find($id);
-        $project_template->update([
+        $template->update([
                 'name' => $request->input('name'),
                 'description' => $request->input('description')
             ]);
