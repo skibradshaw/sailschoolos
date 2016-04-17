@@ -10,6 +10,6 @@ class ProjectTemplateTaskList extends Model
 	protected $fillable = ['name'];
     public function tasks()
     {
-    	return $this->hasMany('App\ProjectTemplateTasks');
+    	return $this->hasMany('App\ProjectTemplateTask')->orderBy('position');
     }
 }

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\ProjectTemplate;
+use App\ProjectTemplateTaskList;
+use App\ProjectTemplateTask;
 
 class ProjectTemplateTaskController extends Controller
 {
@@ -26,6 +29,7 @@ class ProjectTemplateTaskController extends Controller
     public function create()
     {
         //
+        //
     }
 
     /**
@@ -34,9 +38,15 @@ class ProjectTemplateTaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProjectTemplate $template, $id, Request $request)
     {
-        //
+        $taskList = ProjectTemplateTaskList::find($id);
+        $position = $taskList->tasks->max('position')+1;
+        $task = $taskList->tasks()->create([
+                'name' => $request->input('task'),
+                'position' => $position
+            ]);
+        return $task;
     }
 
     /**

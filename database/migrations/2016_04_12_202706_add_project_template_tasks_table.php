@@ -14,6 +14,9 @@ class AddProjectTemplateTasksTable extends Migration
     {
         Schema::create('project_template_tasks', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('project_template_task_list_id')->unsigned();
+            $table->string('name');
+            $table->integer('position');
             $table->timestamps();
         });
     }

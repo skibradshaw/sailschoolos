@@ -99,6 +99,9 @@ class ProjectTemplateTaskListController extends Controller
         foreach($request->input('item') as $task)
         {
             $return .= $task . " in Position ". $i . "; ";
+            $task = ProjectTemplateTask::find($task);
+            $task->position = $i;
+            $task->save();
             $i++;
         }
         return $return;

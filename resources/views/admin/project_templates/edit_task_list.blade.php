@@ -8,32 +8,33 @@
 <div class="modal-body">
 		<div class="form-group">
 			{!! Form::label('name','Give this Task List a name: ') !!}
-			{!! Form::text('name',null) !!}			
+			{!! Form::text('name',null,['id' => 'name']) !!}			
 		</div>		
 </div>
 <div class="modal-footer">
-    <button type="submit" class="btn btn-primary" id="add_list">Create List</button>
+    <button type="submit" class="btn btn-primary" disabled="disabled" id="add_list">Create List</button>
 </div>
 <script type="text/javascript">
-// $( document ).ready(function() {
-//     $.fn.modal.Constructor.prototype.enforceFocus = function() {};
-//     $('#name').keyup(function() {
 
-//         var empty = false;
-//         if ($(this).val().length == 0) {
-//             empty = true;
-//         }
+$( document ).ready(function() {
+    $.fn.modal.Constructor.prototype.enforceFocus = function() {};
+    $('#name').keyup(function() {
 
-//         if (empty) {
-//             $('#add_contact').attr('disabled', 'disabled');
-//         } else {
-//             $('#add_contact').removeAttr('disabled');
-//         }
-//     });	
+        var empty = false;
+        if ($(this).val().length == 0) {
+            empty = true;
+        }
 
-//     $('#types_list').select2();
+        if (empty) {
+            $('#add_list').attr('disabled', 'disabled');
+        } else {
+            $('#add_list').removeAttr('disabled');
+        }
+    });	
+
+    $('#types_list').select2();
     
-// });	
+});	
 
 
 </script>
