@@ -18,7 +18,7 @@ class ProjectTemplateController extends Controller
     public function index()
     {
         $project_templates = ProjectTemplate::all();
-        return view('admin.project_template_index',['title' => 'Project Templates','project_templates' => $project_templates]);
+        return view('admin.project_template_index',['title' => 'Task List Categories','project_templates' => $project_templates]);
     }
 
     /**
@@ -29,7 +29,7 @@ class ProjectTemplateController extends Controller
     public function create()
     {
         //
-        return view('admin.edit_project_template',['title' => 'Create a New Project Template']);
+        return view('admin.edit_project_template',['title' => 'Create a New Category']);
     }
 
     /**
@@ -57,7 +57,7 @@ class ProjectTemplateController extends Controller
     public function show(ProjectTemplate $template)
     {
         //
-        return view('admin.project_templates.show_project',['title' => $template->name . ' - Project Template' ,'template' => $template]);
+        return view('admin.project_templates.show_project',['title' => $template->name ,'template' => $template]);
         
     }
 
@@ -70,7 +70,7 @@ class ProjectTemplateController extends Controller
     public function edit(ProjectTemplate $template)
     {
         //
-        return view('admin.edit_project_template',['title' => 'Edit Project Template: ' . $template->name,'template' => $template]);
+        return view('admin.edit_project_template',['title' => 'Edit Category: ' . $template->name,'template' => $template]);
     }
 
     /**

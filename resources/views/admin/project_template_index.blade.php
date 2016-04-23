@@ -3,7 +3,7 @@
 <h1 class="page-header">{{ $title or 'Sail School OS' }}</h1>
 @stop
 @section('content')
-<a href="{{ route('admin.project_templates.create') }}" class="btn btn-outline btn-primary">Create a New Project Template</a>
+<a href="{{ route('admin.project_templates.create') }}" class="btn btn-outline btn-primary">Create a New Category</a>
 @if ($project_templates)
 <div class="table-responsive">
     <table class="table table-hover">

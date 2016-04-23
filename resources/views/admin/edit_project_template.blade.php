@@ -11,11 +11,11 @@
 	<div class="row">
 		<div class="col-sm-5">
 			<div class="form-group">
-				{!! Form::label('name','Project Template Name: ',['for' => 'name']) !!}
+				{!! Form::label('name','Category Name: ',['for' => 'name']) !!}
 				{!! Form::text('name',null,['id' => 'name']) !!}
 			</div>
 			<div class="form-group">
-				{!! Form::label('description','This template is for...',['for' => 'description']) !!}
+				{!! Form::label('description','This category is for...',['for' => 'description']) !!}
 				{!! Form::textarea('description',null,['id' => 'description','rows' => 4, 'cols' => 50]) !!}
 			</div>
 		</div>
