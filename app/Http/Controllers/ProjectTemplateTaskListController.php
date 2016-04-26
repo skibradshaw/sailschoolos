@@ -42,7 +42,8 @@ class ProjectTemplateTaskListController extends Controller
     {
         //
         $list = $template->lists()->create(['name' => $request->input('name')]);
-        return redirect()->route('admin.project_templates.index')->with('collapse',$list->id);
+        // return redirect()->route('admin.project_templates.index')->with('collapse',$template->id);
+        return redirect()->route('admin.project_templates.index');
         
     }
 

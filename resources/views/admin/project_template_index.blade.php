@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-xs-9 col-lg-9">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#{{$template->id}}" aria-expanded="false" class="collapsed">{{ $template->name }}</a> <small><span class="text-muted">({{$template->lists()->count('id')}} Lists)</span></small>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#{{$template->id}}" aria-expanded="{{(session()->has('collapse')) ? 'true' : 'false'}}" class="{{(session()->has('collapse') && session('collapse') == $template->id) ? null : 'collapsed'}}">{{ $template->name }}</a> <small><span class="text-muted">({{$template->lists()->count('id')}} Lists)</span></small>
                         </h4>        
                     </div>
                     <div class="col-xs-3 col-lg-3 text-right">
@@ -28,39 +28,39 @@
             <div id="{{$template->id}}" class="panel-collapse collapse{{(session()->has('collapse')) ? ' in' : null}} " aria-expanded="{{(session()->has('collapse')) ? 'true' : 'false'}}" style="height: 0px;">
                 <div class="panel-body">
                     <div class="row"> 
-                    @foreach($template->lists as $k => $list)
-                    <div class="col-lg-4 col-md-4">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-9 col-lg-9 text-left">
-                                        <span class="panel-title">{{$list->name}}</span>                
-                                    </div>
-                                    <div class="col-xs-3 col-lg-3 text-right">
-                                        <a href="{{route('admin.project_templates.task_lists.destroy',['template' => $template,'taskList' => $list->id])}}" class="btn btn-primary btn-xs deleteTaskList" id="delete_{{$list->id}}" name="{{$list->name}}"><i class="fa fa-times"></i></a>
+                        @foreach($template->lists as $k => $list)
+                        <div class="col-lg-4 col-md-4">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-9 col-lg-9 text-left">
+                                            <span class="panel-title">{{$list->name}}</span>                
+                                        </div>
+                                        <div class="col-xs-3 col-lg-3 text-right">
+                                            <a href="{{route('admin.project_templates.task_lists.destroy',['template' => $template,'taskList' => $list->id])}}" class="btn btn-primary btn-xs deleteTaskList" id="delete_{{$list->id}}" name="{{$list->name}}"><i class="fa fa-times"></i></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="panel-body">
-                                
-                                    <ul id="list_{{$list->id}}" class="list-unstyled task-list">
-                                    @foreach($list->tasks as $task)
+                                <div class="panel-body">
+                                    
+                                        <ul id="list_{{$list->id}}" class="list-unstyled task-list">
+                                        @foreach($list->tasks as $task)
 
-                                        <li id="item-{{$task->id}}"><span id="display_{{$task->id}}" class="display"><i class="fa fa-navicon fa-fw"></i> {{$task->name}}</span><div class="input-group edit" style="display:none" id="form_{{$task->id}}"><span class="input-group-addon btn btn-danger btn-outline btn-xs deleteTask" id="deleteTask_{{$task->id}}"><i class="fa fa-trash icon"></i></span><input type="text" id="edit_{{$task->id}}" class="form-control edit" /><span class="input-group-addon save btn btn-primary btn-outline btn-xs"  id="save_{{$task->id}}"><i class="fa fa-save icon"></i></span></div></li>
-                                    @endforeach
-                                    </ul>
-                                    <div class="input-group">
-                                    {!! Form::text('addtask',null,['id' => 'input_'.$list->id,'placeholder' => 'Add Task','class' => 'form-control']) !!} 
-                                    <!-- <button type="submit" class="btn btn-primary btn-outline btn-xs "> -->
-                                        <span class="input-group-addon btn btn-primary btn-xs addTask" id="add_{{$list->id}}" data-loading-text="<i class='icon-spinner icon-spin icon-large'></i>" ><i class="fa fa-plus plus"></i></span>
-                                    <!-- </button> -->
-                                    </div>
-                                
-                            </div>          
+                                            <li id="item-{{$task->id}}"><span id="display_{{$task->id}}" class="display"><i class="fa fa-navicon fa-fw"></i> {{$task->name}}</span><div class="input-group edit" style="display:none" id="form_{{$task->id}}"><span class="input-group-addon btn btn-danger btn-outline btn-xs deleteTask" id="deleteTask_{{$task->id}}"><i class="fa fa-trash icon"></i></span><input type="text" id="edit_{{$task->id}}" class="form-control edit" /><span class="input-group-addon save btn btn-primary btn-outline btn-xs"  id="save_{{$task->id}}"><i class="fa fa-save icon"></i></span></div></li>
+                                        @endforeach
+                                        </ul>
+                                        <div class="input-group">
+                                        {!! Form::text('addtask',null,['id' => 'input_'.$list->id,'placeholder' => 'Add Task','class' => 'form-control']) !!} 
+                                        <!-- <button type="submit" class="btn btn-primary btn-outline btn-xs "> -->
+                                            <span class="input-group-addon btn btn-primary btn-xs addTask" id="add_{{$list->id}}" data-loading-text="<i class='icon-spinner icon-spin icon-large'></i>" ><i class="fa fa-plus plus"></i></span>
+                                        <!-- </button> -->
+                                        </div>
+                                    
+                                </div>          
+                            </div>
                         </div>
-                    </div>
-                    {!! (($k+1)%3 === 0) ? '</div><div class="row">' : null !!}
-                    @endforeach
+                        {!! (($k+1)%3 === 0) ? '</div><div class="row">' : null !!}
+                        @endforeach
                     </div>
                 </div>
             </div>

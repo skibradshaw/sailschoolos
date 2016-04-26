@@ -22,7 +22,7 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-12">
-			<button type="submit" class="btn btn-default">Save This Template</button> or <a href="{{ URL::previous() }}">Go Back ></a>
+			<button type="submit" class="btn btn-default">Save This Category</button> or <a href="{{ URL::previous() }}">Go Back ></a>
 			<p></p>
 		</div>
 	</div>
