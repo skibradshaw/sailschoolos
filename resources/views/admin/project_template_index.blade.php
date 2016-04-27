@@ -37,7 +37,7 @@
                                             <span class="panel-title">{{$list->name}}</span>                
                                         </div>
                                         <div class="col-xs-3 col-lg-3 text-right">
-                                            <a href="{{route('admin.project_templates.task_lists.destroy',['template' => $template,'taskList' => $list->id])}}" class="btn btn-primary btn-xs deleteTaskList" id="delete_{{$list->id}}" name="{{$list->name}}"><i class="fa fa-times"></i></a>
+                                            <a href="{{route('admin.project_templates.task_lists.destroy',['template' => $template,'taskList' => $list->id])}}" class="btn btn-danger btn-xs deleteTaskList" id="delete_{{$list->id}}" name="{{$list->name}}"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </div>
                                 </div>
