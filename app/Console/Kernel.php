@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\Inspire::class,
         \App\Console\Commands\SendScheduledResponses::class,
         \App\Console\Commands\NotifyNoteTakerCommand::class,
+        \App\Console\Commands\NotifyResponsePauserCommand::class,
     ];
 
     /**
@@ -30,5 +31,6 @@ class Kernel extends ConsoleKernel
                  ->hourly();
         $schedule->command('ltd:sendscheduled')->everyFiveMinutes();
         $schedule->command('ltd:notifynotetaker')->dailyAt('05:00');
+        $schedule->command('ltd:notifypaused')->dailyAt('05:00');
     }
 }

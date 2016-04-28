@@ -11,6 +11,7 @@ use App\ResponseTemplate;
 use App\ResponseTemplateDetail;
 use App\ResponseSchedule;
 use App\Contact;
+use App\User;
 
 use Carbon\Carbon;
 
@@ -155,7 +156,7 @@ class ResponseScheduleController extends Controller
     public function changeStatus(ResponseTemplate $template, Contact $contact, Request $request)
     {
         $schedules = $this->getSchedulesbyTemplate($template, $contact);
-        $new_schedules = ResponseSchedule::whereIn('id', $schedules->lists('id'))->update(['status' => $request->input('status')]);
+        $new_schedules = ResponseSchedule::whereIn('id', $schedules->lists('id'))->update(['status' => $request->input('status'),'status_change_user_id' => \Auth::user()->id]);
         return redirect()->back();
     }
     public function getSchedulesbyTemplate(ResponseTemplate $template, Contact $contact)
@@ -174,6 +175,17 @@ class ResponseScheduleController extends Controller
             ->from('tim@alltrips.com', 'Tim Bradshaw')
             ->cc('tim@alltrips.com', 'Tim Bradshaw')
             ->subject('Re-Scheduled Response');
+        });
+    }
+
+    public function notifyPauser(ResponseSchedule $schedule)
+    {
+        $pauser = User::find($schedule->status_change_user_id);
+        \Mail::send(['text' => 'emails.notify_pauser'],['schedule' => $schedule,'pauser' => $pauser],function($m) use ($schedule,$pauser) {
+            $m->to($pauser->email,$pauser->fullname)
+            ->from('no-reply@ltdsailing.com','LTD Operating System')
+            ->cc('tim@alltrips.com','Tim Bradshaw')
+            ->subject('Reactivate Paused Responses?');
         });
     }
 }
