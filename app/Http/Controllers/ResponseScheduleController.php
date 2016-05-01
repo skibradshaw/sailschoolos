@@ -185,6 +185,7 @@ class ResponseScheduleController extends Controller
             $m->to($pauser->email,$pauser->fullname)
             ->from('no-reply@ltdsailing.com','LTD Operating System')
             ->cc('tim@alltrips.com','Tim Bradshaw')
+            ->cc('chris@ltdsailing.com')
             ->subject('Reactivate Paused Responses?');
         });
     }

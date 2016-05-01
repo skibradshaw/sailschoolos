@@ -32,7 +32,52 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-lg-8">
+	<div class="col-md-4 col-md-push-8">
+					<div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-clock-o fa-fw"></i> Scheduled Responses
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                        	@forelse($response_templates as $t)
+                        		
+
+                        		@if(array_key_exists($t->id,$template_group_status))
+                        		<h5>{{$t->name}} Responses <span class="label label-warning">PAUSED</span></h5>
+                        		<ul class="fa-ul text-muted">
+                        		@else
+                        		<h5>{{$t->name}} Responses</h5>
+                        		<ul class="fa-ul">
+                        		@endif
+	                        	
+                        	
+	                        	@forelse($schedules->filter(function($schedules) use ($t){if($schedules->template->id == $t->id) return true;}) as $s)
+	                        		@if(!is_null($s->sent_date))
+	                        		<del><li><small><i class="fa fa-check fa-li"></i> {{ $s->scheduled_date->format('n/d/y') }} - {{ $s->detail->template }}</small></li></del>
+	                        		@else
+	                        		<li><small><i class="fa fa-calendar fa-li"></i> {{ $s->scheduled_date->format('n/d/y') }} - {{ $s->detail->template }}</small></li>
+	                        		@endif                        		
+	                        	@empty
+	                        		<li>None</li>
+	                        	@endforelse
+	                        	</ul>
+								<ul class="list-inline">
+									@if(array_key_exists($t->id,$template_group_status))
+									<li><a href="{{ route('admin.response_schedules.update',['template' => $t->id,'contact' => $contact->id]) }}?status=active" class="label label-success">Restart These</a></li>
+									@else
+		                        	<li><a href="{{ route('admin.response_schedules.update',['template' => $t->id,'contact' => $contact->id]) }}?status=paused" class="label label-warning">Pause These</a></li>
+		                        	@endif
+		                        	<li><a href="{{ route('admin.response_schedules.deleteall',['template' => $t->id,'contact' => $contact->id])}}" class="label label-danger del" >Delete All</a></li>
+		                        </ul>	
+		                        <hr>
+	                        @empty
+	                        	<h5>No Responses Scheduled</h5>
+	                        @endforelse
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>			
+	</div>
+	<div class="col-md-8 col-md-pull-4">
 	    <div class="panel panel-default">
 	        <div class="panel-heading">
 	            <i class="fa fa-clock-o fa-fw"></i> Communication History <a href="{{ route('contacts.notes.create',[$contact])}} " class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#myModal">Add Note</a>
@@ -149,52 +194,7 @@
 	        </div>
 	        <!-- /.panel-body -->
 	    </div>	
-	</div>
-	<div class="col-sm-4">
-					<div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-clock-o fa-fw"></i> Scheduled Responses
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                        	@forelse($response_templates as $t)
-                        		
-
-                        		@if(array_key_exists($t->id,$template_group_status))
-                        		<h5>{{$t->name}} Responses <span class="label label-warning">PAUSED</span></h5>
-                        		<ul class="fa-ul text-muted">
-                        		@else
-                        		<h5>{{$t->name}} Responses</h5>
-                        		<ul class="fa-ul">
-                        		@endif
-	                        	
-                        	
-	                        	@forelse($schedules->filter(function($schedules) use ($t){if($schedules->template->id == $t->id) return true;}) as $s)
-	                        		@if(!is_null($s->sent_date))
-	                        		<del><li><small><i class="fa fa-check fa-li"></i> {{ $s->scheduled_date->format('n/d/y') }} - {{ $s->detail->template }}</small></li></del>
-	                        		@else
-	                        		<li><small><i class="fa fa-calendar fa-li"></i> {{ $s->scheduled_date->format('n/d/y') }} - {{ $s->detail->template }}</small></li>
-	                        		@endif                        		
-	                        	@empty
-	                        		<li>None</li>
-	                        	@endforelse
-	                        	</ul>
-								<ul class="list-inline">
-									@if(array_key_exists($t->id,$template_group_status))
-									<li><a href="{{ route('admin.response_schedules.update',['template' => $t->id,'contact' => $contact->id]) }}?status=active" class="label label-success">Restart These</a></li>
-									@else
-		                        	<li><a href="{{ route('admin.response_schedules.update',['template' => $t->id,'contact' => $contact->id]) }}?status=paused" class="label label-warning">Pause These</a></li>
-		                        	@endif
-		                        	<li><a href="{{ route('admin.response_schedules.deleteall',['template' => $t->id,'contact' => $contact->id])}}" class="label label-danger del" >Delete All</a></li>
-		                        </ul>	
-		                        <hr>
-	                        @empty
-	                        	<h5>No Responses Scheduled</h5>
-	                        @endforelse
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>			
-	</div>
+	</div>	
 </div>
 
 
