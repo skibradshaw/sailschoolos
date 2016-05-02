@@ -44,6 +44,7 @@ class NotifyResponsePauserCommand extends Command
         $schedules = ResponseSchedule::with('detail')->where('status','paused')->where('updated_at','<',Carbon::now()->subDays(3))->whereHas('contact.notes',function($q){
             $q->where('note_date','>',Carbon::parse('3 days ago'));
         },'<',1)->get();
+        return $schedules;
         $schedules = $schedules->groupBy('detail.response_template_id');
         $i = 0;
         foreach($schedules as $k => $s)
