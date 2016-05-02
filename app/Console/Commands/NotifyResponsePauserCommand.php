@@ -53,7 +53,7 @@ class NotifyResponsePauserCommand extends Command
                 if($k != $i)
                 {
                    $this->scheduler->notifyPauser($n);
-                   $this->info(dd($n));
+                   $this->info($n);
                    $i = $k; 
                 }                
             }
