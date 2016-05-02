@@ -53,7 +53,7 @@
                         	
 	                        	@forelse($schedules->filter(function($schedules) use ($t){if($schedules->template->id == $t->id) return true;}) as $s)
 	                        		@if(!is_null($s->sent_date))
-	                        		<del><li><small><i class="fa fa-check fa-li"></i> {{ $s->scheduled_date->format('n/d/y') }} - {{ $s->detail->template }}</small></li></del>
+	                        		<del><li><small><i class="fa fa-check fa-li" style="position:relative;"></i> {{ $s->scheduled_date->format('n/d/y') }} - {{ $s->detail->template }}</small></li></del>
 	                        		@else
 	                        		<li><small><i class="fa fa-calendar fa-li"></i> {{ $s->scheduled_date->format('n/d/y') }} - {{ $s->detail->template }}</small></li>
 	                        		@endif                        		
