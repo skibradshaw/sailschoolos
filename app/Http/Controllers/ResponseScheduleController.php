@@ -104,7 +104,7 @@ class ResponseScheduleController extends Controller
             $m->to('chris@ltdsailing.com', 'Chris Rundlett')
             ->cc('tim@alltrips.com', 'Tim Bradshaw')
             ->from('info@ltdsailing.com', 'LTD Sailing')
-            ->subject('Thank You from LTD Sailsing');
+            ->subject('Thank You from LTD Sailing');
         });
         //Mark the Scheduled Response as SENT
         $schedule->sent_date = Carbon::now();
