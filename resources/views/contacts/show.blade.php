@@ -37,10 +37,26 @@
                         </p>
                     </div>
                     <div class="tab-pane fade" id="student">
+                        <div class="col-sm-4 pull-right">
+	                        <div class="form-group">
+	                        	<div class="col-sm-12">
+	                                {!! Form::select('student_status', ['Inquiry' => 'Inquiry','Registered' => 'Registered', 'Alumni' => 'Alumni','Inactive' => 'Inactive/Unresponsive'], null, ['class' => 'form-control', 'placeholder' => 'Set Status...']) !!}                    		
+	                        	</div> 
+	                        </div> 
+                        </div>
                         <h4>Student</h4>
+
+	
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     <div class="tab-pane fade" id="charter">
+                        <div class="col-sm-4 pull-right">
+	                        <div class="form-group">
+	                        	<div class="col-sm-12">
+	                                {!! Form::select('charter_status', ['Inquiry' => 'Inquiry','Booked' => 'Booked', 'Alumni' => 'Alumni','Inactive' => 'Inactive/Unresponsive'], null, ['class' => 'form-control', 'placeholder' => 'Set Status...']) !!}                    		
+	                        	</div> 
+	                        </div> 
+                        </div>
                         <h4>Charter</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -51,10 +67,24 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     <div class="tab-pane fade" id="buyer">
+                        <div class="col-sm-4 pull-right">
+	                        <div class="form-group">
+	                        	<div class="col-sm-12">
+	                                {!! Form::select('charter_status', ['PSA Signed' => 'PSA Signed','PSA Accepted' => 'PSA Accepted', 'Acceptance Signed' => 'Acceptance Signed','Purchased' => 'Purchased','Inactive' => 'Inactive'], null, ['class' => 'form-control', 'placeholder' => 'Set Status...']) !!}                    		
+	                        	</div> 
+	                        </div> 
+                        </div>
                         <h4>Buyer</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     <div class="tab-pane fade" id="seller">
+                        <div class="col-sm-4 pull-right">
+	                        <div class="form-group">
+	                        	<div class="col-sm-12">
+	                                {!! Form::select('charter_status', ['Inquiry' => 'Inquiry','Listed Central' => 'Listed Central', 'Listed Open' => 'Listed Open','PSA Signed' => 'PSA Signed','PSA Accepted' => 'PSA Accepted', 'Acceptance Signed' => 'Acceptance Signed','Sold' => 'Sold','Inactive' => 'Inactive'], null, ['class' => 'form-control', 'placeholder' => 'Set Status...']) !!}                    		
+	                        	</div> 
+	                        </div> 
+                        </div>
                         <h4>Seller</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>

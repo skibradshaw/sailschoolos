@@ -42,11 +42,10 @@
     7 => 'Illuminate\\Session\\SessionServiceProvider',
     8 => 'Illuminate\\View\\ViewServiceProvider',
     9 => 'DougSisk\\CountryState\\CountryStateServiceProvider',
-    10 => 'Mews\\Purifier\\PurifierServiceProvider',
-    11 => 'App\\Providers\\AppServiceProvider',
-    12 => 'App\\Providers\\AuthServiceProvider',
-    13 => 'App\\Providers\\EventServiceProvider',
-    14 => 'App\\Providers\\RouteServiceProvider',
+    10 => 'App\\Providers\\AppServiceProvider',
+    11 => 'App\\Providers\\AuthServiceProvider',
+    12 => 'App\\Providers\\EventServiceProvider',
+    13 => 'App\\Providers\\RouteServiceProvider',
   ),
   'deferred' => 
   array (
@@ -137,6 +136,7 @@
     'form' => 'Collective\\Html\\HtmlServiceProvider',
     'Collective\\Html\\HtmlBuilder' => 'Collective\\Html\\HtmlServiceProvider',
     'Collective\\Html\\FormBuilder' => 'Collective\\Html\\HtmlServiceProvider',
+    'purifier' => 'Mews\\Purifier\\PurifierServiceProvider',
   ),
   'when' => 
   array (
@@ -177,6 +177,9 @@
     array (
     ),
     'Collective\\Html\\HtmlServiceProvider' => 
+    array (
+    ),
+    'Mews\\Purifier\\PurifierServiceProvider' => 
     array (
     ),
   ),
