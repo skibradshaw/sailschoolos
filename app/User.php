@@ -65,7 +65,7 @@ class User extends Model implements
 
     public function getTypesListAttribute()
     {
-        return $this->types->lists('id')->toArray();
+        return $this->types->pluck('id')->toArray();
     }
 
     public function types()

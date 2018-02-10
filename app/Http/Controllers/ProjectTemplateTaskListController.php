@@ -41,7 +41,7 @@ class ProjectTemplateTaskListController extends Controller
     public function store(ProjectTemplate $template, Request $request)
     {
         //
-        $list = $template->lists()->create(['name' => $request->input('name')]);
+        $list = $template->pluck()->create(['name' => $request->input('name')]);
         // return redirect()->route('admin.project_templates.index')->with('collapse',$template->id);
         return redirect()->route('admin.project_templates.index');
     }

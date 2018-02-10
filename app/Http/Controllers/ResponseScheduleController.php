@@ -146,7 +146,7 @@ class ResponseScheduleController extends Controller
 
     public function deleteAll(ResponseTemplate $template, Contact $contact)
     {
-        $schedules = $this->getSchedulesbyTemplate($template, $contact)->lists('id');
+        $schedules = $this->getSchedulesbyTemplate($template, $contact)->pluck('id');
         // return explode(",",$schedules);
         ResponseSchedule::destroy($schedules->toArray());
         return redirect()->back();
@@ -155,7 +155,7 @@ class ResponseScheduleController extends Controller
     public function changeStatus(ResponseTemplate $template, Contact $contact, Request $request)
     {
         $schedules = $this->getSchedulesbyTemplate($template, $contact);
-        $new_schedules = ResponseSchedule::whereIn('id', $schedules->lists('id'))->update(['status' => $request->input('status'),'status_change_user_id' => \Auth::user()->id]);
+        $new_schedules = ResponseSchedule::whereIn('id', $schedules->pluck('id'))->update(['status' => $request->input('status'),'status_change_user_id' => \Auth::user()->id]);
         return redirect()->back();
     }
     public function getSchedulesbyTemplate(ResponseTemplate $template, Contact $contact)
