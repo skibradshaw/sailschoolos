@@ -70,7 +70,7 @@
                         <div class="col-sm-4 pull-right">
 	                        <div class="form-group">
 	                        	<div class="col-sm-12">
-	                                {!! Form::select('charter_status', ['PSA Signed' => 'PSA Signed','PSA Accepted' => 'PSA Accepted', 'Acceptance Signed' => 'Acceptance Signed','Purchased' => 'Purchased','Inactive' => 'Inactive'], null, ['class' => 'form-control', 'placeholder' => 'Set Status...']) !!}                    		
+	                                {!! Form::select('charter_status', ['Prospect' => 'Prospect','PSA Signed' => 'PSA Signed','PSA Accepted' => 'PSA Accepted', 'Acceptance Signed' => 'Acceptance Signed','Purchased' => 'Purchased','Inactive' => 'Inactive'], null, ['class' => 'form-control', 'placeholder' => 'Set Status...']) !!}                    		
 	                        	</div> 
 	                        </div> 
                         </div>
