@@ -41,24 +41,20 @@ class NotifyResponsePauserCommand extends Command
      */
     public function handle()
     {
-        $schedules = ResponseSchedule::with('detail')->where('status','paused')->where('updated_at','<',Carbon::now()->subDays(3))->whereHas('contact.notes',function($q){
-            $q->where('note_date','>',Carbon::parse('3 days ago'));
-        },'<',1)->get();
+        $schedules = ResponseSchedule::with('detail')->where('status', 'paused')->where('updated_at', '<', Carbon::now()->subDays(3))->whereHas('contact.notes', function ($q) {
+            $q->where('note_date', '>', Carbon::parse('3 days ago'));
+        }, '<', 1)->get();
         $this->info($schedules);
         $schedules = $schedules->groupBy('detail.response_template_id');
         $i = 0;
-        foreach($schedules as $k => $s)
-        {
-            foreach($s as $n)
-            {
-                if($k != $i)
-                {
-                   $this->scheduler->notifyPauser($n);
-                   $this->info($n);
-                   $i = $k; 
-                }                
+        foreach ($schedules as $k => $s) {
+            foreach ($s as $n) {
+                if ($k != $i) {
+                    $this->scheduler->notifyPauser($n);
+                    $this->info($n);
+                    $i = $k;
+                }
             }
-       
         }
     }
 }

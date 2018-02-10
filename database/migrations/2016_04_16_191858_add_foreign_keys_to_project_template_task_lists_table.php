@@ -14,7 +14,7 @@ class AddForeignKeysToProjectTemplateTaskListsTable extends Migration
     {
         Schema::table('project_template_task_lists', function (Blueprint $table) {
             //
-            $table->foreign('project_template_id','FK1_project_template_project_template_task_list')->references('id')->on('project_templates')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign('project_template_id', 'FK1_project_template_project_template_task_list')->references('id')->on('project_templates')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 

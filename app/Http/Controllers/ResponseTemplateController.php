@@ -61,11 +61,8 @@ class ResponseTemplateController extends Controller
             $templatedetail->template = $inputTemplate[$key];
             $templatedetail->subject = $inputSubject[$key];
             $template->details()->save($templatedetail);
-            
         }
         return redirect()->route('admin.response_templates.index');
-
-        
     }
 
     /**
@@ -122,7 +119,6 @@ class ResponseTemplateController extends Controller
             $templatedetail->template = $inputTemplate[$key];
             $templatedetail->subject = $inputSubject[$key];
             $template->details()->save($templatedetail);
-            
         }
         return redirect()->route('admin.response_templates.index');
     }

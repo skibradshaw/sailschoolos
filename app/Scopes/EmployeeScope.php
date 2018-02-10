@@ -12,7 +12,6 @@ class EmployeeScope implements ScopeInterface
         $builder->whereHas('types', function ($q) {
             $q->where('name', '=', 'Employee');
         });
-        
     }
 
     public function remove(Builder $builder, Model $model)

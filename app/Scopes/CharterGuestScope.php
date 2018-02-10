@@ -12,7 +12,6 @@ class CharterGuestScope implements ScopeInterface
         $builder->whereHas('types', function ($q) {
             $q->where('name', '=', 'Charter Guest');
         });
-        
     }
 
     public function remove(Builder $builder, Model $model)

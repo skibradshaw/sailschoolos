@@ -120,13 +120,12 @@ class ResponseScheduleController extends Controller
             ->get();
 
             // return $schedules;
-            foreach ($schedules as $s) {
+        foreach ($schedules as $s) {
             //Reschedule each note for the number of days set in the Response Template
-                $s->scheduled_date = $note->note_date->addDays($s->detail->number_of_days);
-                $s->most_recent_note_id = $note->id;
-                $s->save();
-                
-            }
+            $s->scheduled_date = $note->note_date->addDays($s->detail->number_of_days);
+            $s->most_recent_note_id = $note->id;
+            $s->save();
+        }
             return $schedules;
     }
 
@@ -181,10 +180,10 @@ class ResponseScheduleController extends Controller
     public function notifyPauser(ResponseSchedule $schedule)
     {
         $pauser = User::find($schedule->status_change_user_id);
-        \Mail::send(['text' => 'emails.notify_pauser'],['schedule' => $schedule,'pauser' => $pauser],function($m) use ($schedule,$pauser) {
-            $m->to($pauser->email,$pauser->fullname)
-            ->from('no-reply@ltdsailing.com','LTD Operating System')
-            ->cc('tim@alltrips.com','Tim Bradshaw')
+        \Mail::send(['text' => 'emails.notify_pauser'], ['schedule' => $schedule,'pauser' => $pauser], function ($m) use ($schedule, $pauser) {
+            $m->to($pauser->email, $pauser->fullname)
+            ->from('no-reply@ltdsailing.com', 'LTD Operating System')
+            ->cc('tim@alltrips.com', 'Tim Bradshaw')
             ->cc('chris@ltdsailing.com')
             ->subject('Reactivate Paused Responses?');
         });

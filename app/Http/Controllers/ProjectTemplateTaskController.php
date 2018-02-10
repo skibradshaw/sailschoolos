@@ -81,7 +81,7 @@ class ProjectTemplateTaskController extends Controller
     public function update(ProjectTemplate $template, $taskListId, $taskId, Request $request)
     {
         $task = ProjectTemplateTask::find($taskId);
-        if($task){
+        if ($task) {
             $task->update(['name' => $request->input('name')]);
         }
         

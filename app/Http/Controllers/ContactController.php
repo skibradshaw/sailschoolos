@@ -156,7 +156,6 @@ class ContactController extends Controller
         $contact->update($request->all());
         $contact->types()->sync($request->input('types_list'));
         return redirect()->route('contacts.show', ['id' => $contact->id]);
-        
     }
 
     /**

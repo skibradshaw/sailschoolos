@@ -11,6 +11,6 @@ class ProjectTemplate extends Model
 
     public function lists()
     {
-    	return $this->hasMany('App\ProjectTemplateTaskList','project_template_id');
+        return $this->hasMany('App\ProjectTemplateTaskList', 'project_template_id');
     }
 }
