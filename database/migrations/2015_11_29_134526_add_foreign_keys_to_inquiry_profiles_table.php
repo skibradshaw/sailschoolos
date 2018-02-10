@@ -3,33 +3,31 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddForeignKeysToInquiryProfilesTable extends Migration {
+class AddForeignKeysToInquiryProfilesTable extends Migration
+{
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		Schema::table('inquiry_profiles', function(Blueprint $table)
-		{
-			$table->foreign('user_id', 'FK1_inquiries')->references('id')->on('users')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-		});
-	}
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('inquiry_profiles', function (Blueprint $table) {
+            $table->foreign('user_id', 'FK1_inquiries')->references('id')->on('users')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+        });
+    }
 
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::table('inquiry_profiles', function(Blueprint $table)
-		{
-			$table->dropForeign('FK1_inquiries');
-		});
-	}
-
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('inquiry_profiles', function (Blueprint $table) {
+            $table->dropForeign('FK1_inquiries');
+        });
+    }
 }

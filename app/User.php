@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -15,6 +16,7 @@ class User extends Model implements
     AuthorizableContract,
     CanResetPasswordContract
 {
+    use Notifiable;
     use Authenticatable, Authorizable, CanResetPassword;
 
     /**
@@ -63,7 +65,7 @@ class User extends Model implements
 
     public function getTypesListAttribute()
     {
-        return $this->types->lists('id')->toArray();
+        return $this->types->pluck('id')->toArray();
     }
 
     public function types()

@@ -15,7 +15,7 @@ class AddStatusChangeUserIdToResponseSchedulesTable extends Migration
         Schema::table('response_schedules', function (Blueprint $table) {
             //
             $table->integer('status_change_user_id')->unsigned()->nullable();
-            $table->foreign('status_change_user_id','FK1_status_change_user_id')->references('id')->on('users')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign('status_change_user_id', 'FK1_status_change_user_id')->references('id')->on('users')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 

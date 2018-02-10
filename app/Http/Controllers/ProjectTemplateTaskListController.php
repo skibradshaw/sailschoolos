@@ -29,7 +29,7 @@ class ProjectTemplateTaskListController extends Controller
     public function create(ProjectTemplate $template)
     {
         //
-        return view('admin.project_templates.edit_task_list',['template' => $template]);
+        return view('admin.project_templates.edit_task_list', ['template' => $template]);
     }
 
     /**
@@ -41,10 +41,9 @@ class ProjectTemplateTaskListController extends Controller
     public function store(ProjectTemplate $template, Request $request)
     {
         //
-        $list = $template->lists()->create(['name' => $request->input('name')]);
+        $list = $template->pluck()->create(['name' => $request->input('name')]);
         // return redirect()->route('admin.project_templates.index')->with('collapse',$template->id);
         return redirect()->route('admin.project_templates.index');
-        
     }
 
     /**
@@ -91,7 +90,7 @@ class ProjectTemplateTaskListController extends Controller
     {
         //
         ProjectTemplateTaskList::destroy($id);
-        return redirect()->back()->with('status','Task List Deleted!');
+        return redirect()->back()->with('status', 'Task List Deleted!');
     }
 
     public function reorder(ProjectTemplate $template, $id, Request $request)
@@ -99,8 +98,7 @@ class ProjectTemplateTaskListController extends Controller
         $taskList = ProjectTemplateTaskList::find($id);
         $i = 1;
         $return = '';
-        foreach($request->input('item') as $task)
-        {
+        foreach ($request->input('item') as $task) {
             $return .= $task . " in Position ". $i . "; ";
             $task = ProjectTemplateTask::find($task);
             $task->position = $i;

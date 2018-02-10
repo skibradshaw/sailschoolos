@@ -33,4 +33,13 @@ class Kernel extends ConsoleKernel
         $schedule->command('ltd:notifynotetaker')->dailyAt('05:00');
         $schedule->command('ltd:notifypaused')->dailyAt('05:00');
     }
+    /**
+     * Register the Closure based commands for the application.
+     *
+     * @return void
+     */
+    protected function commands()
+    {
+        require base_path('routes/console.php');
+    }
 }

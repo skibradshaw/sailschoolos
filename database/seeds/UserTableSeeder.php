@@ -2,6 +2,7 @@
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use App\User;
+
 class UserTableSeeder extends Seeder
 {
     /**
@@ -13,11 +14,11 @@ class UserTableSeeder extends Seeder
     {
         //
         User::create([
-        	'firstname' => 'Tim',
-        	'lastname' => 'Bradshaw',
-        	'email' => 'tim@alltrips.com',
-        	'password' => Hash::make('jackass'),
-        	'phone' => '3076904269'
+            'firstname' => 'Tim',
+            'lastname' => 'Bradshaw',
+            'email' => 'tim@alltrips.com',
+            'password' => Hash::make('jackass'),
+            'phone' => '3076904269'
         ])->types()->sync([3,1]);
 
         User::create([
@@ -37,8 +38,7 @@ class UserTableSeeder extends Seeder
         ])->types()->sync([3]);
         $faker = Faker::create();
 
-        foreach(range(1,100) as $index)
-        {
+        foreach (range(1, 100) as $index) {
             User::create([
                 'firstname' => $faker->firstname,
                 'lastname' => $faker->lastname,
@@ -46,9 +46,8 @@ class UserTableSeeder extends Seeder
                 'phone' => $faker->phoneNumber,
                 'city' => $faker->city,
                 'state' => $faker->stateAbbr,
-                'country' => array_search($faker->country, \CountryState::getCountries())     
-            ])->types()->sync([1,rand(2,6)]);
+                'country' => array_search($faker->country, \CountryState::getCountries())
+            ])->types()->sync([1,rand(2, 6)]);
         }
     }
-
 }

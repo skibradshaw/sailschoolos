@@ -33,7 +33,7 @@ class ResponseTemplateController extends Controller
     public function create()
     {
         //
-        $usertypes = UserType::all()->lists('name', 'id');
+        $usertypes = UserType::all()->pluck('name', 'id');
         $triggers = [1 => 'Prospect Inquiry', 2 => 'Class Registration'];
         return view('admin.edit_response_template', [
             'title' => 'Create Response Templates',
@@ -61,11 +61,8 @@ class ResponseTemplateController extends Controller
             $templatedetail->template = $inputTemplate[$key];
             $templatedetail->subject = $inputSubject[$key];
             $template->details()->save($templatedetail);
-            
         }
         return redirect()->route('admin.response_templates.index');
-
-        
     }
 
     /**
@@ -89,7 +86,7 @@ class ResponseTemplateController extends Controller
     {
         //
         $template = ResponseTemplate::find($id);
-        $usertypes = UserType::all()->lists('name', 'id');
+        $usertypes = UserType::all()->pluck('name', 'id');
         $triggers = [1 => 'Prospect Inquiry', 2 => 'Class Registration'];
         return view('admin.edit_response_template', [
             'title' => 'Create Response Templates',
@@ -122,7 +119,6 @@ class ResponseTemplateController extends Controller
             $templatedetail->template = $inputTemplate[$key];
             $templatedetail->subject = $inputSubject[$key];
             $template->details()->save($templatedetail);
-            
         }
         return redirect()->route('admin.response_templates.index');
     }

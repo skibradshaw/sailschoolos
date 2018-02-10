@@ -12,7 +12,6 @@ class BuyerScope implements ScopeInterface
         $builder->whereHas('types', function ($q) {
             $q->where('name', '=', 'Buyer');
         });
-        
     }
 
     public function remove(Builder $builder, Model $model)

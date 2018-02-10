@@ -28,6 +28,5 @@ class AppServiceProvider extends ServiceProvider
             $this->app->register('Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider');
             $this->app->register('Way\Generators\GeneratorsServiceProvider');
         }
-               
     }
 }

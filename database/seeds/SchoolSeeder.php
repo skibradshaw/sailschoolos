@@ -14,8 +14,8 @@ class SchoolSeeder extends Seeder
     {
         //
         School::create([
-        	'name' => 'LTD Sailing',
-        	'logo' => 'images/logo.png'
-        	]);
+            'name' => 'LTD Sailing',
+            'logo' => 'images/logo.png'
+            ]);
     }
 }

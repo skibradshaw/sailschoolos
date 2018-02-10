@@ -49,8 +49,5 @@ class NotifyNoteTakerCommand extends Command
             $this->info($s->scheduled_date . " - " . Carbon::now());
         }
         $this->info($tosend->count('id'));
-
-        
-        
     }
 }

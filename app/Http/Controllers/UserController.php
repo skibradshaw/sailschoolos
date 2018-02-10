@@ -34,7 +34,7 @@ class UserController extends Controller
     public function create()
     {
         //
-        $types = UserType::lists('name', 'id');
+        $types = UserType::pluck('name', 'id');
         return view('contacts.create', ['types' => $types]);
     }
 
@@ -92,7 +92,7 @@ class UserController extends Controller
         $countries = \CountryState::getCountries();
         $states = \CountryState::getStates('US');
         $contact = User::find($id);
-        $types = UserType::lists('name', 'id');
+        $types = UserType::pluck('name', 'id');
         (empty($contact->country)) ? $contact->country = 'US' : $contact->country;
         return view('contacts.edit', ['
             title' => 'Edit Contact: ' . $contact->fullname,
@@ -118,7 +118,6 @@ class UserController extends Controller
         $contact->update($request->all());
         $contact->types()->sync($request->input('types_list'));
         return redirect()->route('contacts.show', ['id' => $contact->id]);
-        
     }
 
     /**

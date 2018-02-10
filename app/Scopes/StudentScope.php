@@ -12,7 +12,6 @@ class StudentScope implements ScopeInterface
         $builder->whereHas('types', function ($q) {
             $q->where('name', '=', 'Student');
         });
-        
     }
 
     public function remove(Builder $builder, Model $model)

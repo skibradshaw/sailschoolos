@@ -11,7 +11,6 @@ class ResponseScheduleScope implements ScopeInterface
     {
       //Excludes all Web Inquiry Scheduled Responses
         $builder->where('response_template_detail_id', '!=', 0);
-        
     }
 
     public function remove(Builder $builder, Model $model)

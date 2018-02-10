@@ -14,7 +14,7 @@ class AddForeignKeyToResponseTemplatesTable extends Migration
     {
         Schema::table('response_templates', function (Blueprint $table) {
             //
-            $table->foreign('user_type_id','fk_user_type_id')->references('id')->on('user_types')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign('user_type_id', 'fk_user_type_id')->references('id')->on('user_types')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 

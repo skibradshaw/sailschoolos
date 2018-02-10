@@ -12,7 +12,6 @@ class ContactScope implements ScopeInterface
         $builder->whereHas('types', function ($q) {
             $q->where('name', '=', 'Contact');
         });
-        
     }
 
     public function remove(Builder $builder, Model $model)

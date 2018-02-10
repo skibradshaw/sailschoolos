@@ -131,7 +131,6 @@ class InquiryController extends Controller
         \Event::fire(new ScheduleResponse($inquiry));
         //Mail::raw('Test Booking',function($message){$message->to('tim@alltrips.com'); $message->from('info@ltdsailing.com');});
         return $request->all();
-
     }
     public function scheduleInitialResponse(User $user)
     {
