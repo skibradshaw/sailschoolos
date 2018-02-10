@@ -1,10 +1,10 @@
 <?php namespace App\Scopes;
 
-use Illuminate\Database\Eloquent\ScopeInterface;
+use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
-class EmployeeScope implements ScopeInterface
+class EmployeeScope implements Scope
 {
 
     public function apply(Builder $builder, Model $model)
@@ -14,7 +14,4 @@ class EmployeeScope implements ScopeInterface
         });
     }
 
-    public function remove(Builder $builder, Model $model)
-    {
-    }
 }

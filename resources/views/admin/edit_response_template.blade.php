@@ -4,9 +4,9 @@
 @stop
 @section('content')
 @if(isset($template))
-	{!! Form::model($template,['route' => ['admin.response_templates.update','id' => $template->id],'role' => 'form','method' => 'PUT']) !!}
+	{!! Form::model($template,['route' => ['response_templates.update','id' => $template->id],'role' => 'form','method' => 'PUT']) !!}
 @else
-	{!! Form::open(['route' => 'admin.response_templates.store','role' => 'form']) !!}
+	{!! Form::open(['route' => 'response_templates.store','role' => 'form']) !!}
 @endif
 	<div class="row">
 		<div class="col-sm-5">

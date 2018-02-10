@@ -67,8 +67,8 @@
                         <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-admin">
-                        <li><a href="{{ route('admin.project_templates.index') }}"><i class="fa fa-check fa-fw"></i>Task Lists</a></li>
-                        <li><a href="{{ route('admin.response_templates.index')}} "><i class="fa fa-files-o fa-fw"></i> Response Templates</a></li>
+                        <li><a href="{{ route('project_templates.index') }}"><i class="fa fa-check fa-fw"></i>Task Lists</a></li>
+                        <li><a href="{{ route('response_templates.index')}} "><i class="fa fa-files-o fa-fw"></i> Response Templates</a></li>
                         <li><a href="{{ route('admin.respsone_schedules')}} "><i class="fa fa-calendar fa-fw"></i> Scheduled Respones</a></li>
                     </ul>
                     <!-- /.dropdown-admim -->
@@ -144,7 +144,11 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sign Out</a>
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                              {{ csrf_field() }}
+                          </form>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

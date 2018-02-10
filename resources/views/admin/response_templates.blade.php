@@ -3,7 +3,7 @@
 <h1 class="page-header">{{ $title or 'Sail School OS' }}</h1>
 @stop
 @section('content')
-<a href="{{ route('admin.response_templates.create')}}" class="btn btn-outline btn-primary">Create a Response Template</a>
+<a href="{{ route('response_templates.create')}}" class="btn btn-outline btn-primary">Create a Response Template</a>
 
 @if($templates)
 <div class="table-responsive">
@@ -19,7 +19,7 @@
         <tbody>
  		@foreach($templates as $template)
             <tr>
-                <td><a href="{{ route('admin.response_templates.edit',[$template->id]) }}">{{ $template->name }}</td>
+                <td><a href="{{ route('response_templates.edit',[$template->id]) }}">{{ $template->name }}</td>
                 <td>{{ $template->type->name }}</td>
                 <td>{{ $template->trigger_event }}</td>
                 <td>{{ $template->details()->count('id') }}</td>

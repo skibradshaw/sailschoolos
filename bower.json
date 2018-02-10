@@ -19,5 +19,8 @@
     "public/js/vendor/",
     "test",
     "tests"
-  ]
+  ],
+  "resolutions": {
+    "startbootstrap-sb-admin-2": "~1.0.7"
+  }
 }

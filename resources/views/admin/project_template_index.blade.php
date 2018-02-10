@@ -3,7 +3,7 @@
 <h1 class="page-header">{{ $title or 'Sail School OS' }}</h1>
 @stop
 @section('content')
-<a href="{{ route('admin.project_templates.create') }}" class="btn btn-outline btn-primary">Create a New Category</a> 
+<a href="{{ route('project_templates.create') }}" class="btn btn-outline btn-primary">Create a New Category</a> 
 <hr>
 
 
@@ -16,11 +16,11 @@
                 <div class="row">
                     <div class="col-xs-9 col-lg-9">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#{{$template->id}}" aria-expanded="{{(session()->has('collapse')) ? 'true' : 'false'}}" class="{{(session()->has('collapse') && session('collapse') == $template->id) ? null : 'collapsed'}}">{{ $template->name }}</a> <small><span class="text-muted">({{$template->lists()->count('id')}} Lists)</span></small>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#{{$template->id}}" aria-expanded="{{(session()->has('collapse')) ? 'true' : 'false'}}" class="{{(session()->has('collapse') && session('collapse') == $template->id) ? null : 'collapsed'}}">{{ $template->name }}</a> <small><span class="text-muted">({{$template->tasklists()->count('id')}} Lists)</span></small>
                         </h4>        
                     </div>
                     <div class="col-xs-3 col-lg-3 text-right">
-                        <a href="{{ route('admin.project_templates.task_lists.create',['id' => $template->id])}}" data-toggle="modal" data-target="#myModal" class="btn btn-outline btn-primary btn-xs">Create a New List</a> 
+                        <a href="{{ route('project_templates.task_lists.create',['id' => $template->id])}}" data-toggle="modal" data-target="#myModal" class="btn btn-outline btn-primary btn-xs">Create a New List</a> 
                     </div>
                 </div>
                 
@@ -28,7 +28,7 @@
             <div id="{{$template->id}}" class="panel-collapse collapse{{(session()->has('collapse')) ? ' in' : null}} " aria-expanded="{{(session()->has('collapse')) ? 'true' : 'false'}}" style="height: 0px;">
                 <div class="panel-body">
                     <div class="row"> 
-                        @foreach($template->lists as $k => $list)
+                        @foreach($template->tasklists as $k => $list)
                         <div class="col-lg-4 col-md-4">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">

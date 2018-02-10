@@ -1,0 +1,959 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"you",
+				"youtube_channel_id"
+			],
+			[
+				"Admin",
+				"AdminController"
+			],
+			[
+				"remo",
+				"remote_id"
+			],
+			[
+				"rem",
+				"remote_id"
+			],
+			[
+				"text",
+				"text-center"
+			],
+			[
+				"brand",
+				"brand_id"
+			],
+			[
+				"conf",
+				"confirmedEvents"
+			],
+			[
+				"vide",
+				"videoList"
+			],
+			[
+				"vid",
+				"videoList"
+			],
+			[
+				"vi",
+				"videoList"
+			],
+			[
+				"char",
+				"chartData"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "routes/web.php",
+			"settings":
+			{
+				"buffer_size": 4979,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/inc/top.blade.php",
+			"settings":
+			{
+				"buffer_size": 7862,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/mail.php",
+			"settings":
+			{
+				"buffer_size": 4050,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "composer.json",
+			"settings":
+			{
+				"buffer_size": 1734,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Employee.php",
+			"settings":
+			{
+				"buffer_size": 254,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Scopes/EmployeeScope.php",
+			"settings":
+			{
+				"buffer_size": 377,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Scopes/CharterGuestScope.php",
+			"settings":
+			{
+				"buffer_size": 457,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Scopes/ContactScope.php",
+			"settings":
+			{
+				"buffer_size": 446,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Scopes/ResponseScheduleScope.php",
+			"settings":
+			{
+				"buffer_size": 462,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Scopes/SellerScope.php",
+			"settings":
+			{
+				"buffer_size": 444,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Scopes/StudentScope.php",
+			"settings":
+			{
+				"buffer_size": 446,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Scopes/BuyerScope.php",
+			"settings":
+			{
+				"buffer_size": 442,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".env",
+			"settings":
+			{
+				"buffer_size": 530,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"phpun",
+				"Sublime PHPUnit: Run This File"
+			],
+			[
+				"packag in",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 576.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/timbradshaw/Documents/Sites/sailschoolos",
+		"/Users/timbradshaw/Documents/Sites/sailschoolos/app",
+		"/Users/timbradshaw/Documents/Sites/sailschoolos/app/Http",
+		"/Users/timbradshaw/Documents/Sites/sailschoolos/app/Http/Controllers",
+		"/Users/timbradshaw/Documents/Sites/sailschoolos/app/Providers",
+		"/Users/timbradshaw/Documents/Sites/sailschoolos/app/Scopes",
+		"/Users/timbradshaw/Documents/Sites/sailschoolos/resources",
+		"/Users/timbradshaw/Documents/Sites/sailschoolos/resources/views",
+		"/Users/timbradshaw/Documents/Sites/sailschoolos/resources/views/inc",
+		"/Users/timbradshaw/Documents/Sites/sailschoolos/routes"
+	],
+	"file_history":
+	[
+		"/Users/timbradshaw/Documents/Sites/sailschoolos/config/database.php",
+		"/Users/timbradshaw/Documents/Sites/sailschoolos/app/Providers/RouteServiceProvider.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/Publisher.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/Http/Controllers/EventController.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/Http/Controllers/AdminController.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/resources/views/contracts/show_cpa.blade.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/resources/views/publishers/show.blade.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/Http/Controllers/PublisherController.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/resources/views/publishers/index.blade.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/resources/views/reports/sales_revenue.blade.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/Http/Controllers/ReportController.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/Http/Controllers/DashboardController.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/resources/views/admin/activity.blade.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/Console/Commands/ImportEventsCommand.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/Brand.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/Repositories/YouTubeRepository.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/storage/framework/views/970eeb3aa1f4830a046990f3f54fcd07d21765eb.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/database/migrations/2018_02_09_183232_drop_publisher_id_from_events.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/resources/views/admin/unmatched_events.blade.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/Event.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/Console/Commands/TransformTimecodedUrlsCommand.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/Console/Commands/InitialYoutubeImportCommand.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/resources/views/events/partials/youtube_modal.blade.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/database/migrations/2018_02_09_173258_drop_column_youtubechannelid_from_publishers.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/Console/Kernel.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/storage/framework/views/e13bb222f34987aa9d61d4465000efe34fb09a35.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/resources/views/brands/show.blade.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/resources/views/publishers/events.blade.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/InsertionOrder.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/database/migrations/2018_02_07_181335_add_linksponsor_brand_id_to_events.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/Content.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/Http/Controllers/ContentController.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/resources/views/content/show.blade.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/resources/views/layouts/partials/sidebar.blade.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/database/migrations/2018_01_31_130955_adds_ignored_events_to_publishers_table.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/resources/views/welcome2.blade.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/vendor/alaouy/youtube/src/Youtube.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/composer.json",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/Contract.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/app/Repositories/Reports/BrandChartRepository.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/resources/views/reports/brand_revenue.blade.php",
+		"/Users/timbradshaw/Documents/Sites/seismic/.env",
+		"/Users/timbradshaw/Documents/Sites/at_abe/.env",
+		"/Users/timbradshaw/Documents/Sites/at_abe/phpunit.xml",
+		"/Users/timbradshaw/Documents/Sites/at_abe/tests/Unit/XeroRepositoryTest.php",
+		"/Users/timbradshaw/Documents/Sites/at_abe/app/Repositories/XeroRepository.php"
+	],
+	"find":
+	{
+		"height": 71.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "routes/web.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4979,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1818.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "resources/views/inc/top.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7862,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3654,
+								3654
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3263.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "config/mail.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4050,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4050,
+								4050
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1625.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "composer.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1734,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								308,
+								308
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/zzz A File Icon zzz/aliases/JSON (Composer).sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/Employee.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								251,
+								131
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/Scopes/EmployeeScope.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 377,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								188,
+								188
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/Scopes/CharterGuestScope.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 457,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								68,
+								68
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/Scopes/ContactScope.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 446,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								68,
+								68
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/Scopes/ResponseScheduleScope.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 462,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								68,
+								68
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/Scopes/SellerScope.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 444,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								68,
+								68
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "app/Scopes/StudentScope.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 446,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								68,
+								68
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "app/Scopes/BuyerScope.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 442,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								185,
+								185
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": ".env",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 530,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "sailschoolos.sublime-project",
+	"replace":
+	{
+		"height": 60.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"comp",
+				"composer.json"
+			],
+			[
+				".en",
+				".env"
+			],
+			[
+				"eventc",
+				"app/Http/Controllers/EventController.php"
+			],
+			[
+				"admin",
+				"app/Http/Controllers/AdminController.php"
+			],
+			[
+				"publishers/sh",
+				"resources/views/publishers/show.blade.php"
+			],
+			[
+				"pub",
+				"app/Http/Controllers/PublisherController.php"
+			],
+			[
+				"publ",
+				"app/Publisher.php"
+			],
+			[
+				"activ",
+				"resources/views/admin/activity.blade.php"
+			],
+			[
+				"dash",
+				"app/Http/Controllers/DashboardController.php"
+			],
+			[
+				"repo",
+				"app/Http/Controllers/ReportController.php"
+			],
+			[
+				"eve",
+				"app/Event.php"
+			],
+			[
+				"brand",
+				"app/Brand.php"
+			],
+			[
+				"publis",
+				"app/Publisher.php"
+			],
+			[
+				"activity",
+				"resources/views/admin/activity.blade.php"
+			],
+			[
+				"ev",
+				"app/Event.php"
+			],
+			[
+				"publishersshow",
+				"resources/views/publishers/show.blade.php"
+			],
+			[
+				"event",
+				"app/Event.php"
+			],
+			[
+				"adm",
+				"app/Http/Controllers/AdminController.php"
+			],
+			[
+				"publiserc",
+				"app/Http/Controllers/PublisherController.php"
+			],
+			[
+				"even",
+				"app/Event.php"
+			],
+			[
+				"you",
+				"app/Repositories/YouTubeRepository.php"
+			],
+			[
+				"publi",
+				"app/Publisher.php"
+			],
+			[
+				"in",
+				"app/InsertionOrder.php"
+			],
+			[
+				"bra",
+				"app/Brand.php"
+			],
+			[
+				"content",
+				"app/Content.php"
+			],
+			[
+				"pu",
+				"app/Publisher.php"
+			],
+			[
+				"contentc",
+				"app/Http/Controllers/ContentController.php"
+			],
+			[
+				"conten",
+				"app/Content.php"
+			],
+			[
+				"content/sh",
+				"resources/views/content/show.blade.php"
+			],
+			[
+				"contentcon",
+				"app/Http/Controllers/ContentController.php"
+			],
+			[
+				"ignored",
+				"database/migrations/2018_01_31_130955_adds_ignored_events_to_publishers_table.php"
+			],
+			[
+				"adminc",
+				"app/Http/Controllers/AdminController.php"
+			],
+			[
+				"welcom",
+				"resources/views/welcome2.blade.php"
+			],
+			[
+				"inser",
+				"app/InsertionOrder.php"
+			],
+			[
+				"report",
+				"app/Http/Controllers/ReportController.php"
+			],
+			[
+				"publisherc",
+				"app/Http/Controllers/PublisherController.php"
+			],
+			[
+				"com",
+				"composer.json"
+			],
+			[
+				"wel",
+				"resources/views/welcome2.blade.php"
+			],
+			[
+				"contra",
+				"app/Contract.php"
+			],
+			[
+				".",
+				".env"
+			],
+			[
+				"rou",
+				"app/Http/routes.php"
+			],
+			[
+				"web.p",
+				"routes/web.php"
+			],
+			[
+				".e",
+				".env"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "ab",
+		"selected_items":
+		[
+			[
+				"ab",
+				"~/Documents/Sites/at_abe/at_abe.sublime-project"
+			],
+			[
+				"all",
+				"~/Documents/Sites/at_allcabins/at_allcabins.sublime-project"
+			],
+			[
+				"abe",
+				"~/Documents/Sites/at_abe/at_abe.sublime-project"
+			],
+			[
+				"",
+				"~/Documents/Sites/amanager/amanager_v2.sublime-project"
+			],
+			[
+				"a",
+				"~/Documents/Sites/amanager/amanager_v2.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 303.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
