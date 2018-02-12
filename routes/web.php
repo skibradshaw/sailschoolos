@@ -97,4 +97,3 @@ Route::group(['middleware' => 'web'], function () {
     });
     // End Login Required
 });
-

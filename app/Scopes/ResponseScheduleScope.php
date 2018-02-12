@@ -12,5 +12,4 @@ class ResponseScheduleScope implements Scope
       //Excludes all Web Inquiry Scheduled Responses
         $builder->where('response_template_detail_id', '!=', 0);
     }
-
 }

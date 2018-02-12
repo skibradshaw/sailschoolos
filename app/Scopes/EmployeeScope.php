@@ -13,5 +13,4 @@ class EmployeeScope implements Scope
             $q->where('name', '=', 'Employee');
         });
     }
-
 }
