@@ -26,7 +26,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li class="inactive">
-                            <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> Classes<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> School<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li><a href="{{ route('students.index') }}">Students</a></li>
                                 <li><a href="{{route('inquiries')}}">Inquiries</a></li>
