@@ -11,6 +11,6 @@ class UserType extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\User', 'user_user_types', 'user_id', 'user_type_id');
+        return $this->belongsToMany(\App\User::class, 'user_user_types', 'user_id', 'user_type_id');
     }
 }

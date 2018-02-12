@@ -70,11 +70,11 @@ class User extends Model implements
 
     public function types()
     {
-        return $this->belongsToMany('App\UserType', 'user_user_types', 'user_id', 'user_type_id');
+        return $this->belongsToMany(\App\UserType::class, 'user_user_types', 'user_id', 'user_type_id');
     }
 
     public function notes()
     {
-        return $this->hasMany('App\Note', 'user_id')->orderBy('note_date', 'desc');
+        return $this->hasMany(\App\Note::class, 'user_id')->orderBy('note_date', 'desc');
     }
 }

@@ -11,6 +11,6 @@ class ProjectTemplateTask extends Model
     
     public function tasklist()
     {
-        return $this->belongsTo('App\ProjectTemplateTaskList');
+        return $this->belongsTo(\App\ProjectTemplateTaskList::class);
     }
 }

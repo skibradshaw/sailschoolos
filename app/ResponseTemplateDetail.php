@@ -31,11 +31,11 @@ class ResponseTemplateDetail extends Model
     //Relationships
     public function template()
     {
-        return $this->belongsTo('App\ResponseTemplate', 'response_template_id');
+        return $this->belongsTo(\App\ResponseTemplate::class, 'response_template_id');
     }
 
     public function schedules()
     {
-        return $this->hasMany('App\ResponseSchedule', 'response_template_detail_id');
+        return $this->hasMany(\App\ResponseSchedule::class, 'response_template_detail_id');
     }
 }

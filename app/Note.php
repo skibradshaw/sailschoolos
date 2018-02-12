@@ -12,7 +12,7 @@ class Note extends Model
 
     public function creator()
     {
-        return $this->belongsTo('App\User', 'create_user_id');
+        return $this->belongsTo(\App\User::class, 'create_user_id');
     }
 
     public function getBadgeAttribute()

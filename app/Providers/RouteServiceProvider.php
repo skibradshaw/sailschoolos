@@ -23,10 +23,10 @@ class RouteServiceProvider extends ServiceProvider
     {
         //
         parent::boot();
-        Route::model('contacts', 'App\Contact');
-        Route::model('template', 'App\ResponseTemplate');
-        Route::model('schedule', 'App\ResponseSchedule');
-        Route::model('project_templates', 'App\ProjectTemplate');
+        Route::model('contacts', \App\Contact::class);
+        Route::model('template', \App\ResponseTemplate::class);
+        Route::model('schedule', \App\ResponseSchedule::class);
+        Route::model('project_templates', \App\ProjectTemplate::class);
     }
     /**
      * Define the routes for the application.

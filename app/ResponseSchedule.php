@@ -24,21 +24,21 @@ class ResponseSchedule extends Model
 
     public function contact()
     {
-        return $this->belongsTo('App\Contact', 'user_id');
+        return $this->belongsTo(\App\Contact::class, 'user_id');
     }
 
     public function note()
     {
-        return $this->belongsTo('App\Note', 'most_recent_note_id');
+        return $this->belongsTo(\App\Note::class, 'most_recent_note_id');
     }
 
     public function detail()
     {
-        return $this->belongsTo('App\ResponseTemplateDetail', 'response_template_detail_id');
+        return $this->belongsTo(\App\ResponseTemplateDetail::class, 'response_template_detail_id');
     }
 
     public function template()
     {
-        return $this->detail->belongsTo('App\ResponseTemplate', 'response_template_id');
+        return $this->detail->belongsTo(\App\ResponseTemplate::class, 'response_template_id');
     }
 }
