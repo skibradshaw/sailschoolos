@@ -21,7 +21,6 @@
         "phpunit/phpunit": "~5.0",
         "phpspec/phpspec": "~2.1",
         "xethron/migrations-generator": "dev-l5",
-        "way/generators": "dev-feature/laravel-five-stable",
         "symfony/dom-crawler": "3.1.*",
         "symfony/css-selector": "3.1.*"
     },
