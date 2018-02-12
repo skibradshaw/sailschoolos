@@ -33,7 +33,7 @@
 
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <img src="images/logo.png" align="center" class="img-responsive center-block">
+                        <img src="/images/logo.png" align="center" class="img-responsive center-block">
                     </div>
                     <div class="panel-heading">
                         <h3 class="panel-title">LTD Sailing OS Sign In</h3>
@@ -57,6 +57,9 @@
                                 <button type="submit" class="btn btn-lg btn-warning btn-block">Login</button>
                             </fieldset>
                         </form>
+                        <a class="btn btn-link" href="{{ url('/password/reset') }}">
+                                    Forgot Your Password?
+                        </a>
                     </div>
                 </div>
             </div>
