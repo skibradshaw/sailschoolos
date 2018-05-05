@@ -120,7 +120,7 @@ class InquiryController extends Controller
             'note_date' => Carbon::now(),
             'title' => 'Website Inquiry',
             'note_type' => 'Inquiry',
-            'create_user_id' => User::where('email', 'chris@ltdsailing.com')->first()->id,
+            'create_user_id' => User::where('email', 'info@ltdsailing.com')->first()->id,
             'note' => $input['notes']
             ]);
 

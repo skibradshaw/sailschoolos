@@ -80,12 +80,12 @@ class ResponseScheduleController extends Controller
             'note_date' => Carbon::now(),
             'title' => 'Sent: ' . $schedule->detail->template . ": " . $schedule->detail->subject,
             'note_type' => 'Scheduled Response',
-            'create_user_id' => \App\User::where('email', 'chris@ltdsailing.com')->first()->id, //@TODO: Add a Create User Id to Response Templates and use that here.
+            'create_user_id' => \App\User::where('email', 'info@ltdsailing.com')->first()->id, //@TODO: Add a Create User Id to Response Templates and use that here.
             'note' => \Purifier::clean($note)
             ]);
         // Send the email
         \Mail::send('emails.templates.'.$schedule->detail->template_file_name, ['contact' => $schedule->contact], function ($m) use ($schedule) {
-            $m->to('chris@ltdsailing.com', 'Chris Rundlett')
+            $m->to('info@ltdsailing.com', 'Chris Rundlett')
             ->cc('tim@alltrips.com', 'Tim Bradshaw')
             ->from('info@ltdsailing.com', 'LTD Sailing')
             ->subject($schedule->detail->subject);
@@ -101,7 +101,7 @@ class ResponseScheduleController extends Controller
     public function sendWebInquiryResponse(ResponseSchedule $schedule)
     {
         \Mail::send('emails.templates.webinquiry', ['contact' => $schedule->contact], function ($m) use ($schedule) {
-            $m->to('chris@ltdsailing.com', 'Chris Rundlett')
+            $m->to('info@ltdsailing.com', 'Chris Rundlett')
             ->cc('tim@alltrips.com', 'Tim Bradshaw')
             ->from('info@ltdsailing.com', 'LTD Sailing')
             ->subject('Thank You from LTD Sailing');
@@ -184,7 +184,7 @@ class ResponseScheduleController extends Controller
             $m->to($pauser->email, $pauser->fullname)
             ->from('no-reply@ltdsailing.com', 'LTD Operating System')
             ->cc('tim@alltrips.com', 'Tim Bradshaw')
-            ->cc('chris@ltdsailing.com')
+            ->cc('info@ltdsailing.com')
             ->subject('Reactivate Paused Responses?');
         });
     }
