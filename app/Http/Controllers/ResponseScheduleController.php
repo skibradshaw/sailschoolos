@@ -80,7 +80,7 @@ class ResponseScheduleController extends Controller
             'note_date' => Carbon::now(),
             'title' => 'Sent: ' . $schedule->detail->template . ": " . $schedule->detail->subject,
             'note_type' => 'Scheduled Response',
-            'create_user_id' => \App\User::where('email', 'info@ltdsailing.com')->first()->id, //@TODO: Add a Create User Id to Response Templates and use that here.
+            'create_user_id' => \App\User::where('email', 'chris@ltdsailing.com')->first()->id, //@TODO: Add a Create User Id to Response Templates and use that here.
             'note' => \Purifier::clean($note)
             ]);
         // Send the email
